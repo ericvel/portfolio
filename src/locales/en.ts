@@ -8,21 +8,32 @@ export default {
   },
   hero: {
     eyebrow: "Frontend specialist · freelance",
-    title: "Eric Veliyulin. I build interfaces.",
+    title: "Frontend is my trade.",
     lede: "Five years of React, Vue and TypeScript. Test coverage and accessibility as standard.",
+    stackLabel: "Technologies in production",
+  },
+  meta: {
+    title: "Eric Veliyulin — Frontend specialist",
+    titleProject: "Eric Veliyulin — {project}",
+    description:
+      "Freelance frontend specialist. React, Vue and TypeScript, with test coverage and " +
+      "accessibility as standard. Projects for ASKO, Røde Kors and Habiit.",
+  },
+  a11y: {
+    skip: "Skip to main content",
   },
   work: {
-    heading: "Selected work",
+    heading: "Selected projects",
     prev: "Previous project",
     next: "Next project",
-    readMore: "Read more →",
+    readMore: "View project",
   },
   talks: {
     heading: "Talks",
     lede:
       "I speak about what's new in the browser, and what it means for the way we build " +
       "interfaces — at conferences, meetups and in-house.",
-    watch: "Watch the recording ↗",
+    watch: "Watch the recording",
     ongoing: "Ongoing",
     onRequest: "On request",
     ndc: {
@@ -48,17 +59,17 @@ export default {
     },
   },
   cta: {
-    title: "Let's talk about your project",
+    title: "Get in touch about work",
     lede:
-      "I take freelance work as a frontend specialist, solo or embedded in a team. Send an email " +
-      "and I'll reply the same week.",
+      "I take freelance work as a frontend specialist, solo or embedded in a team. Send an " +
+      "email and we'll take it from there.",
   },
   project: {
-    back: "← All projects",
-    tech: "Technology",
+    back: "All projects",
+    tech: "Technologies",
     role: "Role",
     ctaTitle: "Need something similar built?",
-    ctaButton: "Get in touch →",
+    ctaButton: "Get in touch",
   },
   projects: {
     asko: {

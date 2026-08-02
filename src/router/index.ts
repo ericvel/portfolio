@@ -2,8 +2,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import { findProject } from "@/data/projects";
 import HomeView from "@/views/HomeView.vue";
 
-const SITE_TITLE = "Eric Veliyulin — Frontendspesialist";
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -21,11 +19,6 @@ const router = createRouter({
     if (to.hash) return { el: to.hash, behavior: "smooth" };
     return { top: 0 };
   },
-});
-
-router.afterEach((to) => {
-  const project = to.name === "project" ? findProject(String(to.params.id)) : undefined;
-  document.title = project ? `Eric Veliyulin — ${project.title}` : SITE_TITLE;
 });
 
 export default router;

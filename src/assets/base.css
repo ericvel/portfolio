@@ -1,1 +1,172 @@
 @import "./reset.css" layer(reset);
+
+/* ---------------------------------------------------------------------------
+ * Typefaces. Self-hosted, no third-party requests at runtime.
+ * Cabinet Grotesk — Indian Type Foundry, ITF Free License (personal + commercial).
+ * Martian Mono — Evil Martians, SIL OFL 1.1. Latin subset only; æ ø å live in U+00E0–U+00FF.
+ * ------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("./fonts/cabinet-grotesk-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("./fonts/cabinet-grotesk-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("./fonts/cabinet-grotesk-800.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Martian Mono";
+  src: url("./fonts/martian-mono-latin.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Ground and ink. Warm paper, never pure white. */
+  --paper: #f4f1ea;
+  --paper-deep: #ece7da;
+  --ink: #17181a;
+  /* Secondary text is tinted from the ground's hue, not grayed. 6.8:1 on --paper. */
+  --ink-soft: #55534a;
+  --rule: #d8d2c4;
+  --rule-strong: #b9b2a1;
+
+  /* On the ink ground of the closing section. 7.1:1 and
+     tinted warm, so secondary text never drops to gray. */
+  --paper-soft: #a8a49a;
+  --ink-rule: #34353a;
+
+  /* Field — owns the project region, full-bleed. */
+  --field: #1f4d3c;
+  --field-soft: #c3d4c8;
+  --field-rule: #3d6a58;
+
+  /* Signal — owns actions and live elements. Ink sits on it at 4.8:1. */
+  --signal: #e4572e;
+  --signal-deep: #c8461f;
+
+  --focus: var(--ink);
+
+  --font-display: "Cabinet Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Martian Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --step--2: 0.75rem;
+  --step--1: 0.875rem;
+  --step-0: 1rem;
+  --step-1: 1.125rem;
+  --step-2: 1.375rem;
+  --step-3: 1.75rem;
+  --step-4: clamp(1.875rem, 3.2vw, 2.5rem);
+  --step-5: clamp(2.25rem, 5vw, 3.5rem);
+  --step-6: clamp(2.75rem, 7.4vw, 5.5rem);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  --gutter: clamp(20px, 5vw, 64px);
+  --measure: 1240px;
+}
+
+html {
+  font-family: var(--font-display);
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: var(--step-0);
+  line-height: 1.5;
+  font-weight: 400;
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: from-font;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Shared primitives. Every section hangs off the same measure and gutter, so the
+ * column edge runs unbroken down the whole page — that alignment is the design.
+ * ------------------------------------------------------------------------- */
+
+.shell {
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Mono is reserved for measurement — technologies, counts, durations, venues. It is
+   never a costume for "technical". */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: var(--space-3);
+  z-index: 100;
+  padding: var(--space-3) var(--space-5);
+  background: var(--signal);
+  color: var(--ink);
+  font-weight: 500;
+  transform: translateY(-250%);
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}

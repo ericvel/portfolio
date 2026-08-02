@@ -6,7 +6,7 @@ import TalksSection from "@/components/TalksSection.vue";
 </script>
 
 <template>
-  <main>
+  <main id="innhold">
     <HeroSection />
     <ProjectCarousel />
     <TalksSection />

@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-02T00:00:00.000Z",
+  "title": "Design System: Eric Veliyulin — Frontend Specialist Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "#f4f1ea",
+        "tonalRamp": [
+          "oklch(15% 0.012 88)",
+          "oklch(26% 0.012 88)",
+          "oklch(37% 0.012 88)",
+          "oklch(48% 0.012 88)",
+          "oklch(59% 0.012 88)",
+          "oklch(70% 0.012 88)",
+          "oklch(84% 0.012 88)",
+          "oklch(95% 0.012 88)"
+        ]
+      },
+      "paper-deep": {
+        "role": "neutral",
+        "displayName": "Deep Paper",
+        "canonical": "#ece7da",
+        "tonalRamp": [
+          "oklch(15% 0.018 88)",
+          "oklch(26% 0.018 88)",
+          "oklch(37% 0.018 88)",
+          "oklch(48% 0.018 88)",
+          "oklch(59% 0.018 88)",
+          "oklch(70% 0.018 88)",
+          "oklch(84% 0.018 88)",
+          "oklch(93% 0.018 88)"
+        ]
+      },
+      "paper-soft": {
+        "role": "neutral",
+        "displayName": "Muted Paper",
+        "canonical": "#a8a49a"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#17181a",
+        "tonalRamp": [
+          "oklch(15% 0.004 265)",
+          "oklch(26% 0.004 265)",
+          "oklch(37% 0.004 265)",
+          "oklch(48% 0.004 265)",
+          "oklch(59% 0.004 265)",
+          "oklch(70% 0.004 265)",
+          "oklch(84% 0.004 265)",
+          "oklch(95% 0.004 265)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#55534a"
+      },
+      "ink-rule": {
+        "role": "neutral",
+        "displayName": "Ink Hairline",
+        "canonical": "#34353a"
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#d8d2c4"
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "#b9b2a1"
+      },
+      "field": {
+        "role": "secondary",
+        "displayName": "Deep Green Field",
+        "canonical": "#1f4d3c",
+        "tonalRamp": [
+          "oklch(15% 0.055 160)",
+          "oklch(26% 0.055 160)",
+          "oklch(37% 0.055 160)",
+          "oklch(48% 0.055 160)",
+          "oklch(59% 0.055 160)",
+          "oklch(70% 0.055 160)",
+          "oklch(84% 0.055 160)",
+          "oklch(95% 0.055 160)"
+        ]
+      },
+      "field-soft": {
+        "role": "secondary",
+        "displayName": "Field Mist",
+        "canonical": "#c3d4c8"
+      },
+      "field-rule": {
+        "role": "secondary",
+        "displayName": "Field Hairline",
+        "canonical": "#3d6a58"
+      },
+      "signal": {
+        "role": "primary",
+        "displayName": "Signal Orange",
+        "canonical": "#e4572e",
+        "tonalRamp": [
+          "oklch(15% 0.17 38)",
+          "oklch(26% 0.17 38)",
+          "oklch(37% 0.17 38)",
+          "oklch(48% 0.17 38)",
+          "oklch(59% 0.17 38)",
+          "oklch(70% 0.17 38)",
+          "oklch(84% 0.17 38)",
+          "oklch(95% 0.17 38)"
+        ]
+      },
+      "signal-deep": {
+        "role": "primary",
+        "displayName": "Signal Deep",
+        "canonical": "#c8461f"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Once per page: the name in the hero, the title on a project page. Capped at 17ch, text-wrap balance."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The footer's closing call at weight 800; the featured talk title at weight 500."
+      },
+      "title": {
+        "displayName": "Section Title",
+        "purpose": "Section headings — Utvalgt arbeid, Foredrag."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "Project card titles and the project-page CTA question."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Hero lede at 44ch, project blurb at 42ch, footer email button label. Always soft ink when prose."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Card blurbs, talk descriptions, button labels. Long-form project paragraphs step up one to 1.125rem at 1.6 and 68ch."
+      },
+      "mono": {
+        "displayName": "Mono Label",
+        "purpose": "Measurement only — technologies, counters, durations, venues, locale codes. Fixed at 0.75rem by the shared .mono primitive; 0.05–0.06em tracking when uppercase."
+      }
+    },
+    "shadows": [
+      {
+        "name": "overlay",
+        "value": "0 14px 30px -14px rgb(23 24 26 / 26%)",
+        "purpose": "The only shadow in the system. Header projects dropdown, where an overlay genuinely floats above content it did not displace. Tinted from ink rather than black."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-color",
+        "value": "ease",
+        "purpose": "Pure colour changes only — nav link, menu item ground, locale option, arrow states. 140–200ms."
+      },
+      {
+        "name": "ease-move",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Anything that moves or grows — 180ms button lift, 200ms caret rotation, 220ms underline growth and icon nudge, 520ms card recession."
+      },
+      {
+        "name": "duration-quick",
+        "value": "160ms",
+        "purpose": "Text and border colour on quiet links and nav links."
+      },
+      {
+        "name": "duration-action",
+        "value": "180ms",
+        "purpose": "Primary button ground change plus its -2px lift; skip-link drop-in."
+      },
+      {
+        "name": "duration-hint",
+        "value": "220ms",
+        "purpose": "Directional icon nudge on parent hover, and the contact link's underline growing 2px to 8px."
+      },
+      {
+        "name": "duration-recede",
+        "value": "520ms",
+        "purpose": "Carousel card de-emphasis: ground to deep paper plus scale(0.97)."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation-duration: 0.01ms; transition-duration: 0.01ms; scroll-behavior: auto",
+        "purpose": "Global prefers-reduced-motion block; the carousel additionally checks the query before every programmatic scroll and uses behavior: auto."
+      }
+    ],
+    "breakpoints": [
+      { "name": "card-stack", "value": "560px" },
+      { "name": "header-wrap", "value": "720px" },
+      { "name": "feature-collapse", "value": "860px" },
+      { "name": "grid-collapse", "value": "900px" },
+      { "name": "measure", "value": "1240px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action",
+      "kind": "button",
+      "refersTo": "action-primary",
+      "description": "The email conversion. Signal ground under ink text, square, lifting 2px on hover. Used in the hero and on the project CTA.",
+      "html": "<a class=\"ds-action\" href=\"mailto:eric.vel@outlook.com\">Ta kontakt<svg class=\"ds-icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></a>",
+      "css": ".ds-action { display: inline-flex; align-items: center; gap: 12px; padding: 16px 32px; background: var(--signal, #e4572e); color: var(--ink, #17181a); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 1rem; font-weight: 500; text-decoration: none; border: 0; border-radius: 0; cursor: pointer; transition: background 180ms ease, transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-action:hover { background: var(--signal-deep, #c8461f); color: var(--paper, #f4f1ea); transform: translateY(-2px); } .ds-action:active { transform: translateY(0); } .ds-action:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: 3px; } .ds-action .ds-icon { flex: none; transform: translateY(-0.5px); transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-action:hover .ds-icon { transform: translate(3px, -0.5px); }"
+    },
+    {
+      "name": "Footer Mail Action",
+      "kind": "button",
+      "refersTo": "footer-mail",
+      "description": "The page's last word: the address itself, set at lede scale on signal, on the ink ground. Hovers to paper rather than to a deeper orange.",
+      "html": "<div class=\"ds-footer-ground\"><a class=\"ds-mail\" href=\"mailto:eric.vel@outlook.com\">eric.vel@outlook.com</a></div>",
+      "css": ".ds-footer-ground { background: var(--ink, #17181a); padding: 32px; --focus: var(--signal, #e4572e); } .ds-mail { display: inline-block; padding: 16px 32px; background: var(--signal, #e4572e); color: var(--ink, #17181a); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 1.375rem; font-weight: 500; letter-spacing: -0.015em; text-decoration: none; word-break: break-word; border-radius: 0; transition: background 180ms ease, transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-mail:hover { background: var(--paper, #f4f1ea); transform: translateY(-2px); } .ds-mail:active { transform: translateY(0); } .ds-mail:focus-visible { outline: 2px solid var(--focus, #e4572e); outline-offset: 3px; }"
+    },
+    {
+      "name": "Carousel Arrow",
+      "kind": "button",
+      "refersTo": "carousel-arrow",
+      "description": "The carousel's only control affordance, on the green field. Hairline box that fills signal on hover and keeps its border when disabled.",
+      "html": "<div class=\"ds-field-ground\"><button type=\"button\" class=\"ds-arrow\" aria-label=\"Forrige\"><svg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M14 8H2m0 0l4.5-4.5M2 8l4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button><button type=\"button\" class=\"ds-arrow\" aria-label=\"Neste\" disabled><svg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button></div>",
+      "css": ".ds-field-ground { display: flex; gap: 12px; background: var(--field, #1f4d3c); padding: 24px; --focus: var(--paper, #f4f1ea); } .ds-arrow { display: flex; align-items: center; justify-content: center; width: 52px; height: 44px; background: none; border: 1px solid var(--field-rule, #3d6a58); border-radius: 0; color: var(--paper, #f4f1ea); cursor: pointer; transition: background 200ms ease, color 200ms ease, border-color 200ms ease; } .ds-arrow:hover:not(:disabled) { background: var(--signal, #e4572e); border-color: var(--signal, #e4572e); color: var(--ink, #17181a); } .ds-arrow:disabled { cursor: default; color: var(--field-rule, #3d6a58); } .ds-arrow:focus-visible { outline: 2px solid var(--focus, #f4f1ea); outline-offset: 3px; }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "project-card",
+      "description": "The system's only card, and the only nested ground inversion: paper-on-field, inverting text back to ink. Inactive siblings recede by ground tint and scale, never opacity.",
+      "html": "<div class=\"ds-field-ground ds-field-ground--cards\"><a class=\"ds-card\" href=\"#\" aria-label=\"ASKO Servering — Les mer\"><div class=\"ds-card__body\"><h3 class=\"ds-card__title\">ASKO Servering</h3><p class=\"ds-card__blurb\">Katalog og ordreflyt for storhusholdning, med titusenvis av varer og full tastaturnavigasjon.</p><div class=\"ds-card__foot\"><ul class=\"ds-card__stack\"><li class=\"ds-mono\">Vue</li><li class=\"ds-mono\">TypeScript</li><li class=\"ds-mono\">Playwright</li></ul><span class=\"ds-card__more\">Les mer<svg class=\"ds-icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></div></div></a><a class=\"ds-card ds-card--muted\" href=\"#\" aria-label=\"Mitt Røde Kors — Les mer\"><div class=\"ds-card__body\"><h3 class=\"ds-card__title\">Mitt Røde Kors</h3><p class=\"ds-card__blurb\">Frivilligportal i Next.js, bygget for lesbarhet på små skjermer.</p></div></a></div>",
+      "css": ".ds-field-ground--cards { display: flex; gap: 32px; align-items: flex-start; overflow: hidden; } .ds-card { flex: 0 0 min(420px, 84%); display: flex; flex-direction: column; background: var(--paper, #f4f1ea); color: var(--ink, #17181a); text-decoration: none; border-radius: 0; cursor: pointer; transition: background 520ms cubic-bezier(0.16, 1, 0.3, 1), transform 520ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-card--muted { background: var(--paper-deep, #ece7da); transform: scale(0.97); } .ds-card:focus-visible { outline: 2px solid var(--paper, #f4f1ea); outline-offset: 4px; } .ds-card__body { display: flex; flex-direction: column; gap: 16px; padding: 32px; } .ds-card__title { margin: 0; font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 1.75rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; } .ds-card__blurb { margin: 0; font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 1rem; line-height: 1.5; color: var(--ink-soft, #55534a); text-wrap: pretty; } .ds-card__foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-top: 8px; padding-top: 16px; border-top: 1px solid var(--rule, #d8d2c4); } .ds-card__stack { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0; padding: 0; list-style: none; color: var(--ink-soft, #55534a); } .ds-card__more { display: inline-flex; align-items: center; gap: 8px; flex: none; font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 0.875rem; font-weight: 500; color: var(--ink, #17181a); padding-bottom: 3px; border-bottom: 2px solid var(--signal, #e4572e); white-space: nowrap; } .ds-card .ds-icon { flex: none; transform: translateY(-0.5px); transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-card:hover .ds-icon { transform: translate(3px, -0.5px); } .ds-mono { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; line-height: 1.4; }"
+    },
+    {
+      "name": "Technology Tag",
+      "kind": "chip",
+      "refersTo": "tech-tag",
+      "description": "A measured value, not a filter: mono inside a hairline box, square, with no interactive state at all.",
+      "html": "<ul class=\"ds-tags\"><li class=\"ds-tag ds-mono\">Vue</li><li class=\"ds-tag ds-mono\">TypeScript</li><li class=\"ds-tag ds-mono\">Vitest</li><li class=\"ds-tag ds-mono\">TanStack Query</li></ul>",
+      "css": ".ds-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; } .ds-tag { padding: 6px 12px; border: 1px solid var(--rule-strong, #b9b2a1); border-radius: 0; color: var(--ink, #17181a); white-space: nowrap; } .ds-mono { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; line-height: 1.4; }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sticky paper bar on a hairline. Links rest in soft ink; the one persistent action grows a signal underline instead of changing colour, so the target never moves.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-logo\" href=\"#\">Eric Veliyulin</a><nav class=\"ds-nav\"><a class=\"ds-nav__link\" href=\"#\">Prosjekter<svg class=\"ds-icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M3.5 6.5L8 11l4.5-4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></a><a class=\"ds-nav__link\" href=\"#\">Foredrag</a><a class=\"ds-nav__contact\" href=\"mailto:eric.vel@outlook.com\">Ta kontakt</a></nav></header>",
+      "css": ".ds-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 68px; padding: 12px 24px; background: var(--paper, #f4f1ea); border-bottom: 1px solid var(--rule, #d8d2c4); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); } .ds-logo { font-size: 1.125rem; font-weight: 500; letter-spacing: -0.015em; color: var(--ink, #17181a); text-decoration: none; white-space: nowrap; } .ds-nav { display: flex; align-items: center; gap: 32px; font-size: 0.875rem; } .ds-nav__link { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-soft, #55534a); text-decoration: none; transition: color 160ms ease; } .ds-nav__link:hover { color: var(--ink, #17181a); } .ds-nav__contact { color: var(--ink, #17181a); font-weight: 500; text-decoration: none; padding-bottom: 3px; background-image: linear-gradient(var(--signal, #e4572e), var(--signal, #e4572e)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 2px; transition: background-size 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav__contact:hover { background-size: 100% 8px; } .ds-nav a:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: 3px; } .ds-header .ds-icon { flex: none; transform: translateY(-0.5px); }"
+    },
+    {
+      "name": "Language Toggle",
+      "kind": "custom",
+      "refersTo": "lang-option",
+      "description": "Two mono buttons in one hairline frame. The active option inverts to an ink fill and locally reassigns --focus to paper, because the ring is drawn inset.",
+      "html": "<div class=\"ds-toggle\" role=\"group\" aria-label=\"Språk\"><button type=\"button\" class=\"ds-option ds-mono ds-option--active\" aria-pressed=\"true\">NO</button><button type=\"button\" class=\"ds-option ds-mono\" aria-pressed=\"false\">EN</button></div>",
+      "css": ".ds-toggle { display: inline-flex; align-items: stretch; border: 1px solid var(--rule-strong, #b9b2a1); border-radius: 0; } .ds-option { appearance: none; border: 0; border-radius: 0; cursor: pointer; padding: 7px 10px; letter-spacing: 0.06em; background: transparent; color: var(--ink-soft, #55534a); transition: background 160ms ease, color 160ms ease; } .ds-option:hover:not(.ds-option--active) { background: var(--paper-deep, #ece7da); color: var(--ink, #17181a); } .ds-option:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: -3px; } .ds-option--active { background: var(--ink, #17181a); color: var(--paper, #f4f1ea); --focus: var(--paper, #f4f1ea); } .ds-mono { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.75rem; font-weight: 400; line-height: 1.4; }"
+    },
+    {
+      "name": "Dropdown Menu",
+      "kind": "custom",
+      "refersTo": "menu-item",
+      "description": "The one overlay in the system, and therefore the one shadow. Paper panel inside a strong hairline; items hover to deep paper.",
+      "html": "<ul class=\"ds-menu\" aria-label=\"Prosjekter\"><li><a class=\"ds-menu__item\" href=\"#\">ASKO Servering</a></li><li><a class=\"ds-menu__item\" href=\"#\">Mitt Røde Kors</a></li><li><a class=\"ds-menu__item\" href=\"#\">Habiit</a></li></ul>",
+      "css": ".ds-menu { display: flex; flex-direction: column; min-width: 232px; margin: 0; padding: 8px 0; list-style: none; background: var(--paper, #f4f1ea); border: 1px solid var(--rule-strong, #b9b2a1); border-radius: 0; box-shadow: 0 14px 30px -14px rgb(23 24 26 / 26%); } .ds-menu__item { display: block; padding: 12px 24px; font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 0.875rem; color: var(--ink, #17181a); text-decoration: none; transition: background 140ms ease; } .ds-menu__item:hover { background: var(--paper-deep, #ece7da); } .ds-menu__item:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: -3px; }"
+    },
+    {
+      "name": "Skip Link",
+      "kind": "custom",
+      "refersTo": "skip-link",
+      "description": "Signal-filled, parked off-screen by transform and dropping into the gutter's left edge on focus. Shown here in its focused position.",
+      "html": "<a class=\"ds-skip\" href=\"#innhold\">Hopp til innhold</a>",
+      "css": ".ds-skip { display: inline-block; padding: 12px 24px; background: var(--signal, #e4572e); color: var(--ink, #17181a); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 1rem; font-weight: 500; text-decoration: none; border-radius: 0; transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-skip:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Sixty-Second Scan",
+    "overview": "The system is built for one reader: someone with a staffing need open in another tab, deciding in under a minute whether this person matches the work. Everything is therefore ranged left against a single column edge that runs unbroken from the header rule to the footer address, so the eye never has to re-find the start of a line. Personality comes from type and grid — a display weight used exactly once per page, hairline rules instead of boxes, and a mono face that appears only where something is being measured. There is no borrowed artifact, no texture, no illustrative conceit; the page looks like what it is.\n\nColour does the structural work that cards usually do. Three grounds exist and each one owns a whole region: warm paper is the default, a deep green field owns the project carousel full-bleed, and ink closes the page under the footer. A region flip is the section break — there are no dividers between grounds and no containers floating on top of them. Inside the green field the project cards flip back to paper, which is the only nesting inversion in the system. One saturated orange is reserved for actions and never spends itself on decoration.\n\nDensity is generous but not airy: 96px between major sections, 32px inside a card, hairlines rather than gaps where two things need separating. The confirmed rejections are the dark developer-portfolio default (there is no dark mode and no dark ground except the deliberate ink footer), cards-as-structure (a card exists only where there is a real object to lift onto a different ground), and opacity as an emphasis device.",
+    "keyCharacteristics": [
+      "One unbroken left column edge, --measure 1240px wide inside a fluid --gutter, shared by every section including the full-bleed carousel track",
+      "Three region grounds — paper, green field, ink — each flipping text colour with it",
+      "Zero border-radius, anywhere; zero shadows except one dropdown",
+      "Two self-hosted families, no runtime third-party font requests",
+      "Signal orange as fill or rule only, never as text",
+      "Emphasis by scale and ground tint, never by opacity",
+      "Focus rings invert per region so the indicator is always visible",
+      "Every measure sized for Norwegian, the longer of the two locales"
+    ],
+    "rules": [
+      {
+        "name": "The Region Owns the Ground Rule",
+        "body": "A ground belongs to a whole region, not to a component. Paper is the default; the project carousel section owns the field; the footer owns ink. Setting a region ground means setting its text colour in the same rule, and anything nested that needs to sit apart (the project card) inverts all the way back to ink-on-paper rather than half-way.",
+        "section": "colors"
+      },
+      {
+        "name": "The Signal-Never-Text Rule",
+        "body": "Signal orange is only ever a fill, a 2px rule, or an outline. There is no color: var(--signal) in the system and there must not be one — as text it fails on every ground the site has. On the green field, signal appears only as the hover fill of an arrow with ink on top; it is never a hairline, a label, or a heading there.",
+        "section": "colors"
+      },
+      {
+        "name": "The Inverting Focus Rule",
+        "body": "--focus is a token, and every region that changes its ground reassigns it: paper uses ink, .work uses paper, .footer uses signal, and the active locale button uses paper against its own ink fill. Any new region with a non-paper ground must set --focus in the same rule that sets background. WCAG 2.2 AA is a hard product requirement, and an ink ring on an ink ground is not an indicator.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono-Is-Measurement Rule",
+        "body": "Martian Mono appears only where something is counted, named as a technology, timed, or located — tech tags, 01 / 03, 60 MIN, NDC London 2026, NO/EN. It is never a costume for \"technical\", never a body face, and never a heading. Everything mono goes through the shared .mono primitive, which fixes it at --step--2; if a new label needs a different size, that is a signal the label is not mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The Three Weights Rule",
+        "body": "400 for prose, 500 for anything titled or interactive, 800 for display only. There is no 600, no italic, and no synthetic bolding — only three real files ship.",
+        "section": "typography"
+      },
+      {
+        "name": "The Self-Hosted Rule",
+        "body": "Both families are self-hosted woff2 in src/assets/fonts/ with font-display: swap. No @import, no Google Fonts, no runtime request to a third party. Note the Martian Mono subset is latin only; æ ø å resolve inside U+00E0–U+00FF, so Norwegian mono strings are safe but anything beyond latin-1 is not.",
+        "section": "typography"
+      },
+      {
+        "name": "The Unbroken Column Rule",
+        "body": "A new surface uses .shell or reproduces its exact inner edge. Nothing on this site is centred, nothing sets its own max-width in px, and no section indents its content past the shared gutter.",
+        "section": "layout"
+      },
+      {
+        "name": "The Norwegian-First Measure Rule",
+        "body": "Norwegian is canonical and is the longer of the two locales. Every measure is set in ch and every heading wrap in ch with text-wrap: balance; no label, button or nav item is given a fixed px width. New surfaces get checked in Norwegian first — if it fits in no, it fits in en.",
+        "section": "layout"
+      },
+      {
+        "name": "The One Shadow Rule",
+        "body": "A shadow exists only where an element overlays content it did not push out of the way. If a new element is in normal flow, it gets a hairline or a ground change — not a shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Never-Fade Rule",
+        "body": "De-emphasis is scale plus a cooler ground, never opacity. Faded text drops below the contrast floor, and a site whose central claim is WCAG 2.2 AA cannot fade a third of its evidence to 2:1 for effect. There is no opacity in the system.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do wrap every new section's content in .shell, or reproduce its inner edge exactly with max(var(--gutter), calc((100% - var(--measure)) / 2 + var(--gutter))) if the section is full-bleed.",
+      "Do set --focus in the same rule where you set a non-paper background — paper ground uses ink, field uses paper, ink uses signal.",
+      "Do reach for a hairline (1px rule or rule-strong) or a 2px ink rule where you are tempted to draw a box.",
+      "Do keep signal orange as a ground under ink text, a 2px underline, or a focus outline.",
+      "Do use .mono only for measured values — technologies, counts, durations, venues, locale codes — and let it stay at --step--2.",
+      "Do size every measure and heading wrap in ch, and check the surface in Norwegian first.",
+      "Do de-emphasise with scale and a cooler ground.",
+      "Do add new icons as single 1.5-stroke paths in the same 16-unit box in AppIcon.vue, aria-hidden, with a real text label beside them.",
+      "Do add every new string to both src/locales/no.ts and src/locales/en.ts."
+    ],
+    "donts": [
+      "Don't add a border-radius. Every corner in this system is square.",
+      "Don't add a box-shadow to anything in normal flow — the dropdown overlay is the only shadow that exists.",
+      "Don't use opacity for emphasis, hierarchy, or hover states.",
+      "Don't write color: var(--signal). Signal is a fill, a rule, or an outline; as text it fails on every ground here.",
+      "Don't put signal orange on the green field as text or as a hairline — on the field it may only appear as a fill with ink on top.",
+      "Don't introduce a third accent, a gray, or a dark mode. There are three grounds and one accent.",
+      "Don't use mono as a \"technical\" costume for headings, prose, or button labels.",
+      "Don't add a fourth font weight, an italic, or a second sans; three Cabinet Grotesk files and one variable mono are what ships.",
+      "Don't load a font, icon set, or stylesheet from a third-party host at runtime.",
+      "Don't wrap content in a card unless it must lift onto a different ground — the project card is the only card, and it exists because it sits on the field.",
+      "Don't give a label, button, or nav item a fixed px width; Norwegian is the longer locale and it is canonical.",
+      "Don't collapse the mobile header into a hamburger drawer; it wraps to a second full-width row at 720px by design."
+    ]
+  }
+}

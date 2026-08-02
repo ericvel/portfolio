@@ -8,21 +8,32 @@ export default {
   },
   hero: {
     eyebrow: "Frontendspesialist · frilans",
-    title: "Eric Veliyulin. Jeg bygger grensesnitt.",
+    title: "Frontend er faget mitt.",
     lede: "Fem år med React, Vue og TypeScript. Testdekning og tilgjengelighet som standard.",
+    stackLabel: "Teknologier i produksjon",
+  },
+  meta: {
+    title: "Eric Veliyulin — Frontendspesialist",
+    titleProject: "Eric Veliyulin — {project}",
+    description:
+      "Frontendspesialist på frilans. React, Vue og TypeScript, med testdekning og " +
+      "tilgjengelighet som standard. Prosjekter for ASKO, Røde Kors og Habiit.",
+  },
+  a11y: {
+    skip: "Hopp til hovedinnhold",
   },
   work: {
     heading: "Utvalgte prosjekter",
     prev: "Forrige prosjekt",
     next: "Neste prosjekt",
-    readMore: "Les mer →",
+    readMore: "Se prosjektet",
   },
   talks: {
     heading: "Foredrag",
     lede:
       "Jeg snakker om det som er nytt i nettleseren, og hva det betyr for hvordan vi bygger " +
       "grensesnitt — på konferanse, meetup og internt.",
-    watch: "Se opptaket ↗",
+    watch: "Se opptaket",
     ongoing: "Løpende",
     onRequest: "Etter avtale",
     ndc: {
@@ -41,22 +52,22 @@ export default {
       desc: "Å bygge nedtrekksmenyer rett på plattformen — med stilbarhet og tilgjengelighet i behold.",
     },
     inhouse: {
-      title: "Interne fagdeler",
+      title: "Interne fagdelinger",
       desc: "Faste innlegg for utviklerteam om tilgjengelighet, testing og nye nettleser-API-er.",
     },
   },
   cta: {
     title: "Ta kontakt om oppdrag",
     lede:
-      "Jeg tar frilansoppdrag som frontendspesialist, alene eller i team. Send en e-post, så " +
-      "svarer jeg samme uke.",
+      "Jeg tar frilansoppdrag som frontendspesialist, alene eller i team. Send en e-post, " +
+      "så tar vi det derfra.",
   },
   project: {
-    back: "← Alle prosjekter",
-    tech: "Teknologi",
+    back: "Alle prosjekter",
+    tech: "Teknologier",
     role: "Rolle",
     ctaTitle: "Trenger du noe liknende bygget?",
-    ctaButton: "Ta kontakt →",
+    ctaButton: "Ta kontakt",
   },
   projects: {
     asko: {

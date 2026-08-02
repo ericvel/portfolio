@@ -2,7 +2,9 @@
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { RouterLink } from "vue-router";
+import AppIcon from "@/components/AppIcon.vue";
 import ProjectCta from "@/components/ProjectCta.vue";
+import SiteFooter from "@/components/SiteFooter.vue";
 import { findProject } from "@/data/projects";
 
 const props = defineProps<{ id: string }>();
@@ -33,172 +35,188 @@ const figures = computed(() => {
 </script>
 
 <template>
-  <main v-if="project && copy" class="project">
-    <RouterLink class="project__back" :to="{ name: 'home' }">{{ t("project.back") }}</RouterLink>
+  <main v-if="project && copy" id="innhold" class="project">
+    <div class="project__shell shell">
+      <RouterLink class="project__back" :to="{ name: 'home' }">
+        <AppIcon name="arrow-left" />
+        {{ t("project.back") }}
+      </RouterLink>
 
-    <div class="project__head">
-      <div class="project__intro">
-        <h1 class="project__title">{{ project.title }}</h1>
-        <p class="project__blurb">{{ copy.blurb }}</p>
+      <div class="project__head">
+        <div class="project__intro">
+          <h1 class="project__title">{{ project.title }}</h1>
+          <p class="project__blurb">{{ copy.blurb }}</p>
+        </div>
+
+        <div class="project__facts">
+          <h2 class="label mono">{{ t("project.tech") }}</h2>
+          <ul class="tags">
+            <li v-for="item in project.tech" :key="item" class="tag mono">{{ item }}</li>
+          </ul>
+          <h2 class="label mono label--spaced">{{ t("project.role") }}</h2>
+          <p class="project__role">{{ copy.role }}</p>
+        </div>
       </div>
-      <div class="project__facts">
-        <span class="label">{{ t("project.tech") }}</span>
-        <ul class="tags">
-          <li v-for="item in project.tech" :key="item" class="tag">{{ item }}</li>
-        </ul>
-        <span class="label label--spaced">{{ t("project.role") }}</span>
-        <span class="project__role">{{ copy.role }}</span>
+
+      <div class="project__body">
+        <p v-for="(paragraph, index) in copy.body" :key="index" class="project__paragraph">
+          {{ paragraph }}
+        </p>
       </div>
-    </div>
 
-    <div class="project__body">
-      <p v-for="(paragraph, index) in copy.body" :key="index" class="project__paragraph">
-        {{ paragraph }}
-      </p>
-    </div>
+      <div class="project__figures">
+        <figure v-for="figure in figures" :key="figure.src" class="figure">
+          <img
+            class="figure__image"
+            :src="figure.src"
+            :alt="figure.caption"
+            :style="{ aspectRatio: figure.ratio }"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="figure__caption">{{ figure.caption }}</figcaption>
+        </figure>
+      </div>
 
-    <div class="project__figures">
-      <figure v-for="figure in figures" :key="figure.src" class="figure">
-        <img
-          class="figure__image"
-          :src="figure.src"
-          :alt="figure.caption"
-          :style="{ aspectRatio: figure.ratio }"
-          loading="lazy"
-        />
-        <figcaption class="figure__caption">{{ figure.caption }}</figcaption>
-      </figure>
+      <ProjectCta />
     </div>
-
-    <ProjectCta />
   </main>
+  <SiteFooter v-if="project" />
 </template>
 
 <style scoped lang="scss">
 .project {
-  display: block;
-  padding: 8px 64px 88px;
-  background: #ffffff;
+  padding-block: 0 var(--space-9);
 }
 
 .project__back {
-  display: inline-block;
-  font-size: 16px;
-  color: #555555;
-  padding: 12px 0 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  padding: var(--space-5) 0 var(--space-7);
+  transition: color 160ms ease;
 
   &:hover {
-    color: #111111;
+    color: var(--ink);
   }
 }
 
 .project__head {
   display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 64px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  gap: var(--space-8);
   align-items: start;
-  padding-bottom: 48px;
-  border-bottom: 1px solid #cccccc;
-}
-
-.project__intro {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  padding-bottom: var(--space-7);
+  border-bottom: 2px solid var(--ink);
 }
 
 .project__title {
   margin: 0;
-  font-size: 84px;
-  line-height: 0.98;
-  letter-spacing: -0.02em;
-  font-weight: 400;
+  font-size: var(--step-6);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
 }
 
 .project__blurb {
-  margin: 0;
-  font-size: 24px;
+  margin: var(--space-5) 0 0;
+  max-width: 42ch;
+  font-size: var(--step-2);
   line-height: 1.4;
-  color: #555555;
-  max-width: 44ch;
+  color: var(--ink-soft);
+  text-wrap: pretty;
 }
 
 .project__facts {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-4);
 }
 
 .label {
-  font-size: 14px;
-  letter-spacing: 0.14em;
+  margin: 0;
+  font-weight: 400;
   text-transform: uppercase;
-  color: #555555;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
 }
 
 .label--spaced {
-  margin-top: 12px;
+  margin-top: var(--space-4);
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .tag {
-  font-size: 15px;
-  padding: 7px 15px;
-  border: 1px solid #cccccc;
-  border-radius: 999px;
+  padding: 6px var(--space-3);
+  border: 1px solid var(--rule-strong);
+  white-space: nowrap;
 }
 
 .project__role {
-  font-size: 17px;
+  margin: 0;
+  font-size: var(--step-0);
 }
 
 .project__body {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  padding: 48px 0 56px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: var(--space-7);
+  padding-block: var(--space-8);
 }
 
 .project__paragraph {
   margin: 0;
-  font-size: 20px;
-  line-height: 1.55;
+  max-width: 68ch;
+  font-size: var(--step-1);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-wrap: pretty;
 }
 
 .project__figures {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 32px 40px;
-  max-width: 900px;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: var(--space-7);
 }
 
 .figure {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--space-3);
 }
 
 .figure__image {
   display: block;
   width: 100%;
-  background-color: #ebebeb;
+  background-color: var(--paper-deep);
   object-fit: cover;
   object-position: 50% 0;
-  border: 1px solid #cccccc;
+  border: 1px solid var(--rule);
 }
 
 .figure__caption {
-  font-size: 14px;
-  line-height: 1.45;
-  color: #555555;
+  max-width: 56ch;
+  font-size: var(--step--1);
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 900px) {
+  .project__head {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-7);
+  }
 }
 </style>

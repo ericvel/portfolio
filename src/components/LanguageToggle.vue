@@ -17,7 +17,7 @@ const LOCALES: { value: Locale; label: string }[] = [
       v-for="option in LOCALES"
       :key="option.value"
       type="button"
-      class="option"
+      class="option mono"
       :class="{ 'option--active': locale === option.value }"
       :aria-pressed="locale === option.value"
       @click="setLocale(option.value)"
@@ -30,34 +30,37 @@ const LOCALES: { value: Locale; label: string }[] = [
 <style scoped lang="scss">
 .toggle {
   display: flex;
-  align-items: center;
-  border: 1px solid #cccccc;
-  border-radius: 999px;
-  overflow: hidden;
+  align-items: stretch;
+  border: 1px solid var(--rule-strong);
 }
 
 .option {
   appearance: none;
   border: 0;
-  font: inherit;
   cursor: pointer;
-  padding: 6px 13px;
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  padding: 7px 10px;
+  letter-spacing: 0.06em;
+  background: transparent;
+  color: var(--ink-soft);
   transition:
     background 160ms ease,
     color 160ms ease;
-  background: transparent;
-  color: #777777;
+
+  &:hover:not(.option--active) {
+    background: var(--paper-deep);
+    color: var(--ink);
+  }
 
   &:focus-visible {
-    outline: 2px solid #111111;
-    outline-offset: -2px;
+    outline-offset: -3px;
   }
 }
 
+/* The focus ring is drawn inset, so on the ink-filled active button it has to invert
+   with the button — an ink ring on an ink ground is a 1:1 indicator, i.e. none. */
 .option--active {
-  background: #111111;
-  color: #ffffff;
+  background: var(--ink);
+  color: var(--paper);
+  --focus: var(--paper);
 }
 </style>
