@@ -24,9 +24,9 @@ export default {
   },
   work: {
     heading: "Utvalgte prosjekter",
-    prev: "Forrige prosjekt",
-    next: "Neste prosjekt",
     readMore: "Se prosjektet",
+    techLabel: "Teknologier",
+    periodLabel: "Periode",
   },
   talks: {
     heading: "Foredrag",
@@ -72,9 +72,11 @@ export default {
   projects: {
     asko: {
       blurb:
-        "Bidrag på tvers av ASKO Serverings nettsted og den tilknyttede administrasjonsløsningen " +
-        "ASKO Servering Fiks.",
+        "Varebøker med titusenvis av varer, tastaturnavigasjon og forutsigbare tilstander — på " +
+        "tvers av nettstedet og administrasjonsløsningen Fiks.",
       role: "Frontendutvikler i produktteam",
+      /** Short caption for the ledger's lead-row screenshot; the full one is in `captions`. */
+      leadCaption: "Bestillingsdetaljer med leveringsstatus",
       body: [
         "ASKO Servering er netthandelen for storhusholdning: varesøk, handleliste, bestillingsflyt " +
           "og oppfølging av leveranser. Jeg har jobbet i hele bredden av flaten — fra søk og " +
@@ -91,7 +93,9 @@ export default {
       ],
     },
     rodekors: {
-      blurb: "En tjeneste der frivillige kan planlegge, publisere og melde seg på aktiviteter.",
+      blurb:
+        "Aktiviteter for frivillige — planlegging, publisering og påmelding. Universell " +
+        "utforming var et krav, ikke et tillegg.",
       role: "Frontendutvikler",
       body: [
         "Mitt Røde Kors samler aktivitetene til de frivillige på ett sted: opprette og publisere " +

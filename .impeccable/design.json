@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-02T00:00:00.000Z",
+  "generatedAt": "2026-08-03T00:00:00.000Z",
   "title": "Design System: Eric Veliyulin — Frontend Specialist Portfolio",
   "extensions": {
     "colorMeta": {
@@ -135,7 +135,7 @@
       },
       "subtitle": {
         "displayName": "Subtitle",
-        "purpose": "Project card titles and the project-page CTA question."
+        "purpose": "Project row titles and the project-page CTA question."
       },
       "lede": {
         "displayName": "Lede",
@@ -143,11 +143,11 @@
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Card blurbs, talk descriptions, button labels. Long-form project paragraphs step up one to 1.125rem at 1.6 and 68ch."
+        "purpose": "Project blurbs, talk descriptions, button labels. Long-form project paragraphs step up one to 1.125rem at 1.6 and 68ch."
       },
       "mono": {
         "displayName": "Mono Label",
-        "purpose": "Measurement only — technologies, counters, durations, venues, locale codes. Fixed at 0.75rem by the shared .mono primitive; 0.05–0.06em tracking when uppercase."
+        "purpose": "Measurement only — technologies, durations, venues, locale codes. Fixed at 0.75rem by the shared .mono primitive; 0.05–0.06em tracking when uppercase."
       }
     },
     "shadows": [
@@ -161,12 +161,12 @@
       {
         "name": "ease-color",
         "value": "ease",
-        "purpose": "Pure colour changes only — nav link, menu item ground, locale option, arrow states. 140–200ms."
+        "purpose": "Pure colour changes only — nav link, menu item ground, locale option, and the project row's ground flip. 140–200ms."
       },
       {
         "name": "ease-move",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Anything that moves or grows — 180ms button lift, 200ms caret rotation, 220ms underline growth and icon nudge, 520ms card recession."
+        "purpose": "Anything that moves or grows — 180ms button lift, 200ms caret rotation, 220ms underline growth and icon nudge."
       },
       {
         "name": "duration-quick",
@@ -179,27 +179,46 @@
         "purpose": "Primary button ground change plus its -2px lift; skip-link drop-in."
       },
       {
-        "name": "duration-hint",
-        "value": "220ms",
-        "purpose": "Directional icon nudge on parent hover, and the contact link's underline growing 2px to 8px."
+        "name": "duration-flip",
+        "value": "200ms",
+        "purpose": "The project row's ground flip: background and colour together, field to paper, on hover and focus-visible."
       },
       {
-        "name": "duration-recede",
-        "value": "520ms",
-        "purpose": "Carousel card de-emphasis: ground to deep paper plus scale(0.97)."
+        "name": "duration-hint",
+        "value": "220ms",
+        "purpose": "Directional icon nudge on parent hover, and an underline growing by background-size."
       },
       {
         "name": "reduced-motion",
         "value": "animation-duration: 0.01ms; transition-duration: 0.01ms; scroll-behavior: auto",
-        "purpose": "Global prefers-reduced-motion block; the carousel additionally checks the query before every programmatic scroll and uses behavior: auto."
+        "purpose": "Global prefers-reduced-motion block. The row's ground flip still happens, instantly, because it is the affordance rather than an embellishment."
       }
     ],
     "breakpoints": [
-      { "name": "card-stack", "value": "560px" },
-      { "name": "header-wrap", "value": "720px" },
-      { "name": "feature-collapse", "value": "860px" },
-      { "name": "grid-collapse", "value": "900px" },
-      { "name": "measure", "value": "1240px" }
+      {
+        "name": "row-stack",
+        "value": "560px"
+      },
+      {
+        "name": "header-wrap",
+        "value": "720px"
+      },
+      {
+        "name": "feature-collapse",
+        "value": "860px"
+      },
+      {
+        "name": "grid-collapse",
+        "value": "900px"
+      },
+      {
+        "name": "row-collapse",
+        "value": "1024px"
+      },
+      {
+        "name": "measure",
+        "value": "1240px"
+      }
     ]
   },
   "components": [
@@ -220,28 +239,28 @@
       "css": ".ds-footer-ground { background: var(--ink, #17181a); padding: 32px; --focus: var(--signal, #e4572e); } .ds-mail { display: inline-block; padding: 16px 32px; background: var(--signal, #e4572e); color: var(--ink, #17181a); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 1.375rem; font-weight: 500; letter-spacing: -0.015em; text-decoration: none; word-break: break-word; border-radius: 0; transition: background 180ms ease, transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-mail:hover { background: var(--paper, #f4f1ea); transform: translateY(-2px); } .ds-mail:active { transform: translateY(0); } .ds-mail:focus-visible { outline: 2px solid var(--focus, #e4572e); outline-offset: 3px; }"
     },
     {
-      "name": "Carousel Arrow",
-      "kind": "button",
-      "refersTo": "carousel-arrow",
-      "description": "The carousel's only control affordance, on the green field. Hairline box that fills signal on hover and keeps its border when disabled.",
-      "html": "<div class=\"ds-field-ground\"><button type=\"button\" class=\"ds-arrow\" aria-label=\"Forrige\"><svg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M14 8H2m0 0l4.5-4.5M2 8l4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button><button type=\"button\" class=\"ds-arrow\" aria-label=\"Neste\" disabled><svg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button></div>",
-      "css": ".ds-field-ground { display: flex; gap: 12px; background: var(--field, #1f4d3c); padding: 24px; --focus: var(--paper, #f4f1ea); } .ds-arrow { display: flex; align-items: center; justify-content: center; width: 52px; height: 44px; background: none; border: 1px solid var(--field-rule, #3d6a58); border-radius: 0; color: var(--paper, #f4f1ea); cursor: pointer; transition: background 200ms ease, color 200ms ease, border-color 200ms ease; } .ds-arrow:hover:not(:disabled) { background: var(--signal, #e4572e); border-color: var(--signal, #e4572e); color: var(--ink, #17181a); } .ds-arrow:disabled { cursor: default; color: var(--field-rule, #3d6a58); } .ds-arrow:focus-visible { outline: 2px solid var(--focus, #f4f1ea); outline-offset: 3px; }"
+      "name": "Project Row",
+      "kind": "custom",
+      "refersTo": "project-row",
+      "description": "The signature. Bare type on the green field, divided by hairlines; the row under consideration flips its own ground to paper on hover and focus, which is the system's only nested inversion and its whole depth vocabulary. Two inherited variables carry the flip down to the blurb and the tags, and the affordance's underline becomes 2px signal only once the ground is paper.",
+      "html": "<div class=\"ds-field-ground\"><ul class=\"ds-ledger\"><li class=\"ds-ledger__item\"><a class=\"ds-row\" href=\"#\" aria-label=\"ASKO Servering — Se prosjektet\"><span class=\"ds-row__mark\"><span class=\"ds-row__logo\">ASKO</span></span><span class=\"ds-row__body\"><span class=\"ds-row__title\">ASKO Servering</span><span class=\"ds-row__blurb\">Bidrag på tvers av ASKO Serverings nettsted og den tilknyttede administrasjonsløsningen ASKO Servering Fiks.</span></span><span class=\"ds-row__stack\"><span class=\"ds-row__tech ds-mono\">Vue</span><span class=\"ds-row__tech ds-mono\">TypeScript</span><span class=\"ds-row__tech ds-mono\">Playwright</span></span><span class=\"ds-row__more\">Se prosjektet<svg class=\"ds-icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></a></li><li class=\"ds-ledger__item\"><a class=\"ds-row\" href=\"#\" aria-label=\"Mitt Røde Kors — Se prosjektet\"><span class=\"ds-row__mark\"><span class=\"ds-row__logo\">Røde Kors</span></span><span class=\"ds-row__body\"><span class=\"ds-row__title\">Mitt Røde Kors</span><span class=\"ds-row__blurb\">En tjeneste der frivillige kan planlegge, publisere og melde seg på aktiviteter.</span></span><span class=\"ds-row__stack\"><span class=\"ds-row__tech ds-mono\">React</span><span class=\"ds-row__tech ds-mono\">Next.js</span></span><span class=\"ds-row__more\">Se prosjektet<svg class=\"ds-icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></a></li></ul></div>",
+      "css": ".ds-field-ground { background: var(--field, #1f4d3c); padding: 32px 24px; color: var(--paper, #f4f1ea); --focus: var(--paper, #f4f1ea); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); } .ds-ledger { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--field-rule, #3d6a58); } .ds-ledger__item { border-bottom: 1px solid var(--field-rule, #3d6a58); } .ds-row { --row-secondary: var(--field-soft, #c3d4c8); --row-chip: var(--field-rule, #3d6a58); display: grid; grid-template-columns: 180px minmax(0, 1.4fr) minmax(0, 1fr) auto; align-items: center; gap: 48px; padding: 32px 24px; margin-inline: -24px; color: inherit; text-decoration: none; border-radius: 0; transition: background 200ms ease, color 200ms ease; } .ds-row:hover, .ds-row:focus-visible { --row-secondary: var(--ink-soft, #55534a); --row-chip: var(--rule-strong, #b9b2a1); --focus: var(--ink, #17181a); background: var(--paper, #f4f1ea); color: var(--ink, #17181a); } .ds-row:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: 3px; } .ds-row__mark { display: grid; place-items: center; height: 64px; padding: 8px 12px; background: var(--paper, #f4f1ea); } .ds-row__logo { max-height: 36px; max-width: 100%; mix-blend-mode: multiply; color: var(--ink, #17181a); font-size: 1.25rem; font-weight: 800; letter-spacing: -0.03em; white-space: nowrap; } .ds-row__body { display: flex; flex-direction: column; gap: 8px; min-width: 0; } .ds-row__title { font-size: 1.75rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; } .ds-row__blurb { max-width: 42ch; font-size: 1rem; line-height: 1.5; color: var(--row-secondary); text-wrap: pretty; transition: color 200ms ease; } .ds-row__stack { display: flex; flex-wrap: wrap; gap: 8px; } .ds-row__tech { padding: 5px 10px; border: 1px solid var(--row-chip); border-radius: 0; color: var(--row-secondary); white-space: nowrap; transition: border-color 200ms ease, color 200ms ease; } .ds-row__more { display: inline-flex; align-items: center; gap: 8px; padding-bottom: 5px; font-size: 0.875rem; font-weight: 500; white-space: nowrap; background-image: linear-gradient(var(--field-rule, #3d6a58), var(--field-rule, #3d6a58)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 1px; transition: background-size 200ms ease; } .ds-row:hover .ds-row__more, .ds-row:focus-visible .ds-row__more { background-image: linear-gradient(var(--signal, #e4572e), var(--signal, #e4572e)); background-size: 100% 2px; } .ds-row .ds-icon { flex: none; transform: translateY(-0.5px); transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-row:hover .ds-row__more .ds-icon { transform: translate(3px, -0.5px); } .ds-mono { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; line-height: 1.4; }"
     },
     {
-      "name": "Project Card",
-      "kind": "card",
-      "refersTo": "project-card",
-      "description": "The system's only card, and the only nested ground inversion: paper-on-field, inverting text back to ink. Inactive siblings recede by ground tint and scale, never opacity.",
-      "html": "<div class=\"ds-field-ground ds-field-ground--cards\"><a class=\"ds-card\" href=\"#\" aria-label=\"ASKO Servering — Les mer\"><div class=\"ds-card__body\"><h3 class=\"ds-card__title\">ASKO Servering</h3><p class=\"ds-card__blurb\">Katalog og ordreflyt for storhusholdning, med titusenvis av varer og full tastaturnavigasjon.</p><div class=\"ds-card__foot\"><ul class=\"ds-card__stack\"><li class=\"ds-mono\">Vue</li><li class=\"ds-mono\">TypeScript</li><li class=\"ds-mono\">Playwright</li></ul><span class=\"ds-card__more\">Les mer<svg class=\"ds-icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></div></div></a><a class=\"ds-card ds-card--muted\" href=\"#\" aria-label=\"Mitt Røde Kors — Les mer\"><div class=\"ds-card__body\"><h3 class=\"ds-card__title\">Mitt Røde Kors</h3><p class=\"ds-card__blurb\">Frivilligportal i Next.js, bygget for lesbarhet på små skjermer.</p></div></a></div>",
-      "css": ".ds-field-ground--cards { display: flex; gap: 32px; align-items: flex-start; overflow: hidden; } .ds-card { flex: 0 0 min(420px, 84%); display: flex; flex-direction: column; background: var(--paper, #f4f1ea); color: var(--ink, #17181a); text-decoration: none; border-radius: 0; cursor: pointer; transition: background 520ms cubic-bezier(0.16, 1, 0.3, 1), transform 520ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-card--muted { background: var(--paper-deep, #ece7da); transform: scale(0.97); } .ds-card:focus-visible { outline: 2px solid var(--paper, #f4f1ea); outline-offset: 4px; } .ds-card__body { display: flex; flex-direction: column; gap: 16px; padding: 32px; } .ds-card__title { margin: 0; font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 1.75rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; } .ds-card__blurb { margin: 0; font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 1rem; line-height: 1.5; color: var(--ink-soft, #55534a); text-wrap: pretty; } .ds-card__foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-top: 8px; padding-top: 16px; border-top: 1px solid var(--rule, #d8d2c4); } .ds-card__stack { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0; padding: 0; list-style: none; color: var(--ink-soft, #55534a); } .ds-card__more { display: inline-flex; align-items: center; gap: 8px; flex: none; font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 0.875rem; font-weight: 500; color: var(--ink, #17181a); padding-bottom: 3px; border-bottom: 2px solid var(--signal, #e4572e); white-space: nowrap; } .ds-card .ds-icon { flex: none; transform: translateY(-0.5px); transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-card:hover .ds-icon { transform: translate(3px, -0.5px); } .ds-mono { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; line-height: 1.4; }"
+      "name": "Project Mark Plate",
+      "kind": "custom",
+      "refersTo": "project-mark-plate",
+      "description": "The only persistent paper object in the system, and not a card: a 180x64 plate that exists solely to give mix-blend-mode: multiply a light ground to print a client logo onto. Shown on the field and on paper — on paper the plate's own edge disappears, which is what happens when a row flips. Deliberately wide rather than tall so a 2.5:1 lockup and a 4.4:1 wordmark are both height-bound and land at the same optical weight.",
+      "html": "<div class=\"ds-plate-demo\"><div class=\"ds-plate-ground\"><span class=\"ds-plate\"><span class=\"ds-plate__logo\">ASKO</span></span><span class=\"ds-plate\"><span class=\"ds-plate__logo ds-plate__logo--wide\">Røde Kors</span></span></div><div class=\"ds-plate-ground ds-plate-ground--flipped\"><span class=\"ds-plate\"><span class=\"ds-plate__logo\">ASKO</span></span><span class=\"ds-plate\"><span class=\"ds-plate__logo ds-plate__logo--wide\">Røde Kors</span></span></div></div>",
+      "css": ".ds-plate-demo { display: flex; flex-direction: column; } .ds-plate-ground { display: flex; gap: 24px; align-items: center; background: var(--field, #1f4d3c); padding: 32px 24px; } .ds-plate-ground--flipped { background: var(--paper, #f4f1ea); } .ds-plate { display: grid; place-items: center; width: 180px; height: 64px; padding: 8px 12px; background: var(--paper, #f4f1ea); border-radius: 0; } .ds-plate__logo { max-height: 36px; max-width: 100%; mix-blend-mode: multiply; color: var(--ink, #17181a); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; white-space: nowrap; } .ds-plate__logo--wide { font-size: 1.125rem; letter-spacing: -0.01em; }"
     },
     {
       "name": "Technology Tag",
       "kind": "chip",
       "refersTo": "tech-tag",
-      "description": "A measured value, not a filter: mono inside a hairline box, square, with no interactive state at all.",
-      "html": "<ul class=\"ds-tags\"><li class=\"ds-tag ds-mono\">Vue</li><li class=\"ds-tag ds-mono\">TypeScript</li><li class=\"ds-tag ds-mono\">Vitest</li><li class=\"ds-tag ds-mono\">TanStack Query</li></ul>",
-      "css": ".ds-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; } .ds-tag { padding: 6px 12px; border: 1px solid var(--rule-strong, #b9b2a1); border-radius: 0; color: var(--ink, #17181a); white-space: nowrap; } .ds-mono { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; line-height: 1.4; }"
+      "description": "A measured value, not a filter: mono inside a hairline box, square, with no interactive state at all. Two contexts — ink on paper at 6px 12px, and the tighter 5px 10px field variant whose border and text colour are inherited from the row so they follow its ground flip.",
+      "html": "<div class=\"ds-tag-demo\"><ul class=\"ds-tags\"><li class=\"ds-tag ds-mono\">Vue</li><li class=\"ds-tag ds-mono\">TypeScript</li><li class=\"ds-tag ds-mono\">Vitest</li><li class=\"ds-tag ds-mono\">TanStack Query</li></ul><ul class=\"ds-tags ds-tags--field\"><li class=\"ds-tag ds-tag--field ds-mono\">Vue</li><li class=\"ds-tag ds-tag--field ds-mono\">TypeScript</li><li class=\"ds-tag ds-tag--field ds-mono\">Vitest</li><li class=\"ds-tag ds-tag--field ds-mono\">TanStack Query</li></ul></div>",
+      "css": ".ds-tag-demo { display: flex; flex-direction: column; } .ds-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 24px; list-style: none; } .ds-tags--field { background: var(--field, #1f4d3c); } .ds-tag { padding: 6px 12px; border: 1px solid var(--rule-strong, #b9b2a1); border-radius: 0; color: var(--ink, #17181a); white-space: nowrap; } .ds-tag--field { padding: 5px 10px; border-color: var(--field-rule, #3d6a58); color: var(--field-soft, #c3d4c8); } .ds-mono { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; line-height: 1.4; }"
     },
     {
       "name": "Header Navigation",
@@ -278,36 +297,36 @@
   ],
   "narrative": {
     "northStar": "The Sixty-Second Scan",
-    "overview": "The system is built for one reader: someone with a staffing need open in another tab, deciding in under a minute whether this person matches the work. Everything is therefore ranged left against a single column edge that runs unbroken from the header rule to the footer address, so the eye never has to re-find the start of a line. Personality comes from type and grid — a display weight used exactly once per page, hairline rules instead of boxes, and a mono face that appears only where something is being measured. There is no borrowed artifact, no texture, no illustrative conceit; the page looks like what it is.\n\nColour does the structural work that cards usually do. Three grounds exist and each one owns a whole region: warm paper is the default, a deep green field owns the project carousel full-bleed, and ink closes the page under the footer. A region flip is the section break — there are no dividers between grounds and no containers floating on top of them. Inside the green field the project cards flip back to paper, which is the only nesting inversion in the system. One saturated orange is reserved for actions and never spends itself on decoration.\n\nDensity is generous but not airy: 96px between major sections, 32px inside a card, hairlines rather than gaps where two things need separating. The confirmed rejections are the dark developer-portfolio default (there is no dark mode and no dark ground except the deliberate ink footer), cards-as-structure (a card exists only where there is a real object to lift onto a different ground), and opacity as an emphasis device.",
+    "overview": "The system is built for one reader: someone with a staffing need open in another tab, deciding in under a minute whether this person matches the work. Everything is therefore ranged left against a single column edge that runs unbroken from the header rule to the footer address, so the eye never has to re-find the start of a line. Personality comes from type and grid — a display weight used exactly once per page, hairline rules instead of boxes, and a mono face that appears only where something is being measured. There is no borrowed artifact, no texture, no illustrative conceit; the page looks like what it is.\n\nColour does the structural work that cards usually do. Three grounds exist and each one owns a whole region: warm paper is the default, a deep green field owns the projects region edge to edge, and ink closes the page under the footer. A region flip is the section break — there are no dividers between grounds and no containers floating on top of them. Inside the green field a project row flips back to paper the moment it is pointed at, which is the only nesting inversion in the system. One saturated orange is reserved for actions and never spends itself on decoration.\n\nDensity is generous but not airy: 96px between major sections, 32px inside a project row, hairlines rather than gaps where two things need separating. The confirmed rejections are the dark developer-portfolio default (there is no dark mode and no dark ground except the deliberate ink footer), cards-as-structure (there is no card at rest anywhere in the system), and faded text as an emphasis device (see The Never-Fade Rule).",
     "keyCharacteristics": [
-      "One unbroken left column edge, --measure 1240px wide inside a fluid --gutter, shared by every section including the full-bleed carousel track",
+      "One unbroken left column edge, `--measure` 1240px wide inside a fluid `--gutter`, shared by every section — the projects region's ground runs to the viewport edges, but its heading, its rules and each row's first register all start on the column",
       "Three region grounds — paper, green field, ink — each flipping text colour with it",
       "Zero border-radius, anywhere; zero shadows except one dropdown",
       "Two self-hosted families, no runtime third-party font requests",
       "Signal orange as fill or rule only, never as text",
-      "Emphasis by scale and ground tint, never by opacity",
+      "Emphasis by ground change alone; nothing is faded and there is no `opacity` declaration anywhere in the system",
       "Focus rings invert per region so the indicator is always visible",
       "Every measure sized for Norwegian, the longer of the two locales"
     ],
     "rules": [
       {
         "name": "The Region Owns the Ground Rule",
-        "body": "A ground belongs to a whole region, not to a component. Paper is the default; the project carousel section owns the field; the footer owns ink. Setting a region ground means setting its text colour in the same rule, and anything nested that needs to sit apart (the project card) inverts all the way back to ink-on-paper rather than half-way.",
+        "body": "A ground belongs to a whole region, not to a component. Paper is the default; the projects section owns the field; the footer owns ink. Setting a region ground means setting its text colour in the same rule, and anything nested that needs to sit apart (a hovered project row, a mark plate) inverts all the way back to ink-on-paper rather than half-way.",
         "section": "colors"
       },
       {
         "name": "The Signal-Never-Text Rule",
-        "body": "Signal orange is only ever a fill, a 2px rule, or an outline. There is no color: var(--signal) in the system and there must not be one — as text it fails on every ground the site has. On the green field, signal appears only as the hover fill of an arrow with ink on top; it is never a hairline, a label, or a heading there.",
+        "body": "Signal orange is only ever a fill, a 2px rule, or an outline. There is no `color: var(--signal)` in the system and there must not be one — as text it fails on every ground the site has. Signal never appears on the green field in any form: in the projects region it becomes available only once a row has flipped its own ground to paper, and then only as the 2px underline beneath that row's affordance.",
         "section": "colors"
       },
       {
         "name": "The Inverting Focus Rule",
-        "body": "--focus is a token, and every region that changes its ground reassigns it: paper uses ink, .work uses paper, .footer uses signal, and the active locale button uses paper against its own ink fill. Any new region with a non-paper ground must set --focus in the same rule that sets background. WCAG 2.2 AA is a hard product requirement, and an ink ring on an ink ground is not an indicator.",
+        "body": "`--focus` is a token, and every region that changes its ground reassigns it: paper uses ink, `.work` uses paper, `.footer` uses signal, and the active locale button uses paper against its own ink fill. A project row reassigns it a second time — back to ink — in the same rule that flips the row to paper, because the flip fires on `:focus-visible` too and a paper ring on a paper sheet is not an indicator. Any new region or state with a non-paper ground must set `--focus` in the same rule that sets `background`. WCAG 2.2 AA is a hard product requirement.",
         "section": "colors"
       },
       {
         "name": "The Mono-Is-Measurement Rule",
-        "body": "Martian Mono appears only where something is counted, named as a technology, timed, or located — tech tags, 01 / 03, 60 MIN, NDC London 2026, NO/EN. It is never a costume for \"technical\", never a body face, and never a heading. Everything mono goes through the shared .mono primitive, which fixes it at --step--2; if a new label needs a different size, that is a signal the label is not mono.",
+        "body": "Martian Mono appears only where something is counted, named as a technology, timed, or located — tech tags, \"60 MIN\", \"NDC London 2026\", \"NO\"/\"EN\". It is never a costume for \"technical\", never a body face, and never a heading. Everything mono goes through the shared `.mono` primitive, which fixes it at `--step--2`; if a new label needs a different size, that is a signal the label is not mono.",
         "section": "typography"
       },
       {
@@ -317,17 +336,17 @@
       },
       {
         "name": "The Self-Hosted Rule",
-        "body": "Both families are self-hosted woff2 in src/assets/fonts/ with font-display: swap. No @import, no Google Fonts, no runtime request to a third party. Note the Martian Mono subset is latin only; æ ø å resolve inside U+00E0–U+00FF, so Norwegian mono strings are safe but anything beyond latin-1 is not.",
+        "body": "Both families are self-hosted woff2 in `src/assets/fonts/` with `font-display: swap`. No `@import`, no Google Fonts, no runtime request to a third party. Note the Martian Mono subset is latin only; æ ø å resolve inside U+00E0–U+00FF, so Norwegian mono strings are safe but anything beyond latin-1 is not.",
         "section": "typography"
       },
       {
         "name": "The Unbroken Column Rule",
-        "body": "A new surface uses .shell or reproduces its exact inner edge. Nothing on this site is centred, nothing sets its own max-width in px, and no section indents its content past the shared gutter.",
+        "body": "A new surface uses `.shell` or reproduces its exact inner edge. Nothing on this site sets its own max-width in px, and no section indents its content past the shared gutter. Every heading on the site starts on that line — `h1`, all four `h2`s, and the `h3`s in both the projects and talks regions — and so does the first register of every row. Nothing is centred rather than ranged, and the only thing extending past the column is a hovered row's paper overhang, which carries no content.",
         "section": "layout"
       },
       {
         "name": "The Norwegian-First Measure Rule",
-        "body": "Norwegian is canonical and is the longer of the two locales. Every measure is set in ch and every heading wrap in ch with text-wrap: balance; no label, button or nav item is given a fixed px width. New surfaces get checked in Norwegian first — if it fits in no, it fits in en.",
+        "body": "Norwegian is canonical and is the longer of the two locales. Every measure is set in `ch` and every heading wrap in `ch` with `text-wrap: balance`; no label, button or nav item is given a fixed px width. New surfaces get checked in Norwegian first — if it fits in `no`, it fits in `en`.",
         "section": "layout"
       },
       {
@@ -337,34 +356,48 @@
       },
       {
         "name": "The Never-Fade Rule",
-        "body": "De-emphasis is scale plus a cooler ground, never opacity. Faded text drops below the contrast floor, and a site whose central claim is WCAG 2.2 AA cannot fade a third of its evidence to 2:1 for effect. There is no opacity in the system.",
+        "body": "No text and no control label ever carries `opacity`, at any state. Faded text drops below the contrast floor, and a site whose central claim is WCAG 2.2 AA cannot fade a third of its evidence to 2:1 for effect: de-emphasis is a cooler ground, never a lower alpha. There is no `opacity` declaration left anywhere in the system, and a new use of it on anything readable is a defect. Note what this costs and why it is worth paying: the projects region distinguishes the row being considered from the other two entirely by ground, which is why the ground flip has to be as large as it is.",
         "section": "elevation"
+      },
+      {
+        "name": "The Printed Mark Rule",
+        "body": "Client logos arrive on white grounds — a baked-in white in a JPG, a white `<rect>` in an SVG — and a white rectangle on warm paper is a visible defect. Every logo is rendered with `mix-blend-mode: multiply`, which drops the white into the paper and lets the plate merge into a row that has flipped to paper; where the ground is part of the file it is deleted from the asset as well. A supplied mark also gets cropped to its own bounding box before it ships, so the plate's budget is spent on logo rather than on the file's own margin.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Wide Plate Rule",
+        "body": "The marks in use run from a 2.5:1 lockup (ASKO) to a 4.4:1 wordmark (Røde Kors), and a plate narrower than roughly 156px of content width makes the wide ones width-bound — which lands them 13px shorter than the others and reads as a mistake rather than as variety. The plate is therefore sized wide (180px at full width, 156px at 1024px, 168px on mobile) against a 36px `max-height`, so every mark is bounded by height and all three arrive at the same optical weight. Check a new mark's rendered height against the others rather than trusting the `max-height` alone.",
+        "section": "shapes"
       }
     ],
     "dos": [
-      "Do wrap every new section's content in .shell, or reproduce its inner edge exactly with max(var(--gutter), calc((100% - var(--measure)) / 2 + var(--gutter))) if the section is full-bleed.",
-      "Do set --focus in the same rule where you set a non-paper background — paper ground uses ink, field uses paper, ink uses signal.",
-      "Do reach for a hairline (1px rule or rule-strong) or a 2px ink rule where you are tempted to draw a box.",
-      "Do keep signal orange as a ground under ink text, a 2px underline, or a focus outline.",
-      "Do use .mono only for measured values — technologies, counts, durations, venues, locale codes — and let it stay at --step--2.",
-      "Do size every measure and heading wrap in ch, and check the surface in Norwegian first.",
-      "Do de-emphasise with scale and a cooler ground.",
-      "Do add new icons as single 1.5-stroke paths in the same 16-unit box in AppIcon.vue, aria-hidden, with a real text label beside them.",
-      "Do add every new string to both src/locales/no.ts and src/locales/en.ts."
+      "**Do** wrap every new section's content in `.shell`, or reproduce its inner edge exactly with `max(var(--gutter), calc((100% - var(--measure)) / 2 + var(--gutter)))` if the section is full-bleed.",
+      "**Do** set `--focus` in the same rule where you set a `background` that changes the ground — paper ground uses ink, field uses paper, ink uses signal, and a row flipping to paper resets it to ink.",
+      "**Do** reach for a hairline (1px `rule`, `rule-strong`, or `field-rule`) or a 2px ink rule where you are tempted to draw a box.",
+      "**Do** keep signal orange as a ground under ink text, a 2px underline, or a focus outline — and only on paper.",
+      "**Do** use `.mono` only for measured values — technologies, durations, venues, locale codes — and let it stay at `--step--2`.",
+      "**Do** size every measure and heading wrap in `ch`, and check the surface in Norwegian first.",
+      "**Do** distinguish one item from its siblings with a ground change, and pass it down to nested text through an inherited variable rather than restating each colour.",
+      "**Do** grow a changing underline with `background-size` on a `linear-gradient`, so the label it belongs to never moves.",
+      "**Do** add new icons as single 1.5-stroke paths in the same 16-unit box in `AppIcon.vue`, `aria-hidden`, with a real text label beside them.",
+      "**Do** add every new string to both `src/locales/no.ts` and `src/locales/en.ts`."
     ],
     "donts": [
-      "Don't add a border-radius. Every corner in this system is square.",
-      "Don't add a box-shadow to anything in normal flow — the dropdown overlay is the only shadow that exists.",
-      "Don't use opacity for emphasis, hierarchy, or hover states.",
-      "Don't write color: var(--signal). Signal is a fill, a rule, or an outline; as text it fails on every ground here.",
-      "Don't put signal orange on the green field as text or as a hairline — on the field it may only appear as a fill with ink on top.",
-      "Don't introduce a third accent, a gray, or a dark mode. There are three grounds and one accent.",
-      "Don't use mono as a \"technical\" costume for headings, prose, or button labels.",
-      "Don't add a fourth font weight, an italic, or a second sans; three Cabinet Grotesk files and one variable mono are what ships.",
-      "Don't load a font, icon set, or stylesheet from a third-party host at runtime.",
-      "Don't wrap content in a card unless it must lift onto a different ground — the project card is the only card, and it exists because it sits on the field.",
-      "Don't give a label, button, or nav item a fixed px width; Norwegian is the longer locale and it is canonical.",
-      "Don't collapse the mobile header into a hamburger drawer; it wraps to a second full-width row at 720px by design."
+      "**Don't** add a `border-radius`. Every corner in this system is square.",
+      "**Don't** add a `box-shadow` to anything in normal flow — the dropdown overlay is the only shadow that exists.",
+      "**Don't** put `opacity` on anything. There is no `opacity` declaration left in the system, on text or on images; de-emphasis is a cooler ground.",
+      "**Don't** write `color: var(--signal)`. Signal is a fill, a rule, or an outline; as text it fails on every ground here.",
+      "**Don't** put signal orange on the green field in any form. In the projects region it becomes available only after a row has flipped its own ground to paper.",
+      "**Don't** introduce a third accent, a gray, or a dark mode. There are three grounds and one accent.",
+      "**Don't** use mono as a \"technical\" costume for headings, prose, or button labels.",
+      "**Don't** add a fourth font weight, an italic, or a second sans; three Cabinet Grotesk files and one variable mono are what ships.",
+      "**Don't** load a font, icon set, or stylesheet from a third-party host at runtime.",
+      "**Don't** wrap content in a card. There is no persistent card in this system — grouping is hairlines, lifting is a ground flip in response to the reader, and the mark plate is a light ground for a logo, not a container.",
+      "**Don't** put a screenshot in a project row, and don't drop a supplied logo in untrimmed or without `mix-blend-mode: multiply`. A row is a mark, a name, a claim and a stack; screenshots are the project page's evidence.",
+      "**Don't** narrow the mark plate below ~156px of content width, and don't judge a new mark by its `max-height`. A 4.4:1 wordmark goes width-bound and lands visibly shorter than the others — measure its rendered height against them.",
+      "**Don't** reintroduce carousel machinery — a track, arrows, a counter, a notion of an active item — for three projects. All three fit on the column at once, and the reader is comparing, not advancing.",
+      "**Don't** give a label, button, or nav item a fixed px width; Norwegian is the longer locale and it is canonical.",
+      "**Don't** collapse the mobile header into a hamburger drawer; it wraps to a second full-width row at 720px by design."
     ]
   }
 }

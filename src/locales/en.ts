@@ -24,9 +24,9 @@ export default {
   },
   work: {
     heading: "Selected projects",
-    prev: "Previous project",
-    next: "Next project",
     readMore: "View project",
+    techLabel: "Technologies",
+    periodLabel: "Period",
   },
   talks: {
     heading: "Talks",
@@ -74,8 +74,11 @@ export default {
   projects: {
     asko: {
       blurb:
-        "Work across the ASKO Servering storefront and Fiks, the administration tool behind it.",
+        "Product catalogues with tens of thousands of items, keyboard navigation and predictable " +
+        "states — across the storefront and the Fiks administration tool.",
       role: "Frontend developer in a product team",
+      /** Short caption for the ledger's lead-row screenshot; the full one is in `captions`. */
+      leadCaption: "Order details with delivery status",
       body: [
         "ASKO Servering is the e-commerce platform for professional catering: product search, " +
           "shopping lists, ordering and delivery follow-up. I've worked across the whole surface " +
@@ -92,7 +95,9 @@ export default {
       ],
     },
     rodekors: {
-      blurb: "A service where volunteers can plan, publish and sign up for activities.",
+      blurb:
+        "Activities for volunteers — planning, publishing and sign-ups. Accessibility was a " +
+        "requirement, not an add-on.",
       role: "Frontend developer",
       body: [
         "Mitt Røde Kors gathers volunteer activity in one place: creating and publishing events, " +
