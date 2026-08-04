@@ -1,21 +1,23 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import AppIcon from "@/components/AppIcon.vue";
+import ndcPhoto from "@/assets/images/ndc-london.jpg";
 
-const { t, tm, rt } = useI18n();
-
-const ndcPoints = computed(() => tm("talks.ndc.points") as string[]);
+const { t } = useI18n();
 </script>
 
 <template>
-  <section id="foredrag" class="talks">
-    <div class="talks__shell shell">
+  <section id="foredrag" class="talks" aria-labelledby="talks-heading">
+    <div class="shell">
       <div class="talks__head">
-        <h2 class="talks__heading">{{ t("talks.heading") }}</h2>
+        <h2 id="talks-heading" class="talks__heading">{{ t("talks.heading") }}</h2>
         <p class="talks__lede">{{ t("talks.lede") }}</p>
       </div>
 
+      <!-- The recorded conference talk is the strongest single piece of speaking evidence. It
+           sits above a 2px ink rule with the claim on the column line and the photograph in
+           the register beside it — both ending on the column's far edge, so nothing here
+           crosses the line the rest of the page is ranged against. -->
       <a
         class="featured"
         :aria-label="`The New Frontend Toolkit — ${t('talks.watch')}`"
@@ -33,11 +35,17 @@ const ndcPoints = computed(() => tm("talks.ndc.points") as string[]);
           </span>
         </div>
 
-        <ul class="featured__points">
-          <li v-for="(point, index) in ndcPoints" :key="index" class="featured__point">
-            {{ rt(point) }}
-          </li>
-        </ul>
+        <figure class="featured__figure">
+          <img
+            class="featured__photo"
+            :src="ndcPhoto"
+            :alt="t('talks.ndc.photoAlt')"
+            width="1672"
+            height="941"
+            loading="lazy"
+          />
+          <figcaption class="featured__caption mono">{{ t("talks.ndc.photoCaption") }}</figcaption>
+        </figure>
       </a>
 
       <div class="talks__grid">
@@ -97,12 +105,11 @@ const ndcPoints = computed(() => tm("talks.ndc.points") as string[]);
   text-wrap: pretty;
 }
 
-/* The recorded conference talk is the strongest single piece of speaking evidence,
-   so it gets the heavy rule and the width; the other two hang off hairlines. */
 .featured {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
   gap: var(--space-8);
+  align-items: start;
   padding-top: var(--space-6);
   border-top: 2px solid var(--ink);
 
@@ -115,10 +122,12 @@ const ndcPoints = computed(() => tm("talks.ndc.points") as string[]);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding-bottom: var(--space-2);
 }
 
 .featured__title {
   margin: 0;
+  max-width: 16ch;
   font-size: var(--step-5);
   font-weight: 500;
   line-height: 1.05;
@@ -127,7 +136,7 @@ const ndcPoints = computed(() => tm("talks.ndc.points") as string[]);
 }
 
 .featured__meta {
-  margin: var(--space-3) 0 0;
+  margin: var(--space-4) 0 0;
   color: var(--ink-soft);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -135,7 +144,7 @@ const ndcPoints = computed(() => tm("talks.ndc.points") as string[]);
 
 .featured__desc {
   margin: var(--space-5) 0 0;
-  max-width: 56ch;
+  max-width: 42ch;
   font-size: var(--step-1);
   line-height: 1.55;
   color: var(--ink-soft);
@@ -163,25 +172,27 @@ const ndcPoints = computed(() => tm("talks.ndc.points") as string[]);
   transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.featured__points {
+.featured__figure {
+  margin: 0;
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  align-self: start;
+  gap: var(--space-3);
 }
 
-.featured__point {
-  padding-block: var(--space-3);
-  font-size: var(--step-0);
-  line-height: 1.4;
-  color: var(--ink-soft);
-  border-bottom: 1px solid var(--rule);
+.featured__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Deep paper rather than nothing, so a slow image reads as loading instead of as an
+     empty rectangle someone meant to fill. */
+  background: var(--paper-deep);
+  /* Hairlined on all four sides: inside the column the picture is an object on the page, so
+     it gets a full edge rather than the three-sided crop a bleed would take. */
+  border: 1px solid var(--rule);
+}
 
-  &:first-child {
-    padding-top: var(--space-1);
-  }
+.featured__caption {
+  color: var(--ink-soft);
 }
 
 .talks__grid {
@@ -245,9 +256,10 @@ const ndcPoints = computed(() => tm("talks.ndc.points") as string[]);
     gap: var(--space-6);
   }
 
-  .featured__points {
-    border-top: 1px solid var(--rule);
-    padding-top: var(--space-1);
+  /* The picture goes under the claim on narrow screens: the reader reaches the talk and
+     what it covers before the proof that it happened. */
+  .featured__figure {
+    order: 2;
   }
 }
 </style>

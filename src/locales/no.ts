@@ -41,12 +41,9 @@ export default {
         "Popover API, dialog-elementet og de nye layout-primitivene har overtatt jobben til en " +
         "haug med biblioteker. Hva du kan slette fra prosjektet ditt i dag — og hva du fortsatt " +
         "trenger hjelp til.",
-      points: [
-        "Popover API og top-layer",
-        "Dialog og fokushåndtering",
-        "Anchor positioning uten bibliotek",
-      ],
       meta: "60 min · engelsk",
+      photoAlt: "Eric Veliyulin på scenen under NDC London 2026.",
+      photoCaption: "Fra scenen, NDC London 2026",
     },
     framsia: {
       desc: "Å bygge nedtrekksmenyer rett på plattformen — med stilbarhet og tilgjengelighet i behold.",

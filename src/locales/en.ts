@@ -41,12 +41,9 @@ export default {
         "The Popover API, the dialog element and the new layout primitives have taken over the " +
         "job of a pile of libraries. What you can delete from your project today — and what you " +
         "still need help with.",
-      points: [
-        "Popover API and the top layer",
-        "Dialog and focus management",
-        "Anchor positioning without a library",
-      ],
       meta: "60 min · English",
+      photoAlt: "Eric Veliyulin on stage at NDC London 2026.",
+      photoCaption: "On stage, NDC London 2026",
     },
     framsia: {
       desc:
