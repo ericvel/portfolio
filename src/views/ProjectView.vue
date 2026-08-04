@@ -3,7 +3,7 @@ import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { RouterLink } from "vue-router";
 import AppIcon from "@/components/AppIcon.vue";
-import ProjectCta from "@/components/ProjectCta.vue";
+import ProjectPager from "@/components/ProjectPager.vue";
 import SiteFooter from "@/components/SiteFooter.vue";
 import { findProject } from "@/data/projects";
 
@@ -37,7 +37,11 @@ const figures = computed(() => {
 <template>
   <main v-if="project && copy" id="innhold" class="project">
     <div class="project__shell shell">
-      <RouterLink class="project__back" :to="{ name: 'home' }">
+      <RouterLink
+        class="project__back"
+        :to="{ name: 'home' }"
+        :aria-label="t('project.backLabel')"
+      >
         <AppIcon name="arrow-left" />
         {{ t("project.back") }}
       </RouterLink>
@@ -78,15 +82,17 @@ const figures = computed(() => {
         </figure>
       </div>
 
-      <ProjectCta />
+      <ProjectPager :current-id="project.id" />
     </div>
   </main>
   <SiteFooter v-if="project" />
 </template>
 
 <style scoped lang="scss">
+/* Tighter below the pager than above it, so the pager binds to the page's exit —
+   itself and the footer — rather than to the project it just closed. */
 .project {
-  padding-block: 0 var(--space-9);
+  padding-block: 0 var(--space-8);
 }
 
 .project__back {

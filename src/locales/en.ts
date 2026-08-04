@@ -62,18 +62,21 @@ export default {
       "email and we'll take it from there.",
   },
   project: {
-    back: "All projects",
+    back: "Back",
+    /** Full destination for screen readers — the visible "Back" alone names no target. */
+    backLabel: "Back to home page",
     tech: "Technologies",
     role: "Role",
-    ctaTitle: "Need something similar built?",
-    ctaButton: "Get in touch",
+    next: "Next project",
+    /** Landmark name for the pager at the foot of a project page. */
+    pagerNav: "Project navigation",
   },
   projects: {
     asko: {
       blurb:
         "Product catalogues with tens of thousands of items, keyboard navigation and predictable " +
         "states — across the storefront and the Fiks administration tool.",
-      role: "Frontend developer in a product team",
+      role: "Lead frontend developer",
       /** Short caption for the ledger's lead-row screenshot; the full one is in `captions`. */
       leadCaption: "Order details with delivery status",
       body: [
@@ -95,7 +98,7 @@ export default {
       blurb:
         "Activities for volunteers — planning, publishing and sign-ups. Accessibility was a " +
         "requirement, not an add-on.",
-      role: "Frontend developer",
+      role: "Lead frontend developer",
       body: [
         "Mitt Røde Kors gathers volunteer activity in one place: creating and publishing events, " +
           "handling sign-ups, following up new volunteers. The users are thousands of volunteers " +
