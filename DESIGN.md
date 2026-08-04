@@ -118,6 +118,9 @@ components:
     textColor: "{colors.paper}"
     typography: "{typography.mono}"
     rounded: "{rounded.none}"
+  talk-photo:
+    backgroundColor: "{colors.paper-deep}"
+    rounded: "{rounded.none}"
   tech-tag:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
@@ -177,6 +180,7 @@ Density is generous but not airy: 96px between major sections, 32px inside a pro
 - One unbroken left column edge, `--measure` 1240px wide inside a fluid `--gutter`, shared by every section — the projects region's ground runs to the viewport edges, but its heading, its rules and each row's first register all start on the column
 - Three region grounds — paper, green field, ink — each flipping text colour with it
 - One lead project row that argues and two that corroborate — the lead trades its mark plate for a screenshot, and that trade is the whole of the hierarchy
+- Exactly one photograph of the person on the site, in the talks region, running off the right page edge while the type holds the column
 - Zero border-radius, anywhere; zero shadows except one dropdown
 - Two self-hosted families, no runtime third-party font requests
 - Signal orange as fill or rule only, never as text
@@ -237,7 +241,7 @@ A warm, paper-based palette with exactly one chromatic region and exactly one ac
 - **Small** (400 / 500, `--step--1`): Nav links, dropdown items, inline "read more" affordances, image captions, the back link.
 - **Mono label** (400, `--step--2`, 0.02em base, 0.05–0.06em when uppercase): Technology names and tags, talk venues and durations, field labels, locale codes.
 
-Measures in use, all set in `ch` so they track the font: 44ch hero lede, 42ch project blurb, 46ch talk description and footer lede, 54ch talks lede, 56ch featured description and figure caption, 68ch project paragraph. Headline wraps are constrained by `ch` too (16ch, 17ch, 22ch) with `text-wrap: balance` on titles and `text-wrap: pretty` on prose.
+Measures in use, all set in `ch` so they track the font: 44ch hero lede, 42ch project blurb, 42ch featured talk description, 46ch talk description and footer lede, 54ch talks lede, 56ch figure caption, 68ch project paragraph. Headline wraps are constrained by `ch` too (16ch, 17ch, 22ch) with `text-wrap: balance` on titles and `text-wrap: pretty` on prose — the featured talk title takes the 16ch cap, which is what breaks it to two lines beside the photograph.
 
 ### Named Rules
 
@@ -259,14 +263,16 @@ Grids are two-column asymmetric and collapse to one:
 
 - Hero body: `minmax(0, 1fr) minmax(0, 0.85fr)` — lede+actions beside the technology strip — collapsing at 900px
 - Project detail head: `minmax(0, 1fr) minmax(0, 340px)` — title+blurb beside the facts rail — collapsing at 900px
-- Featured talk: `minmax(0, 1.5fr) minmax(0, 1fr)` — collapsing at 860px
+- Featured talk: `minmax(0, 0.85fr) minmax(0, 1fr)` — type beside the photograph, the grid's own `padding-left` set to `--column-inset` so the left column lands on the shared line while the right column runs off the page; collapsing at 860px
 - Footer: `minmax(0, 1fr) minmax(0, auto)`, bottom-aligned — collapsing at 860px
 - Project row: `180px minmax(0, 1.4fr) minmax(0, 1fr) auto` — mark plate, name and claim, stack, affordance — collapsing to `156px minmax(0, 1fr)` at 1024px and to one column at 560px
 - Auto-fit grids for repeating content: talks at `minmax(300px, 1fr)`, project paragraphs at `minmax(340px, 1fr)`, project figures at `minmax(360px, 1fr)`
 
-Breakpoints are max-width and there are five: 1024px (a project row drops its stack and affordance under the body, before either column gets too narrow for a Norwegian tech list), 900px (asymmetric grids to single column), 860px (featured talk and footer), 720px (header nav wraps to its own full-width row), 560px (hero actions stack full-width, a project row goes to one column with its bleed widened to the gutter so the paper runs exactly edge to edge).
+Breakpoints are max-width and there are five: 1024px (a project row drops its stack and affordance under the body, before either column gets too narrow for a Norwegian tech list), 900px (asymmetric grids to single column), 860px (the featured talk goes to one column with its photograph ordered last and bled to both viewport edges, and the footer collapses), 720px (header nav wraps to its own full-width row), 560px (hero actions stack full-width, a project row goes to one column with its bleed widened to the gutter so the paper runs exactly edge to edge).
 
-**The Unbroken Column Rule.** A new surface uses `.shell` or reproduces its exact inner edge. Nothing on this site sets its own max-width in px, and no section indents its content past the shared gutter. Every heading on the site starts on that line — `h1`, all four `h2`s, and the `h3`s in both the projects and talks regions — and so does the first register of every row. Nothing is centred rather than ranged, and the only thing extending past the column is a hovered row's paper overhang, which carries no content.
+**The Unbroken Column Rule.** A new surface uses `.shell` or reproduces its exact inner edge. Nothing on this site sets its own max-width in px, and no section indents its content past the shared gutter. Every heading on the site starts on that line — `h1`, all four `h2`s, and the `h3`s in both the projects and talks regions — and so does the first register of every row. Nothing is centred rather than ranged.
+
+Exactly two things extend past the column, and **neither one is type**: a hovered project row's paper overhang, and the talks photograph. A section that needs to break the column without `.shell` reproduces the inner edge with `--column-inset`, `max(var(--gutter), calc((100% - var(--measure)) / 2 + var(--gutter)))` — a percentage, never `vw`, because `vw` counts the scrollbar and would push the page into a horizontal scroll. The talks region declares that token and the featured grid spends it as `padding-left`, which is why the type stays on the line while the picture does not.
 
 **The Norwegian-First Measure Rule.** Norwegian is canonical and is the longer of the two locales. Every measure is set in `ch` and every heading wrap in `ch` with `text-wrap: balance`; no label, button or nav item is given a fixed px width. New surfaces get checked in Norwegian first — if it fits in `no`, it fits in `en`.
 
@@ -299,7 +305,7 @@ Form language is drawn with lines rather than boxes:
 - **2px `signal`** — the underline that marks an inline affordance ("Se foredraget", "Les mer"), sitting 3px below the baseline
 - **Animated rule** — a `linear-gradient` background drawn at `background-size: 100% 1px` and grown to 2px or 8px on hover, so a thickening underline never moves its label. Used by the header's contact link and by a project row's affordance, and the required idiom for any underline that changes weight
 
-The only non-rectangular mark is the 9px signal square beside the hero role line, drawn as an element rather than a glyph. Screenshots live on the project pages, clipped to their real per-image `aspect-ratio`; in the projects region a client logo appears instead, on a small paper plate. Icons are strokes in a 16-unit box; there are no filled shapes.
+The only non-rectangular mark is the 9px signal square beside the hero role line, drawn as an element rather than a glyph. Screenshots live on the project pages, clipped to their real per-image `aspect-ratio`; in the projects region a client logo appears instead, on a small paper plate. The talks photograph is the one image that is not a screenshot or a mark, and it is the one image bounded on three sides rather than four — `border-block` and `border-left` in 1px `rule`, no trailing edge, because a hairline there would draw a box around something that is meant to read as the page running out. Icons are strokes in a 16-unit box; there are no filled shapes.
 
 **The Printed Mark Rule.** Client logos arrive on white grounds — a baked-in white in a JPG, a white `<rect>` in an SVG — and a white rectangle on warm paper is a visible defect. Every logo is rendered with `mix-blend-mode: multiply`, which drops the white into the paper and lets the plate merge into a row that has flipped to paper; where the ground is part of the file it is deleted from the asset as well. A supplied mark also gets cropped to its own bounding box before it ships, so the plate's budget is spent on logo rather than on the file's own margin.
 
@@ -364,7 +370,15 @@ The one region that owns a colour at page scale, and the one place with a meanin
 
 ### Talks Block
 
-Evidence ranked by rule weight rather than by card. The recorded conference talk sits above a 2px ink rule in a `1.5fr / 1fr` grid — headline-scale title at weight 500, mono venue line, description at 56ch, a signal-underlined watch affordance whose arrow travels up-right 2px on hover, and a hairline-separated list of talking points in the narrow column. The two lesser talks sit below on 1px `rule-strong` tops at subtitle scale in an auto-fit grid. Nothing is boxed; the hierarchy is entirely rule weight, type size, and column width.
+Evidence ranked by rule weight rather than by card, and the one region on the site that shows the person rather than the work.
+
+- **Structure.** The heading and lede sit in `.shell`. The featured talk then leaves it: a `0.85fr / 1fr` grid whose `padding-left` is `--column-inset`, so its type starts on the shared column line while its right-hand column runs to the viewport's right edge. The two lesser talks return to `.shell` below, on 1px `rule-strong` tops at subtitle scale in an auto-fit `minmax(300px, 1fr)` grid.
+- **The 2px ink rule spans the full bleed width**, not the column. That is what makes the escape structural instead of accidental: the rule declares a section, the picture then exceeds it, and both read as intended.
+- **Type.** Headline scale at weight 500 capped at 16ch (two lines), mono venue line in uppercase, description at 42ch on `--step-1`, and a signal-underlined watch affordance whose arrow travels up-right 2px on hover and on focus.
+- **The photograph.** One landscape image of Eric presenting at NDC London, at its real ratio on a `paper-deep` ground, hairlined on three sides only, with a mono caption beneath it that stays inside the gutter. The whole block is one link to the recording, the picture included.
+- **Why a photograph earns its place here.** Everywhere else the site refuses decoration, and a stock-feeling portrait would be exactly that. This one is evidence of the same kind as a client logo or a screenshot: it shows the talk happened, in front of a room, at a named conference whose wordmark is in the frame. It is licensed for this region only — a second photograph of the person anywhere on the site turns the first one into styling.
+- **Below 860px** the grid goes to one column, the picture is ordered last so the reader reaches the claim before the proof, and it bleeds to both edges with its side hairlines dropped.
+- **No talking-points list.** The narrow column used to hold three hairline-separated bullets restating what the description already says. The description carries it alone now; a list there would compete with the photograph for the same register.
 
 ### Icons
 
@@ -388,6 +402,7 @@ Two easings and a short duration ladder. `ease` for pure colour changes (140–2
 - **Do** grow a changing underline with `background-size` on a `linear-gradient`, so the label it belongs to never moves.
 - **Do** add new icons as single 1.5-stroke paths in the same 16-unit box in `AppIcon.vue`, `aria-hidden`, with a real text label beside them.
 - **Do** add every new string to both `src/locales/no.ts` and `src/locales/en.ts`.
+- **Do** ship a photograph as an optimized JPEG cut to the ratio it renders at, with `width`/`height` on the element and `loading="lazy"`.
 
 ### Don't:
 
@@ -409,3 +424,6 @@ Two easings and a short duration ladder. `ease` for pure colour changes (140–2
 - **Don't** reintroduce carousel machinery — a track, arrows, a counter, a notion of an active item — for three projects. All three fit on the column at once, and the reader is comparing, not advancing.
 - **Don't** give a label, button, or nav item a fixed px width; Norwegian is the longer locale and it is canonical.
 - **Don't** collapse the mobile header into a hamburger drawer; it wraps to a second full-width row at 720px by design.
+- **Don't** let type cross the column line. A ground may bleed, and two images do; a heading, a label or a paragraph never does.
+- **Don't** compute a bleed from `vw`. `100vw` includes the scrollbar and buys a horizontal scroll on the whole page; derive it from `--column-inset`, which is a percentage.
+- **Don't** add a second photograph of Eric. One is evidence in the talks region; two make the first one decoration, and this system has no decoration.
