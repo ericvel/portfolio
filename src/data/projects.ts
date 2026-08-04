@@ -7,7 +7,8 @@ import habiitLogo from "@/assets/projects/habiit-logo.svg";
 import habiit from "@/assets/projects/habiit.png";
 import type { Project } from "./types";
 
-export const PROJECTS: Project[] = [
+/** Non-empty by type: the ledger, the header menu and the project pager all assume a first entry. */
+export const PROJECTS: [Project, ...Project[]] = [
   {
     id: "asko",
     title: "ASKO Servering",

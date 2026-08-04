@@ -194,7 +194,7 @@ A warm, paper-based palette with exactly one chromatic region and exactly one ac
 
 ### Primary
 
-- **Signal Orange** (`signal`): The action colour, and only the action colour. It fills the hero email button, the project CTA button, the footer address button and the skip link; it draws the 2px underline beneath every inline "read more" / "watch" affordance; it is the focus ring on the ink footer and the `::selection` ground. Ink sits on it at 4.8:1, which is why it can be this saturated — the orange is always the ground, never the text.
+- **Signal Orange** (`signal`): The action colour, and only the action colour. It fills the hero email button, the footer address button and the skip link; it draws the 2px underline beneath every inline "read more" / "watch" affordance and beneath the next-project name at the foot of a project page; it is the focus ring on the ink footer and the `::selection` ground. Ink sits on it at 4.8:1, which is why it can be this saturated — the orange is always the ground, never the text.
 - **Signal Deep** (`signal-deep`): The pressed-down hover state of a signal-filled button on paper, paired with paper text.
 
 ### Secondary
@@ -235,7 +235,7 @@ A warm, paper-based palette with exactly one chromatic region and exactly one ac
 - **Display** (800, `--step-6`, 0.94, -0.035em): The name in the hero and the project title on a detail page. Once per page, capped at 17ch, `text-wrap: balance`.
 - **Headline** (800, `--step-5`, 1, -0.03em): The closing call in the footer, capped at 16ch. The same step is also used at weight 500 with line-height 1.05 for the featured talk title — the only place headline scale appears without display weight.
 - **Title** (500, `--step-4`, -0.025em): Section headings ("Utvalgt arbeid", "Foredrag").
-- **Subtitle** (500, `--step-3`, 1.1, -0.02em): Project row titles and the project-page CTA question.
+- **Subtitle** (500, `--step-3`, 1.1, -0.02em): Project row titles and the next-project name at the foot of a project page.
 - **Lede** (400, `--step-2`, 1.4, `--ink-soft`): The hero lede at 44ch and the project blurb at 42ch. Also the size of the footer's email button label.
 - **Body** (400, `--step-0`, 1.5): Project blurbs, talk descriptions, button labels, quiet links. Long-form project paragraphs step up to `--step-1` at 1.6 and 68ch.
 - **Small** (400 / 500, `--step--1`): Nav links, dropdown items, inline "read more" affordances, image captions, the back link.
@@ -301,7 +301,7 @@ Form language is drawn with lines rather than boxes:
 - **1px `rule`** — divisions inside a region: the header underline, the rule the hero body hangs from, a figure's border, list separators
 - **1px `rule-strong`** — the perimeter of a small object on paper: technology tags, the locale toggle, the dropdown, the secondary-talk top rule
 - **1px `field-rule`** — the same job on the field: the rules between project rows, a technology tag's perimeter there, and a row's resting affordance underline
-- **2px `ink`** — the structural break above something that behaves like a section of its own: the featured talk, the project CTA, the project head's bottom edge
+- **2px `ink`** — the structural break above something that behaves like a section of its own: the featured talk, the project pager, the project head's bottom edge
 - **2px `signal`** — the underline that marks an inline affordance ("Se foredraget", "Les mer"), sitting 3px below the baseline
 - **Animated rule** — a `linear-gradient` background drawn at `background-size: 100% 1px` and grown to 2px or 8px on hover, so a thickening underline never moves its label. Used by the header's contact link and by a project row's affordance, and the required idiom for any underline that changes weight
 
@@ -318,7 +318,7 @@ The only non-rectangular mark is the 9px signal square beside the hero role line
 ### Buttons
 
 - **Shape:** Square, always (0 radius). No borders on filled actions.
-- **Primary action** (`.action`, `.cta__button`, `.footer__mail`): Signal ground with ink text, `16px 32px` padding, weight 500, inline-flex with a 12px gap before an optional arrow icon. On paper it hovers to signal-deep with paper text; on the ink footer it hovers to paper with ink text — in both cases the ground changes and the text follows it. All three lift `translateY(-2px)` on hover and settle to 0 on `:active`, over 180ms.
+- **Primary action** (`.action`, `.footer__mail`): Signal ground with ink text, `16px 32px` padding, weight 500, inline-flex with a 12px gap before an optional arrow icon. On paper it hovers to signal-deep with paper text; on the ink footer it hovers to paper with ink text — in both cases the ground changes and the text follows it. Both lift `translateY(-2px)` on hover and settle to 0 on `:active`, over 180ms. **There are exactly two of these on any page**, the hero's and the footer's, and only the home page carries both.
 - **Focus:** No component defines its own ring except where inversion demands it. The global `:focus-visible` draws `2px solid var(--focus)` at `3px` offset, and `--focus` is whatever the region or state set.
 - **Quiet link** (`.quiet`, `.footer__link`, `.work__more`): No fill. Text over a 1px hairline underline that goes to full contrast on hover; in the projects region the underline also thickens to 2px signal once the row is paper.
 - **Icon buttons:** None. The site has no icon-only control; every icon sits beside a real text label.
@@ -380,6 +380,17 @@ Evidence ranked by rule weight rather than by card, and the one region on the si
 - **Below 860px** the grid goes to one column, the picture is ordered last so the reader reaches the claim before the proof, and it bleeds to both edges with its side hairlines dropped.
 - **No talking-points list.** The narrow column used to hold three hairline-separated bullets restating what the description already says. The description carries it alone now; a list there would compete with the photograph for the same register.
 
+### Project Pager
+
+The foot of a project page, and a deliberate refusal of a second conversion. The page used to close on a signal-filled "Get in touch" button under a "Need something similar built?" question — 96px above a footer that asks for the same email in bigger type, with the same orange button. Two asks that close together do not double the pull; the first one spends the footer's surprise, and the reader has to decide twice about the same thing. The footer is the site's one email action and it is on this page already.
+
+- **What replaces it.** A `<nav>` holding one link to the next project in ledger order, wrapping from the last back to the first, so no project page is a dead end.
+- **Interval.** `clamp(--space-9, 9vw, --space-10)` above the rule against `--space-8` below the pager — the widest gap on the page, roughly twice the one under it. Equal intervals on both sides made the pager read as one more section of the project it closes; the asymmetry is what binds it to the page's exit instead.
+- **Structure.** The same 2px `ink` rule and the same `minmax(0, 1fr) minmax(0, 340px)` split as the project head, collapsing at the same 900px — the surface opens and closes on one structure, and the next project's stack lands in the column where this project's stack was read.
+- **Type.** A small `--step--1` `ink-soft` label, the project name at subtitle scale (500, `--step-3`), and the full technology list as hairline mono chips. No kicker, no "onwards" copy, no restating what the page just said.
+- **State.** The name carries a resting 2px signal underline that grows to 6px, the arrow travels 3px right, and the chips go from `rule-strong`/`ink-soft` to `ink` — one hover, three registers responding, nothing moving. The rest state matters more than the hover here: on touch the hover never fires, so the underline is the only standing evidence the name is a link.
+- **Why the stack repeats here.** The reader arrives at this rule deciding whether one more project is worth the scroll, and stack match is what that decision is made of. It is the same information the ledger row gave them, in the same mono register, which is the point — it answers the question without a second page load.
+
 ### Icons
 
 One set, defined entirely in `AppIcon.vue`: `arrow-right`, `arrow-left`, `arrow-up-right`, `chevron-down`. All four are single paths in a 16-unit viewBox, `stroke-width: 1.5`, `fill: none`, `stroke: currentColor`, rendered at 16px, `aria-hidden` and `focusable="false"` — always decorative, with the adjacent label carrying the meaning. A shared `translateY(-0.5px)` optically aligns them to cap height. Icons animate only as a directional hint on the parent's hover (3px right for `arrow-right`, 2px up-right for `arrow-up-right`), never on their own.
@@ -426,4 +437,5 @@ Two easings and a short duration ladder. `ease` for pure colour changes (140–2
 - **Don't** collapse the mobile header into a hamburger drawer; it wraps to a second full-width row at 720px by design.
 - **Don't** let type cross the column line. A ground may bleed, and two images do; a heading, a label or a paragraph never does.
 - **Don't** compute a bleed from `vw`. `100vw` includes the scrollbar and buys a horizontal scroll on the whole page; derive it from `--column-inset`, which is a percentage.
+- **Don't** put a second email action on a page that already ends on the footer. The footer's address button is the site's one conversion, and it closes every page; an ask stacked directly above it competes with the thing it is copying. A surface that feels like it needs a closer gets navigation or evidence there instead — see Project Pager.
 - **Don't** add a second photograph of Eric. One is evidence in the talks region; two make the first one decoration, and this system has no decoration.

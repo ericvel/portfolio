@@ -60,18 +60,21 @@ export default {
       "så tar vi det derfra.",
   },
   project: {
-    back: "Alle prosjekter",
+    back: "Tilbake",
+    /** Full destination for screen readers — the visible "Tilbake" alone names no target. */
+    backLabel: "Tilbake til forsiden",
     tech: "Teknologier",
     role: "Rolle",
-    ctaTitle: "Trenger du noe liknende bygget?",
-    ctaButton: "Ta kontakt",
+    next: "Neste prosjekt",
+    /** Landmark name for the pager at the foot of a project page. */
+    pagerNav: "Prosjektnavigasjon",
   },
   projects: {
     asko: {
       blurb:
         "Varebøker med titusenvis av varer, tastaturnavigasjon og forutsigbare tilstander — på " +
         "tvers av nettstedet og administrasjonsløsningen Fiks.",
-      role: "Frontendutvikler i produktteam",
+      role: "Lead frontendutvikler",
       /** Short caption for the ledger's lead-row screenshot; the full one is in `captions`. */
       leadCaption: "Bestillingsdetaljer med leveringsstatus",
       body: [
@@ -93,7 +96,7 @@ export default {
       blurb:
         "Aktiviteter for frivillige — planlegging, publisering og påmelding. Universell " +
         "utforming var et krav, ikke et tillegg.",
-      role: "Frontendutvikler",
+      role: "Lead frontendutvikler",
       body: [
         "Mitt Røde Kors samler aktivitetene til de frivillige på ett sted: opprette og publisere " +
           "arrangementer, håndtere påmeldinger, følge opp nye frivillige. Brukerne er tusenvis av " +
