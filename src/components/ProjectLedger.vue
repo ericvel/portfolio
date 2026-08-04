@@ -30,31 +30,36 @@ const ROWS = PROJECTS.map((project) => ({
             :aria-label="`${project.title} — ${t('work.readMore')}`"
             :to="{ name: 'project', params: { id: project.id } }"
           >
-            <!-- The lead row drops the plate: with the mark, the title and the screenshot all
-                 saying the same name, the plate was the third repetition — and its absence is
-                 itself part of what separates the lead row from the two below it. -->
-            <!-- Decorative: the client name is the title immediately beside it. -->
             <span v-if="!project.lead" class="work__mark">
               <img class="work__logo" :src="project.logo" alt="" width="180" height="36" />
             </span>
 
             <div class="work__body">
-              <!-- A heading, not a styled span: the talks below are h3s, and a project
-                   the reader can navigate to belongs in the same outline. -->
               <h3 class="work__title">{{ project.title }}</h3>
               <p class="work__blurb">{{ t(`projects.${project.id}.blurb`) }}</p>
+
+              <!-- Period, role and stack in one register: three facts a buyer reads as one
+                   sentence, so they stop being three columns to cross. -->
+              <div class="work__meta">
+                <span class="work__year mono">
+                  <span class="visually-hidden">{{ t("work.periodLabel") }}: </span>
+                  {{ project.year }}
+                </span>
+                <span class="work__sep mono" aria-hidden="true">·</span>
+                <span class="work__role">{{ t(`projects.${project.id}.role`) }}</span>
+                <ul class="work__stack" role="list" :aria-label="t('work.techLabel')">
+                  <li v-for="item in project.tech" :key="item" class="work__tech mono">
+                    {{ item }}
+                  </li>
+                </ul>
+              </div>
+
+              <span class="work__more">
+                {{ t("work.readMore") }}
+                <AppIcon name="arrow-right" />
+              </span>
             </div>
 
-            <!-- Named, because six bare technology words read as a sentence to a screen
-                 reader and the chip borders that carry the meaning visually are hairlines. -->
-            <ul class="work__stack" role="list" :aria-label="t('work.techLabel')">
-              <li v-for="item in project.tech" :key="item" class="work__tech mono">
-                {{ item }}
-              </li>
-            </ul>
-
-            <!-- Evidence, on the lead row only. It runs at the image's real ratio, the way the
-                 project page runs it, rather than being cropped to a decorative band. -->
             <figure v-if="shot" class="work__figure">
               <img
                 class="work__shot"
@@ -67,18 +72,6 @@ const ROWS = PROJECTS.map((project) => ({
                 {{ t(`projects.${project.id}.leadCaption`) }}
               </figcaption>
             </figure>
-
-            <div class="work__facts">
-              <span class="work__year mono">
-                <span class="visually-hidden">{{ t("work.periodLabel") }}: </span>
-                {{ project.year }}
-              </span>
-              <span class="work__role">{{ t(`projects.${project.id}.role`) }}</span>
-              <span class="work__more">
-                {{ t("work.readMore") }}
-                <AppIcon name="arrow-right" />
-              </span>
-            </div>
           </RouterLink>
         </li>
       </ul>
@@ -90,47 +83,52 @@ const ROWS = PROJECTS.map((project) => ({
 /* The one region that owns a colour at page scale. The field runs edge to edge and
    everything inside it inverts to paper. */
 .work {
-  --row-pad: var(--space-6);
+  --row-pad: var(--space-7);
 
   background: var(--field);
   color: var(--paper);
-  padding-block: var(--space-9);
+  padding-block: clamp(var(--space-9), 10vw, var(--space-10));
   --focus: var(--paper);
 }
 
 .work__heading {
-  margin: 0 0 var(--space-7);
+  margin: 0 0 var(--space-8);
   font-size: var(--step-4);
   font-weight: 500;
   letter-spacing: -0.025em;
 }
 
+/* Two hairlines for three rows rather than four: a rule above the first row and below the
+   last one was drawing a box, and the field's own edges already say where the region ends. */
 .work__list {
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--field-rule);
 }
 
 .work__item {
   border-bottom: 1px solid var(--field-rule);
+
+  &:last-child {
+    border-bottom: 0;
+  }
 }
 
-/* One row per project — body, then the facts register — divided by hairlines rather than
-   boxed. Nothing needs lifting off the field until the reader points at a row, so there is
-   no card here at rest. */
+/* Two registers, not four: the mark, then the entry. Period, role and stack used to be three
+   more columns to cross, and a ledger row a buyer reads in one pass should be one paragraph
+   with a mark beside it. Nothing needs lifting off the field until the reader points at a
+   row, so there is no card here at rest. */
 .work__row {
   --row-secondary: var(--field-soft);
-  --row-chip: var(--field-rule);
   --row-affordance: var(--field-soft);
 
   display: grid;
-  /* Mark, name and claim, stack, facts. */
-  grid-template-columns: 180px minmax(0, 1.4fr) minmax(0, 1fr) 210px;
+  grid-template-columns: 180px minmax(0, 1fr);
   /* Registers start together rather than centring apart: a ledger's whole power is that its
-     columns agree on a row line, which is what makes a stack readable down the page. */
+     columns agree on a row line. */
   align-items: start;
-  gap: var(--space-7);
+  column-gap: var(--space-8);
+  row-gap: var(--space-5);
   /* The paper flip runs 24px past the column edge on both sides, so the type keeps the
      site's unbroken left line while the sheet reads as something slid under the rule. */
   padding: var(--row-pad) var(--space-5);
@@ -147,7 +145,6 @@ const ROWS = PROJECTS.map((project) => ({
   &:hover,
   &:focus-visible {
     --row-secondary: var(--ink-soft);
-    --row-chip: var(--rule-strong);
     --row-affordance: var(--signal);
     --focus: var(--ink);
 
@@ -159,34 +156,15 @@ const ROWS = PROJECTS.map((project) => ({
 /* The lead row: the argument the other two corroborate. It gives its evidence a column of
    its own, so the emphasis is a thing the row does rather than the same row done larger. */
 .work__row--lead {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
-  gap: var(--space-4) var(--space-7);
-  padding-block: var(--space-7);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  padding-block: calc(var(--row-pad) + var(--space-4));
 
   .work__body {
     grid-area: 1 / 1;
   }
 
-  .work__stack {
-    grid-area: 2 / 1;
-  }
-
-  /* The facts sit under the body on the lead row, on a rule of their own, because the
-     right-hand column is spent on the screenshot. */
-  .work__facts {
-    grid-area: 3 / 1;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--space-3) var(--space-6);
-    align-items: baseline;
-    margin-top: var(--space-2);
-    padding-top: var(--space-4);
-    border-top: 1px solid var(--row-chip);
-    transition: border-color 200ms ease;
-  }
-
   .work__figure {
-    grid-area: 1 / 2 / 4 / 3;
+    grid-area: 1 / 2 / 2 / 3;
   }
 
   .work__title {
@@ -204,7 +182,7 @@ const ROWS = PROJECTS.map((project) => ({
 .work__body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-3);
   min-width: 0;
 }
 
@@ -260,23 +238,48 @@ const ROWS = PROJECTS.map((project) => ({
   transition: color 200ms ease;
 }
 
+/* Period, role and stack in one register — two lines rather than three columns. The stack takes
+   a line of its own rather than flowing after the role: a Norwegian six-technology list does not
+   fit beside a dated role at any width the site has, and a divider left hanging at the end of a
+   wrapped line reads as a mistake. */
+.work__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  margin-top: var(--space-1);
+  color: var(--row-secondary);
+  transition: color 200ms ease;
+}
+
+/* Decorative in the markup as well as here: the period and the role are separate elements, so
+   the divider between them is a mark for the eye only. */
+.work__sep {
+  color: inherit;
+}
+
+.work__role {
+  font-size: var(--step--1);
+  font-weight: 500;
+  color: inherit;
+}
+
+/* Named in the markup, because six bare technology words read as a sentence to a screen
+   reader. The chip border is gone: twelve hairline rectangles were the densest ink in the
+   region, and a technology name is content that needs no box to be read as one. */
 .work__stack {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  flex-basis: 100%;
+  gap: var(--space-2) var(--space-3);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .work__tech {
-  padding: 5px 10px;
-  border: 1px solid var(--row-chip);
-  color: var(--row-secondary);
+  color: inherit;
   white-space: nowrap;
-  transition:
-    border-color 200ms ease,
-    color 200ms ease;
 }
 
 .work__figure {
@@ -286,40 +289,19 @@ const ROWS = PROJECTS.map((project) => ({
   gap: var(--space-3);
 }
 
+/* No hairline of its own: the screenshot's own edge against the field is the division, and a
+   border here was one more line in a region that had too many. */
 .work__shot {
   display: block;
   width: 100%;
   /* Deep paper rather than nothing, so a slow image reads as loading instead of as an
      empty rectangle someone meant to fill. */
   background: var(--paper-deep);
-  border: 1px solid var(--row-chip);
-  transition: border-color 200ms ease;
 }
 
 .work__caption {
   color: var(--row-secondary);
   transition: color 200ms ease;
-}
-
-/* Year, role, then the affordance — the three facts a buyer needs before deciding whether
-   the click is worth it. The row itself is the link, so the label is a pointer, not a
-   target of its own. */
-.work__facts {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: var(--space-2);
-}
-
-.work__year {
-  color: var(--row-secondary);
-  transition: color 200ms ease;
-}
-
-.work__role {
-  font-size: var(--step--1);
-  font-weight: 500;
-  line-height: 1.3;
 }
 
 /* Drawn as a background rather than a border so growing it from 1px to 2px never
@@ -329,8 +311,11 @@ const ROWS = PROJECTS.map((project) => ({
 .work__more {
   display: inline-flex;
   align-items: center;
+  /* The affordance sits in the body column now, so it has to hug its own label: stretched to the
+     column it would drag its underline across the whole row. */
+  align-self: start;
   gap: var(--space-2);
-  margin-top: var(--space-1);
+  margin-top: var(--space-5);
   padding-bottom: 5px;
   font-size: var(--step--1);
   font-weight: 500;
@@ -358,57 +343,33 @@ const ROWS = PROJECTS.map((project) => ({
   transform: translate(3px, -0.5px);
 }
 
-/* The facts drop under the body before the columns get too narrow to hold a Norwegian
-   role line on one line. */
-/* The stack and the facts drop under the body before either column gets too narrow to hold
-   a Norwegian tech list or role line on one line. */
 @media (max-width: 1024px) {
   .work__row {
     /* 172px, not 156: the plate's inline padding comes off the column, and a 4.4:1 wordmark
        needs 156px of content left over or it goes width-bound and lands short of the others. */
     grid-template-columns: 172px minmax(0, 1fr);
-    gap: var(--space-4) var(--space-6);
+    column-gap: var(--space-6);
   }
 
-  .work__body,
-  .work__stack,
-  .work__facts {
-    grid-column: 2;
-  }
-
-  .work__facts {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--space-3) var(--space-6);
-    align-items: baseline;
-    margin-top: var(--space-1);
-  }
-
+  /* The screenshot goes last on a single column: the reader should reach the claim and the
+     stack before the evidence, not scroll past a picture to find them. */
   .work__row--lead {
     grid-template-columns: minmax(0, 1fr);
 
     .work__body,
-    .work__stack,
-    .work__facts,
     .work__figure {
       grid-area: auto / 1;
     }
 
-    /* The screenshot goes last on a single column: the reader should reach the claim and
-       the stack before the evidence, not scroll past a picture to find them. */
     .work__figure {
       order: 3;
-    }
-
-    .work__facts {
-      order: 4;
     }
   }
 }
 
 @media (max-width: 560px) {
   .work {
-    --row-pad: var(--space-5);
+    --row-pad: var(--space-6);
   }
 
   .work__row {
@@ -420,12 +381,6 @@ const ROWS = PROJECTS.map((project) => ({
     /* The row is now as wide as the viewport, so an outset ring would draw its vertical
        sides off-screen. Inset keeps all four edges of the indicator visible. */
     outline-offset: -3px;
-  }
-
-  .work__body,
-  .work__stack,
-  .work__facts {
-    grid-column: 1;
   }
 
   .work__row--lead .work__blurb {
