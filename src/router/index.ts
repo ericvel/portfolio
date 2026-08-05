@@ -17,7 +17,9 @@ const router = createRouter({
   ],
   scrollBehavior(to) {
     if (to.hash) return { el: to.hash, behavior: "smooth" };
-    return { top: 0 };
+    // Explicitly instant: the global `scroll-behavior: smooth` would otherwise
+    // animate the jump to top, which reads as latency on a route change.
+    return { top: 0, behavior: "instant" };
   },
 });
 
