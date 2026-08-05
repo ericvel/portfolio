@@ -64,6 +64,13 @@
 
   --focus: var(--ink);
 
+  /* Motion. Two curves, both written where they are spent: plain `ease` for small colour
+     changes, and cubic-bezier(0.16, 1, 0.3, 1) for anything that moves, grows, or answers a
+     pointer — quick off the mark and settling at the end, so a state change reads as a response
+     rather than as an animation. A third token used to live here, sine-in-out, for a state large
+     enough that a curve starting at speed would have read as a flash. Nothing changes that much
+     area now, and a slow-starting curve on a small change reads as lag rather than as weight. */
+
   --font-display: "Cabinet Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Martian Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
@@ -129,6 +136,12 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    /* Delays go with the durations. A state assembled from several properties on one clock —
+       the project row's ground, ink, underline and arrow — would otherwise land whichever parts
+       carry no delay and hold the rest back, taking a change that reads as one gesture apart
+       into pieces. Clamped here, the whole state arrives at once, which is what reduced motion
+       asks for. */
+    transition-delay: 0s !important;
   }
 }
 
