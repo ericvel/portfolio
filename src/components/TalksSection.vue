@@ -18,21 +18,20 @@ const { t } = useI18n();
            sits above a 2px ink rule with the claim on the column line and the photograph in
            the register beside it — both ending on the column's far edge, so nothing here
            crosses the line the rest of the page is ranged against. -->
-      <a
-        class="featured"
-        :aria-label="`The New Frontend Toolkit — ${t('talks.watch')}`"
-        href="https://www.youtube.com/watch?v=rjMwM7--9cA"
-        target="_blank"
-        rel="noopener"
-      >
+      <div class="featured">
         <div class="featured__main">
           <h3 class="featured__title">The New Frontend Toolkit</h3>
           <p class="featured__meta mono">NDC London 2026 · {{ t("talks.ndc.meta") }}</p>
           <p class="featured__desc">{{ t("talks.ndc.desc") }}</p>
-          <span class="featured__watch">
+          <a
+            class="featured__watch"
+            href="https://www.youtube.com/watch?v=rjMwM7--9cA"
+            target="_blank"
+            rel="noopener"
+          >
             {{ t("talks.watch") }}
             <AppIcon name="arrow-up-right" />
-          </span>
+          </a>
         </div>
 
         <figure class="featured__figure">
@@ -46,24 +45,23 @@ const { t } = useI18n();
           />
           <figcaption class="featured__caption mono">{{ t("talks.ndc.photoCaption") }}</figcaption>
         </figure>
-      </a>
+      </div>
 
       <div class="talks__grid">
-        <a
-          class="talk"
-          aria-label="Customizable select components — Framsia, Oslo (Meetup)"
-          href="https://www.meetup.com/framsia/events/313652618/"
-          target="_blank"
-          rel="noopener"
-        >
+        <div class="talk">
           <h3 class="talk__title">Customizable select components</h3>
           <p class="talk__meta mono">Framsia, Oslo</p>
           <p class="talk__desc">{{ t("talks.framsia.desc") }}</p>
-          <span class="talk__link">
+          <a
+            class="talk__link"
+            href="https://www.meetup.com/framsia/events/313652618/"
+            target="_blank"
+            rel="noopener"
+          >
             Meetup
             <AppIcon name="arrow-up-right" />
-          </span>
-        </a>
+          </a>
+        </div>
 
         <div class="talk talk--static">
           <h3 class="talk__title">{{ t("talks.inhouse.title") }}</h3>
@@ -112,10 +110,6 @@ const { t } = useI18n();
   align-items: start;
   padding-top: var(--space-6);
   border-top: 2px solid var(--ink);
-
-  &:hover .featured__title {
-    text-decoration: underline;
-  }
 }
 
 .featured__main {
@@ -162,8 +156,10 @@ const { t } = useI18n();
   border-bottom: 2px solid var(--signal);
 }
 
-.featured:hover .featured__watch :deep(.icon),
-.talk:hover .talk__link :deep(.icon) {
+.featured__watch:hover :deep(.icon),
+.featured__watch:focus-visible :deep(.icon),
+.talk__link:hover :deep(.icon),
+.talk__link:focus-visible :deep(.icon) {
   transform: translate(2px, -2.5px);
 }
 
@@ -208,10 +204,6 @@ const { t } = useI18n();
   align-items: flex-start;
   padding-top: var(--space-5);
   border-top: 1px solid var(--rule-strong);
-
-  &:not(.talk--static):hover .talk__title {
-    text-decoration: underline;
-  }
 }
 
 .talk__title {

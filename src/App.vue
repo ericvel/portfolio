@@ -7,6 +7,7 @@ import { findProject } from "@/data/projects";
 
 const { t } = useI18n();
 const route = useRoute();
+const titleSeparator = "|";
 
 /**
  * Title and description are owned here rather than in a router hook because they have
@@ -17,7 +18,9 @@ const route = useRoute();
 watchEffect(() => {
   const project = route.name === "project" ? findProject(String(route.params.id)) : undefined;
 
-  document.title = project ? t("meta.titleProject", { project: project.title }) : t("meta.title");
+  document.title = project
+    ? t("meta.titleProject", { project: project.title, separator: titleSeparator })
+    : t("meta.title", { separator: titleSeparator });
 
   document
     .querySelector('meta[name="description"]')
