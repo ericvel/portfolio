@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { RouterLink } from "vue-router";
 import AppIcon from "@/components/AppIcon.vue";
@@ -8,81 +8,44 @@ import { PROJECTS } from "@/data/projects";
 
 const { t } = useI18n();
 
-const menuOpen = ref(false);
-const menu = ref<HTMLElement | null>(null);
-const trigger = ref<HTMLButtonElement | null>(null);
+const projectsMenu = ref<HTMLElement | null>(null);
 
-function close() {
-  menuOpen.value = false;
+function closeProjectsMenu() {
+  projectsMenu.value?.hidePopover();
 }
-
-function onPointerDown(event: MouseEvent) {
-  if (menuOpen.value && !menu.value?.contains(event.target as Node)) close();
-}
-
-/**
- * Escape is bound to the document rather than the nav: the menu also opens on hover,
- * so a pointer user can have it open with focus nowhere near it. WCAG 1.4.13 wants
- * that dismissible without moving the pointer. Focus only returns to the trigger when
- * it was already inside the menu — otherwise Escape would yank focus across the page.
- */
-function onKeydown(event: KeyboardEvent) {
-  if (event.key !== "Escape" || !menuOpen.value) return;
-  const focusWasInside = menu.value?.contains(document.activeElement);
-  close();
-  if (focusWasInside) trigger.value?.focus();
-}
-
-onMounted(() => {
-  document.addEventListener("mousedown", onPointerDown);
-  document.addEventListener("keydown", onKeydown);
-});
-
-onBeforeUnmount(() => {
-  document.removeEventListener("mousedown", onPointerDown);
-  document.removeEventListener("keydown", onKeydown);
-});
 </script>
 
 <template>
   <header class="header">
     <div class="header__shell shell">
-      <RouterLink class="logo" :to="{ name: 'home' }">Eric Veliyulin</RouterLink>
+      <RouterLink view-transition class="logo" :to="{ name: 'home' }"> Eric Veliyulin </RouterLink>
 
       <nav class="nav">
-        <div
-          ref="menu"
-          class="menu"
-          @mouseenter="menuOpen = true"
-          @mouseleave="close"
-          @focusout="menuOpen && !menu?.contains($event.relatedTarget as Node) && close()"
-        >
-          <button
-            ref="trigger"
-            type="button"
-            class="menu__trigger nav__link"
-            :aria-expanded="menuOpen"
-            aria-controls="projects-menu"
-            @click="menuOpen = !menuOpen"
-          >
+        <div class="menu">
+          <button type="button" class="menu__trigger nav__link" popovertarget="projects-menu">
             {{ t("nav.projects") }}
-            <span class="menu__caret" :class="{ 'menu__caret--open': menuOpen }">
+            <span class="menu__caret">
               <AppIcon name="chevron-down" />
             </span>
           </button>
-          <div class="menu__anchor" :class="{ 'menu__anchor--open': menuOpen }">
-            <ul id="projects-menu" class="menu__list" :aria-label="t('nav.projectsMenu')">
-              <li v-for="project in PROJECTS" :key="project.id">
-                <RouterLink
-                  class="menu__item"
-                  :to="{ name: 'project', params: { id: project.id } }"
-                  @click="close"
-                >
-                  {{ project.title }}
-                </RouterLink>
-              </li>
-            </ul>
-          </div>
+          <ul
+            id="projects-menu"
+            ref="projectsMenu"
+            class="menu__list"
+            popover="auto"
+            :aria-label="t('nav.projectsMenu')"
+          >
+            <li v-for="project in PROJECTS" :key="project.id">
+              <RouterLink
+                view-transition
+                class="menu__item"
+                :to="{ name: 'project', params: { id: project.id } }"
+                @click="closeProjectsMenu"
+              >
+                {{ project.title }}
+              </RouterLink>
+            </li>
+          </ul>
         </div>
 
         <RouterLink class="nav__link" :to="{ name: 'home', hash: '#foredrag' }">
@@ -158,11 +121,8 @@ onBeforeUnmount(() => {
   }
 }
 
-.menu {
-  position: relative;
-}
-
 .menu__trigger {
+  anchor-name: --projects-menu-trigger;
   appearance: none;
   background: none;
   border: 0;
@@ -176,25 +136,16 @@ onBeforeUnmount(() => {
   transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.menu__caret--open {
+.menu:has(.menu__list:popover-open) .menu__caret {
   transform: rotate(180deg);
 }
 
-.menu__anchor {
-  position: absolute;
-  top: 100%;
-  left: calc(var(--space-5) * -1);
-  z-index: 10;
-  padding-top: var(--space-4);
-  display: none;
-}
-
-.menu__anchor--open {
-  display: block;
-}
-
 .menu__list {
-  display: flex;
+  position: fixed;
+  position-anchor: --projects-menu-trigger;
+  inset: auto;
+  top: calc(anchor(bottom) + var(--space-4));
+  left: calc(anchor(left) - var(--space-5));
   flex-direction: column;
   min-width: 232px;
   margin: 0;
@@ -203,6 +154,35 @@ onBeforeUnmount(() => {
   background: var(--paper);
   border: 1px solid var(--rule-strong);
   box-shadow: 0 14px 30px -14px rgb(23 24 26 / 26%);
+  clip-path: inset(0 0 100% 0);
+  animation: projects-menu-out 140ms cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.menu__list:popover-open {
+  display: flex;
+  animation: projects-menu-in 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes projects-menu-in {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes projects-menu-out {
+  from {
+    display: flex;
+    clip-path: inset(0);
+  }
+
+  to {
+    display: none;
+    clip-path: inset(0 0 100% 0);
+  }
 }
 
 .menu__item {

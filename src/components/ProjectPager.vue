@@ -22,7 +22,11 @@ const next = computed(() => {
        reader here has finished one piece of evidence and is comparing; navigation is the
        thing the footer does not already do. -->
   <nav class="pager" :aria-label="t('project.pagerNav')">
-    <RouterLink class="pager__link" :to="{ name: 'project', params: { id: next.id } }">
+    <RouterLink
+      view-transition
+      class="pager__link"
+      :to="{ name: 'project', params: { id: next.id } }"
+    >
       <span class="pager__lead">
         <span class="pager__label">{{ t("project.next") }}</span>
         <span class="pager__name">
