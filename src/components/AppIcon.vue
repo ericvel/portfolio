@@ -17,14 +17,7 @@ defineProps<{ name: IconName }>();
 </script>
 
 <template>
-  <svg
-    class="icon"
-    viewBox="0 0 16 16"
-    width="16"
-    height="16"
-    aria-hidden="true"
-    focusable="false"
-  >
+  <svg class="icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
     <path :d="PATHS[name]" fill="none" stroke="currentColor" stroke-width="1.5" />
   </svg>
 </template>
