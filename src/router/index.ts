@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { findProject } from "@/data/projects";
 import HomeView from "@/views/HomeView.vue";
+import { setRouteMotion } from "./routeMotion";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,12 +16,22 @@ const router = createRouter({
     },
     { path: "/:pathMatch(.*)*", redirect: "/" },
   ],
-  scrollBehavior(to) {
-    if (to.hash) return { el: to.hash, behavior: "smooth" };
-    // Explicitly instant: the global `scroll-behavior: smooth` would otherwise
-    // animate the jump to top, which reads as latency on a route change.
+  scrollBehavior(to, from) {
+    if (to.hash === "#foredrag") {
+      return {
+        el: "#foredrag",
+        top: document.querySelector<HTMLElement>(".header")?.offsetHeight ?? 0,
+        behavior:
+          from.name === "home" && !matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "smooth"
+            : "instant",
+      };
+    }
+
     return { top: 0, behavior: "instant" };
   },
 });
+
+router.beforeEach((to, from) => setRouteMotion(to, from));
 
 export default router;

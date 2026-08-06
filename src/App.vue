@@ -17,9 +17,7 @@ const route = useRoute();
 watchEffect(() => {
   const project = route.name === "project" ? findProject(String(route.params.id)) : undefined;
 
-  document.title = project
-    ? t("meta.titleProject", { project: project.title })
-    : t("meta.title");
+  document.title = project ? t("meta.titleProject", { project: project.title }) : t("meta.title");
 
   document
     .querySelector('meta[name="description"]')

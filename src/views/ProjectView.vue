@@ -38,6 +38,7 @@ const figures = computed(() => {
   <main v-if="project && copy" id="innhold" class="project">
     <div class="project__shell shell">
       <RouterLink
+        view-transition
         class="project__back"
         :to="{ name: 'home' }"
         :aria-label="t('project.backLabel')"

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
+import { RouterLink } from "vue-router";
 import AppIcon from "@/components/AppIcon.vue";
 import { PROJECTS } from "@/data/projects";
 
@@ -13,7 +14,7 @@ const ROWS = PROJECTS.map((project) => ({
 </script>
 
 <template>
-  <section id="prosjekter" class="work" aria-labelledby="prosjekter-tittel">
+  <section class="work" aria-labelledby="prosjekter-tittel">
     <div class="shell">
       <h2 id="prosjekter-tittel" class="work__heading">{{ t("work.heading") }}</h2>
 
@@ -25,6 +26,7 @@ const ROWS = PROJECTS.map((project) => ({
           :class="{ 'work__item--lead': project.lead }"
         >
           <RouterLink
+            view-transition
             class="work__row"
             :class="{ 'work__row--lead': project.lead }"
             :aria-label="`${project.title} — ${t('work.readMore')}`"
@@ -439,7 +441,6 @@ const ROWS = PROJECTS.map((project) => ({
 .work__row:focus-visible .work__more :deep(.icon) {
   transform: translate(3px, -0.5px);
 }
-
 
 @media (max-width: 1024px) {
   /* The screenshot goes last on a single column: the reader should reach the claim and the
