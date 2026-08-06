@@ -13,8 +13,8 @@ export default {
     stackLabel: "Technologies in production",
   },
   meta: {
-    title: "Eric Veliyulin - Frontend dev",
-    titleProject: "Eric Veliyulin — {project}",
+    title: "Eric Veliyulin {separator} Frontend dev",
+    titleProject: "Eric Veliyulin {separator} {project}",
     description:
       "Freelance frontend specialist. React, Vue and TypeScript, with test coverage and " +
       "accessibility as standard. Projects for ASKO, Røde Kors and Habiit.",
