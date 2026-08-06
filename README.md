@@ -1,48 +1,38 @@
-# vue-project
+# Portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+My portfolio as a freelance frontend specialist. It showcases selected client work, talks, and the technologies I use.
 
-## Recommended IDE Setup
+Built with Vue 3, TypeScript, Vite, Vue Router, Vue I18n, and SCSS.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Design
 
-## Recommended Browser Setup
+I used the **Impeccable** skill to shape and refine the interface, including its visual hierarchy, typography, accessibility, motion, and responsive behavior.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+See [`DESIGN.md`](./DESIGN.md) for the design system and [`PRODUCT.md`](./PRODUCT.md) for the product goals.
 
-## Type Support for `.vue` Imports in TS
+## Features
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- Project case studies with screenshots and technical details
+- Norwegian and English content
+- Responsive, keyboard-accessible interface
+- Visible focus states and reduced-motion support
+- Self-hosted fonts and local assets
 
-## Customize configuration
+## Run locally
 
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+Requires Node.js `^22.18.0` or `>=24.12.0`.
 
 ```sh
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+## Commands
 
 ```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+npm run build       # Type-check and build
+npm run preview     # Preview the build
+npm run type-check  # Run Vue and TypeScript checks
+npm run lint        # Run Oxlint and ESLint
+npm run format      # Format src/
 ```
