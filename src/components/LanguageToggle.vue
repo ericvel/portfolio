@@ -36,6 +36,8 @@ const LOCALES: { value: Locale; label: string }[] = [
 
 .option {
   appearance: none;
+  min-width: 44px;
+  min-height: 44px;
   border: 0;
   cursor: pointer;
   padding: 7px 10px;

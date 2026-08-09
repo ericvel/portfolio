@@ -10,7 +10,12 @@ export default {
     eyebrow: "Frontendspesialist · frilans",
     title: "Frontend er faget mitt.",
     lede: "Fem år med React, Vue og TypeScript. Testdekning og tilgjengelighet som standard.",
-    stackLabel: "Teknologier i produksjon",
+    proofProductionLabel: "Produksjon",
+    proofProduction: "ASKO · Røde Kors",
+    proofExpertiseLabel: "Faglig",
+    proofExpertise: "NDC London 2026",
+    contact: "Ta kontakt om oppdrag",
+    copyEmail: "Kopier {email}",
   },
   meta: {
     title: "Eric Veliyulin {separator} Frontend dev",
