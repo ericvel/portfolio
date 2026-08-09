@@ -23,7 +23,7 @@ export default {
     copyFailure: "Kunne ikke kopiere — marker adressen.",
   },
   meta: {
-    title: "Eric Veliyulin {separator} Frontend dev",
+    title: "Eric Veliyulin {separator} Frontendspesialist",
     titleProject: "Eric Veliyulin {separator} {project}",
     description:
       "Frontendspesialist på frilans. React, Vue og TypeScript, med testdekning og " +

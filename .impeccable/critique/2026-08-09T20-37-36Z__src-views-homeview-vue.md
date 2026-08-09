@@ -107,7 +107,6 @@ Bold claim creates confidence; proof rail reassures; ASKO becomes evidence peak;
 ## Minor Observations
 
 - Mobile Projects popover is about 230×153 and covers part of the hero headline while open. Acceptable temporary overlay, visually abrupt.
-- Browser title says “Frontend dev” in Norwegian while canonical product title is “frontendspesialist.”
 - Current field-soft contrast is strong. Stack issue is hierarchy and size, not contrast.
 - Visible V badge during review came from Vite development tooling, not product UI.
 
