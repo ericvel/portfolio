@@ -9,7 +9,9 @@ export default {
   hero: {
     eyebrow: "Frontend specialist · freelance",
     title: "Frontend that holds up in the real world.",
-    lede: "Five years of React, Vue and TypeScript. Test coverage and accessibility as standard.",
+    lede:
+      "Five years of React, Vue and TypeScript. Test coverage and accessibility as standard. " +
+      "I take on engagements solo or embedded in a team.",
     proofProductionLabel: "Production",
     proofProduction: "ASKO · Røde Kors",
     proofExpertiseLabel: "Expertise",
@@ -65,9 +67,7 @@ export default {
   },
   cta: {
     title: "Get in touch about work",
-    lede:
-      "I take freelance work as a frontend specialist, solo or embedded in a team. Send an " +
-      "email and we'll take it from there.",
+    lede: "Send an email and we'll take it from there.",
   },
   project: {
     back: "Back",

@@ -206,6 +206,10 @@ function closeProjectsMenu() {
 }
 
 @media (max-width: 720px) {
+  .header {
+    position: static;
+  }
+
   .header__shell {
     grid-template-columns: minmax(0, 1fr) auto;
     row-gap: var(--space-2);

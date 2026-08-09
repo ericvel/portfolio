@@ -47,13 +47,13 @@ const ROWS = PROJECTS.map((project) => ({
                 </span>
                 <span class="work__sep mono" aria-hidden="true">·</span>
                 <span class="work__role">{{ t(`projects.${project.id}.role`) }}</span>
-                <span v-if="!project.lead" class="work__sep mono" aria-hidden="true">·</span>
-                <ul class="work__stack" role="list" :aria-label="t('work.techLabel')">
-                  <li v-for="item in project.tech" :key="item" class="work__tech mono">
-                    {{ item }}
-                  </li>
-                </ul>
               </div>
+
+              <ul class="work__stack mono" role="list" :aria-label="t('work.techLabel')">
+                <li v-for="item in project.tech" :key="item" class="work__tech">
+                  {{ item }}
+                </li>
+              </ul>
 
               <span class="work__more">
                 {{ t("work.readMore") }}
@@ -247,13 +247,6 @@ const ROWS = PROJECTS.map((project) => ({
     line-height: 1.4;
   }
 
-  /* Six technologies do not fit beside a dated role at any width this site has, so the lead
-     row's stack keeps its own line. A three-technology line does fit, which is why the
-     corroborating rows no longer break. */
-  .work__stack {
-    flex-basis: 100%;
-  }
-
   .work__more {
     align-self: start;
     margin-top: var(--space-5);
@@ -266,7 +259,8 @@ const ROWS = PROJECTS.map((project) => ({
   grid-template-areas:
     "title more"
     "blurb more"
-    "meta more";
+    "meta more"
+    "stack more";
   gap: var(--space-2) var(--space-6);
   min-width: 0;
 }
@@ -342,10 +336,8 @@ const ROWS = PROJECTS.map((project) => ({
   transition: color var(--answer) var(--ease-row);
 }
 
-/* Period, role and stack in one register rather than three columns. On a corroborating line all
-   three read as one sentence — 2021–2023 · Lead frontendutvikler · React Next.js Tailwind CSS —
-   which is what keeps the row one line tall. The lead row's six-technology list does not fit
-   beside a dated role at any width the site has, so it alone breaks to a second line. */
+/* Period and role stay quiet context. Stack match is the buyer's decision evidence, so it gets
+   a readable line of its own immediately below rather than disappearing into this metadata. */
 .work__meta {
   grid-area: meta;
   display: flex;
@@ -373,16 +365,18 @@ const ROWS = PROJECTS.map((project) => ({
    reader. The chip border is gone: twelve hairline rectangles were the densest ink in the
    region, and a technology name is content that needs no box to be read as one. */
 .work__stack {
+  grid-area: stack;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2) var(--space-3);
-  margin: 0;
+  margin: var(--space-1) 0 0;
   padding: 0;
   list-style: none;
+  font-size: var(--step--1);
+  line-height: 1.5;
 }
 
 .work__tech {
-  color: inherit;
   white-space: nowrap;
 }
 
