@@ -8,7 +8,7 @@ export default {
   },
   hero: {
     eyebrow: "Frontend specialist · freelance",
-    title: "Frontend is my trade.",
+    title: "Frontend that holds up in the real world.",
     lede: "Five years of React, Vue and TypeScript. Test coverage and accessibility as standard.",
     proofProductionLabel: "Production",
     proofProduction: "ASKO · Røde Kors",

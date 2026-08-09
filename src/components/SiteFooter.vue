@@ -1,7 +1,24 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { useI18n } from "vue-i18n";
+import AppIcon from "@/components/AppIcon.vue";
+import { useClipboard } from "@/composables/useClipboard";
 
+const EMAIL = "eric.vel@outlook.com";
 const { t } = useI18n();
+const { copy: copyEmail, copyState } = useClipboard(EMAIL);
+
+const copyStatus = computed(() => {
+  if (copyState.value === "copied") return t("hero.copySuccess");
+  if (copyState.value === "failed") return t("hero.copyFailure");
+  return "";
+});
+
+const copyButtonLabel = computed(() => {
+  if (copyState.value === "copied") return t("hero.copySuccess");
+  if (copyState.value === "failed") return t("hero.copyRetryLabel");
+  return t("hero.copyEmail", { email: EMAIL });
+});
 </script>
 
 <template>
@@ -13,7 +30,23 @@ const { t } = useI18n();
       </div>
 
       <div class="footer__act">
-        <a class="footer__mail" href="mailto:eric.vel@outlook.com">eric.vel@outlook.com</a>
+        <div class="footer__email-tools">
+          <a class="footer__mail" :href="`mailto:${EMAIL}`">{{ EMAIL }}</a>
+          <button
+            type="button"
+            class="footer__copy"
+            :aria-label="copyButtonLabel"
+            @click="copyEmail"
+          >
+            <AppIcon :name="copyState === 'copied' ? 'check' : 'copy'" />
+          </button>
+          <span class="visually-hidden" role="status" aria-live="polite" aria-atomic="true">
+            {{ copyStatus }}
+          </span>
+          <span v-if="copyState === 'failed'" class="footer__copy-recovery">
+            {{ t("hero.copyFailure") }}
+          </span>
+        </div>
         <div class="footer__links">
           <a class="footer__link" href="https://github.com/ericvel" target="_blank" rel="noopener">
             GitHub
@@ -75,6 +108,14 @@ const { t } = useI18n();
   gap: var(--space-5);
 }
 
+.footer__email-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  max-width: 100%;
+}
+
 .footer__mail {
   display: inline-block;
   padding: var(--space-4) var(--space-6);
@@ -84,6 +125,7 @@ const { t } = useI18n();
   font-weight: 500;
   letter-spacing: -0.015em;
   word-break: break-word;
+  user-select: text;
   transition:
     background 180ms ease,
     transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -96,6 +138,33 @@ const { t } = useI18n();
   &:active {
     transform: translateY(0);
   }
+}
+
+.footer__copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  min-height: 44px;
+  border: 0;
+  color: var(--paper-soft);
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    background 160ms ease;
+
+  &:hover {
+    background: var(--ink-rule);
+    color: var(--paper);
+  }
+}
+
+.footer__copy-recovery {
+  flex-basis: 100%;
+  color: var(--paper-soft);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  line-height: 1.4;
 }
 
 .footer__links {
