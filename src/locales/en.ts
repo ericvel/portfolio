@@ -10,7 +10,12 @@ export default {
     eyebrow: "Frontend specialist · freelance",
     title: "Frontend is my trade.",
     lede: "Five years of React, Vue and TypeScript. Test coverage and accessibility as standard.",
-    stackLabel: "Technologies in production",
+    proofProductionLabel: "Production",
+    proofProduction: "ASKO · Røde Kors",
+    proofExpertiseLabel: "Expertise",
+    proofExpertise: "NDC London 2026",
+    contact: "Get in touch about work",
+    copyEmail: "Copy {email}",
   },
   meta: {
     title: "Eric Veliyulin {separator} Frontend dev",

@@ -79,6 +79,9 @@ function closeProjectsMenu() {
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-size: var(--step-1);
   font-weight: 500;
   letter-spacing: -0.015em;
@@ -95,6 +98,7 @@ function closeProjectsMenu() {
 .nav__link {
   display: inline-flex;
   align-items: center;
+  min-height: 44px;
   gap: var(--space-2);
   color: var(--ink-soft);
   transition: color 160ms ease;
@@ -107,6 +111,9 @@ function closeProjectsMenu() {
 /* The one persistent action in the chrome. The rule under it grows on hover rather
    than the label changing colour, so the target never shifts. */
 .nav__contact {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--ink);
   font-weight: 500;
   padding-bottom: 3px;

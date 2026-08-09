@@ -80,6 +80,7 @@ components:
     typography: "{typography.body}"
     rounded: "{rounded.none}"
     padding: "16px 32px"
+    height: "56px"
   action-primary-hover:
     backgroundColor: "{colors.signal-deep}"
     textColor: "{colors.paper}"
@@ -178,6 +179,7 @@ Density is generous between regions and deliberately uneven inside the projects 
 **Key Characteristics:**
 
 - One unbroken left column edge, `--measure` 1240px wide inside a fluid `--gutter`, shared by every section — the projects region's ground runs to the viewport edges, but its heading, its rules and each row's first register all start on the column
+- The hero answers fit before asking for contact: title, freelance role and lede lead into a full-width two-cell proof rail naming ASKO, Røde Kors and NDC London 2026, then the inquiry row
 - Three region grounds — paper, green field, ink — each flipping text colour with it
 - One lead project row that argues and two that corroborate — the lead trades its mark plate for a screenshot and takes three times the height, and those two trades are the whole of the hierarchy
 - A project row is two registers, a mark and an entry: period, role and technologies read as one mono meta line under the claim rather than as columns of their own, and no technology on the field wears a box
@@ -212,7 +214,7 @@ A warm, paper-based palette with exactly one chromatic region and exactly one ac
 - **Muted Paper** (`paper-soft`): Secondary text on the ink footer at 7.1:1 — warm-tinted so it never reads as gray.
 - **Ink** (`ink`): Primary text on paper, the footer ground, the active locale button ground, the text colour on every signal fill, and the 2px structural rule above a section-defining element.
 - **Soft Ink** (`ink-soft`): All secondary text on paper — ledes, blurbs, body paragraphs, mono labels, captions, resting nav links. 6.8:1 on paper.
-- **Hairline** (`rule`): The default 1px divider on paper: header underline, hero body top rule, image borders, list separators.
+- **Hairline** (`rule`): The default 1px divider on paper: header underline, the hero proof rail's mobile cell separator, image borders, list separators.
 - **Strong Hairline** (`rule-strong`): The 1px border that reads as an edge rather than a division — technology tags, the locale toggle frame, the dropdown border, the secondary-talk top rule, quiet link underlines.
 - **Ink Hairline** (`ink-rule`): The underline beneath quiet links on the ink footer.
 
@@ -259,13 +261,13 @@ Everything hangs off one primitive. `.shell` is `width: 100%; max-width: var(--m
 
 The projects region is the one place where a ground breaks the column, and only the ground: the field runs to the viewport edges while the section heading, the row rules and each row's first register all start on the shared column line. Inside a row the remaining columns are registers hanging off that line, the way the facts rail does on a project page — a register is not a column break. A hovered row extends its paper 24px past the column on both sides (the gutter's width, at mobile widths), so the sheet reads as something slid under the rules rather than as a box drawn around the text. That overhang carries no content.
 
-Sections are separated by vertical rhythm, not by dividers: `--space-9` (96px) padding-block on the talks and footer regions, `clamp(--space-9, 10vw, --space-10)` on the projects region, which is the one region whose air had to be bought rather than inherited; the hero opens on `clamp(--space-8, 9vw, --space-10)`. Inside a region, 64px separates the two halves of a grid and is also the gap between the lead project row's two registers, 32px is the gap between a corroborating row's, 24px is a control group's gap and a project row's row-gap, and 16px/12px/8px handle label-to-value spacing.
+Sections are separated by vertical rhythm, not by dividers: `--space-9` (96px) padding-block on the talks and footer regions, `clamp(--space-9, 10vw, --space-10)` on the projects region, which is the one region whose air had to be bought rather than inherited; the hero uses `clamp(--space-7, 7vw, --space-9)` above its title and `--space-8` below its contact row so the green project field enters the fold. Inside a region, 64px separates the two halves of a grid and is also the gap between the lead project row's two registers, 32px is the gap between a corroborating row's, 24px is a control group's gap and a project row's row-gap, and 16px/12px/8px handle label-to-value spacing.
 
 The projects region runs on two row rhythms, declared as two tokens on the region rather than as scattered overrides: `--row-pad` (48px, `--space-6` below 560px) is the lead row's, spent as `calc(--row-pad + --space-6)` for 80px of padding-block, and `--line-pad` (24px) is a corroborating row's. A new row type picks one of the two; it does not invent a third number.
 
 Grids are two-column asymmetric and collapse to one:
 
-- Hero body: `minmax(0, 1fr) minmax(0, 0.85fr)` — lede+actions beside the technology strip — collapsing at 900px
+- Hero proof rail: `repeat(2, minmax(0, 1fr))` — equal Production and Expertise cells across the full column, stacking to one column at 560px with a horizontal separator
 - Project detail head: `minmax(0, 1fr) minmax(0, 340px)` — title+blurb beside the facts rail — collapsing at 900px
 - Featured talk: `minmax(0, 0.85fr) minmax(0, 1fr)` — type beside the photograph, the grid's own `padding-left` set to `--column-inset` so the left column lands on the shared line while the right column runs off the page; collapsing at 860px
 - Footer: `minmax(0, 1fr) minmax(0, auto)`, bottom-aligned — collapsing at 860px
@@ -273,7 +275,7 @@ Grids are two-column asymmetric and collapse to one:
 - Lead project row: `minmax(0, 1fr) minmax(0, 0.8fr)` — the entry beside its screenshot — collapsing to one column at 1024px with the screenshot ordered last
 - Auto-fit grids for repeating content: talks at `minmax(300px, 1fr)`, project paragraphs at `minmax(340px, 1fr)`, project figures at `minmax(360px, 1fr)`
 
-Breakpoints are max-width and there are five: 1024px (the lead project row goes to one column with its screenshot last), 900px (asymmetric grids to single column), 860px (the featured talk goes to one column with its photograph ordered last and bled to both viewport edges, and the footer collapses), 720px (header nav wraps to its own full-width row), 560px (hero actions stack full-width, a project row goes to one column with its bleed widened to the gutter so the paper runs exactly edge to edge).
+Breakpoints are max-width and there are five: 1024px (the lead project row goes to one column with its screenshot last), 900px (the project detail head and pager collapse to one column), 860px (the featured talk goes to one column with its photograph ordered last and bled to both viewport edges, and the footer collapses), 720px (header nav wraps to its own full-width row), 560px (the hero proof rail stacks with a horizontal separator and its signal action becomes full-width; a project row goes to one column with its bleed widened to the gutter so the paper runs exactly edge to edge).
 
 **The Unbroken Column Rule.** A new surface uses `.shell` or reproduces its exact inner edge. Nothing on this site sets its own max-width in px, and no section indents its content past the shared gutter. Every heading on the site starts on that line — `h1`, all four `h2`s, and the `h3`s in both the projects and talks regions — and so does the first register of every row. Nothing is centred rather than ranged.
 
@@ -303,8 +305,8 @@ Every corner in the system is square. There is no `border-radius` declaration an
 
 Form language is drawn with lines rather than boxes:
 
-- **1px `rule`** — divisions inside a region: the header underline, the rule the hero body hangs from, a figure's border, list separators
-- **1px `rule-strong`** — the perimeter of a small object on paper: technology tags, the locale toggle, the dropdown, the secondary-talk top rule
+- **1px `rule`** — divisions inside a region: the header underline, the hero proof rail's mobile cell separator, a figure's border, list separators
+- **1px `rule-strong`** — the perimeter of a small object on paper, plus the hero proof rail's hairlines at its block edges while its inline edges stay open: technology tags, the locale toggle, the dropdown, the secondary-talk top rule
 - **1px `field-rule`** — one job on the field: the rule where two project rows meet. A row's resting affordance underline is `field-soft`, not this, and nothing on the field is outlined
 - **2px `ink`** — the structural break above something that behaves like a section of its own: the featured talk, the project pager, the project head's bottom edge
 - **2px `signal`** — the underline that marks an inline affordance ("Se foredraget", "Les mer"), sitting 3px below the baseline
@@ -325,14 +327,14 @@ The only non-rectangular mark is the 9px signal square beside the hero role line
 ### Buttons
 
 - **Shape:** Square, always (0 radius). No borders on filled actions.
-- **Primary action** (`.action`, `.footer__mail`): Signal ground with ink text, `16px 32px` padding, weight 500, inline-flex with a 12px gap before an optional arrow icon. On paper it hovers to signal-deep with paper text; on the ink footer it hovers to paper with ink text — in both cases the ground changes and the text follows it. Both lift `translateY(-2px)` on hover and settle to 0 on `:active`, over 180ms. **There are exactly two of these on any page**, the hero's and the footer's, and only the home page carries both.
+- **Primary action** (`.action`, `.footer__mail`): Signal ground with ink text, `16px 32px` padding, 56px minimum height, weight 500, inline-flex with a 12px gap before an optional arrow icon. The hero uses the localized freelance-inquiry label; the footer uses the address itself. On paper it hovers to signal-deep with paper text; on the ink footer it hovers to paper with ink text — in both cases the ground changes and the text follows it. Both lift `translateY(-2px)` on hover and settle to 0 on `:active`, over 180ms. **There are exactly two of these on any page**, the hero's and the footer's, and only the home page carries both.
 - **Focus:** No component defines its own ring except where inversion demands it. The global `:focus-visible` draws `2px solid var(--focus)` at `3px` offset, and `--focus` is whatever the region or state set.
-- **Quiet link** (`.quiet`, `.footer__link`, `.work__more`): No fill. Text over a 1px hairline underline that goes to full contrast on hover; in the projects region the underline also thickens to 2px signal once the row is paper.
+- **Quiet link** (`.quiet`, `.footer__link`, `.work__more`): No fill. Text over a 1px hairline drawn as a background underline so the label never shifts; it goes to full contrast on hover. Hero email, GitHub and LinkedIn links are at least 44px high; in the projects region the underline also thickens to 2px signal once the row is paper.
 - **Icon buttons:** None. The site has no icon-only control; every icon sits beside a real text label.
 
 ### Chips / Tags
 
-- **Style:** Mono at `--step--2`, `6px 12px` padding, 1px `rule-strong` border, no fill, square. Ink text on the project page and in the hero strip — **both of which are paper**, and the border is what makes a technology name read as an object on a ground that has no other structure.
+- **Style:** Mono at `--step--2`, `6px 12px` padding, 1px `rule-strong` border, no fill, square. Ink text on paper in the project detail and project pager, where the border is what makes a technology name read as an object on a ground that has no other structure. The hero has no technology tags; it presents named production and public expertise in its proof rail instead.
 - **On the field there is no chip.** In the projects region the technologies are bare mono words in `--row-secondary`, spaced 12px apart, following the row's ground flip through that one variable. Twelve hairline rectangles were the densest ink in a region whose whole job is to be scanned, and a technology name was never a chip: it is content, and it reads as a list without being boxed into one.
 - **State:** Static. Technology tags are content, not filters — they have no hover of their own, no selected state, and never become links.
 
@@ -350,12 +352,21 @@ None. The site has no forms, no inputs, and no backend; the only conversion is a
 
 ### Navigation
 
-- **Style:** Sticky header on paper with a 1px `rule` bottom edge, `68px` min-height, wordmark left at `--step-1` / 500, nav right at `--step--1`.
+- **Style:** Sticky header on paper with a 1px `rule` bottom edge, `68px` min-height, wordmark left at `--step-1` / 500, nav right at `--step--1`. The wordmark, every nav link, the contact link and each locale option provide at least 44px of interaction height.
 - **States:** Links rest in soft ink and hover to ink over 160ms. The one persistent action, the contact link, is full ink at weight 500 with a growing signal underline instead of a colour change — the target never shifts.
 - **Dropdown:** Opens on hover, click, and focus; closes on outside pointer-down, focus-out, and document-level Escape (Escape returns focus to the trigger only when focus was already inside). Panel is paper with a 1px `rule-strong` border and the system's single shadow; items are `12px 24px` and hover to deep paper. The caret rotates 180° over 200ms.
 - **Mobile (≤720px):** The header wraps rather than collapsing into a drawer — the nav takes a full-width second row with `justify-content: space-between`. There is no hamburger and no overlay menu.
 - **Language toggle:** Two mono buttons inside a single 1px `rule-strong` frame, no gap. Inactive is transparent with soft ink and hovers to deep paper; active is an ink fill with paper text, `aria-pressed`, and a locally inverted `--focus` drawn inset at `-3px` offset so the ring stays inside the fill.
 - **Skip link:** Signal fill, ink text, parked at `translateY(-250%)` and dropping to 0 on focus over 180ms at the gutter's left edge.
+
+### Hero & Proof Rail (signature)
+
+The opening is a buyer's sixty-second scan in one downward sequence: display title, mono freelance role, 44ch lede, full-width proof rail, then contact. Evidence arrives before conversion, and the green projects field follows closely enough to break at the desktop fold.
+
+- **Interval:** The region uses `clamp(--space-7, 7vw, --space-9)` above the title and `--space-8` below the contact row. Role follows the title by `--space-6`; lede follows by `--space-8`; rail follows by `--space-7`; contact follows by `--space-5`.
+- **Proof rail:** A semantic `dl` with two equal cells and no side perimeter. `rule-strong` hairlines run across its block start and end; the second cell gets the single vertical separator. Labels are mono uppercase Production / Expertise; values are ASKO · Røde Kors and NDC London 2026 at subtitle scale. This is named evidence, not a technology inventory, and the hero does not derive content from project data.
+- **Contact row:** A 56px signal-filled, localized freelance-inquiry link comes first. The visible mono `mailto:` address remains selectable as the fallback, followed by quiet GitHub and LinkedIn links. Every quiet link is at least 44px high and carries a standing 1px `rule-strong` background underline so touch readers do not depend on hover.
+- **Mobile (≤560px):** The proof rail becomes one column, replaces the vertical divider with a horizontal `rule` separator, and reduces the value scale by one step. The primary inquiry becomes full-width; email and social links remain visible beneath it rather than becoming an icon row or hidden action menu.
 
 ### Project Ledger (signature)
 
