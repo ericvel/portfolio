@@ -1,12 +1,37 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, onBeforeUnmount, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import AppIcon from "@/components/AppIcon.vue";
 
 const EMAIL = "eric.vel@outlook.com";
+const COPY_FEEDBACK_MS = 800;
 const { t } = useI18n();
 const copyState = ref<"idle" | "copied" | "failed">("idle");
 let copyAttempt = 0;
+let copyResetTimer: ReturnType<typeof setTimeout> | undefined;
+
+const copyStatus = computed(() => {
+  if (copyState.value === "copied") return t("hero.copySuccess");
+  if (copyState.value === "failed") return t("hero.copyFailure");
+  return "";
+});
+
+const copyButtonLabel = computed(() => {
+  if (copyState.value === "copied") return t("hero.copySuccess");
+  if (copyState.value === "failed") return t("hero.copyRetryLabel");
+  return t("hero.copyEmail", { email: EMAIL });
+});
+
+function clearCopyResetTimer() {
+  if (copyResetTimer === undefined) return;
+  clearTimeout(copyResetTimer);
+  copyResetTimer = undefined;
+}
+
+onBeforeUnmount(() => {
+  copyAttempt += 1;
+  clearCopyResetTimer();
+});
 
 function fallbackCopy(text: string) {
   const textarea = document.createElement("textarea");
@@ -40,20 +65,22 @@ async function copyText(text: string) {
 }
 
 async function copyEmail() {
+  clearCopyResetTimer();
   const attempt = ++copyAttempt;
   copyState.value = "idle";
 
   try {
     await copyText(EMAIL);
-    if (attempt === copyAttempt) copyState.value = "copied";
+    if (attempt !== copyAttempt) return;
+
+    copyState.value = "copied";
+    copyResetTimer = setTimeout(() => {
+      if (attempt === copyAttempt) copyState.value = "idle";
+      copyResetTimer = undefined;
+    }, COPY_FEEDBACK_MS);
   } catch {
     if (attempt === copyAttempt) copyState.value = "failed";
   }
-}
-
-function resetCopyState() {
-  copyAttempt += 1;
-  copyState.value = "idle";
 }
 </script>
 
@@ -82,18 +109,18 @@ function resetCopyState() {
 
       <div class="hero__contact">
         <a class="action" href="mailto:eric.vel@outlook.com">{{ t("hero.contact") }}</a>
-        <button
-          type="button"
-          class="quiet hero__email"
-          :aria-label="t('hero.copyEmail', { email: EMAIL })"
-          @click="copyEmail"
-          @mouseleave="resetCopyState"
-        >
-          {{ EMAIL }}
-          <span class="hero__copy-icon" aria-hidden="true">
+        <div class="hero__email-tools">
+          <span class="hero__email">{{ EMAIL }}</span>
+          <button type="button" class="hero__copy" :aria-label="copyButtonLabel" @click="copyEmail">
             <AppIcon :name="copyState === 'copied' ? 'check' : 'copy'" />
+          </button>
+          <span class="visually-hidden" role="status" aria-live="polite" aria-atomic="true">
+            {{ copyStatus }}
           </span>
-        </button>
+          <span v-if="copyState === 'failed'" class="hero__copy-recovery">
+            {{ t("hero.copyFailure") }}
+          </span>
+        </div>
         <div class="hero__elsewhere">
           <a class="quiet" href="https://github.com/ericvel" target="_blank" rel="noopener">
             GitHub
@@ -248,29 +275,48 @@ function resetCopyState() {
 }
 
 .hero__email {
-  position: relative;
-  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink-soft);
   font-family: var(--font-mono);
   font-size: var(--step--1);
-  cursor: pointer;
-  user-select: none;
+  user-select: text;
 }
 
-.hero__copy-icon {
-  position: absolute;
-  inset-inline-start: calc(100% + var(--space-2));
-  inset-block-start: 50%;
+.hero__email-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-1);
+  min-width: 0;
+}
+
+.hero__copy {
   display: inline-flex;
-  visibility: hidden;
-  transform: translate(-3px, -50%);
-  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  min-height: 44px;
+  border: 0;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    background 160ms ease;
+
+  &:hover {
+    background: var(--paper-deep);
+    color: var(--ink);
+  }
 }
 
-.hero__email:hover .hero__copy-icon,
-.hero__email:focus-visible .hero__copy-icon {
-  visibility: visible;
-  transform: translate(0, -50%);
+.hero__copy-recovery {
+  flex-basis: 100%;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  line-height: 1.4;
 }
 
 @media (max-width: 560px) {

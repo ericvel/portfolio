@@ -13,9 +13,12 @@ export default {
     proofProductionLabel: "Produksjon",
     proofProduction: "ASKO · Røde Kors",
     proofExpertiseLabel: "Faglig",
-    proofExpertise: "NDC London 2026",
+    proofExpertise: "NDC London 2026 · Framsia",
     contact: "Ta kontakt om oppdrag",
     copyEmail: "Kopier {email}",
+    copyRetryLabel: "Prøv å kopiere e-postadressen igjen",
+    copySuccess: "E-postadressen er kopiert.",
+    copyFailure: "Kunne ikke kopiere — marker adressen.",
   },
   meta: {
     title: "Eric Veliyulin {separator} Frontend dev",

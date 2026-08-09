@@ -49,7 +49,7 @@ const { t } = useI18n();
 
       <div class="talks__grid">
         <div class="talk">
-          <h3 class="talk__title">Customizable select components</h3>
+          <h3 class="talk__title">Customizable select elements</h3>
           <p class="talk__meta mono">Framsia, Oslo</p>
           <p class="talk__desc">{{ t("talks.framsia.desc") }}</p>
           <a

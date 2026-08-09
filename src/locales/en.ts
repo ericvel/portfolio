@@ -13,9 +13,12 @@ export default {
     proofProductionLabel: "Production",
     proofProduction: "ASKO · Røde Kors",
     proofExpertiseLabel: "Expertise",
-    proofExpertise: "NDC London 2026",
+    proofExpertise: "NDC London 2026 · Framsia",
     contact: "Get in touch about work",
     copyEmail: "Copy {email}",
+    copyRetryLabel: "Try copying the email address again",
+    copySuccess: "Email address copied.",
+    copyFailure: "Couldn’t copy — select the address.",
   },
   meta: {
     title: "Eric Veliyulin {separator} Frontend dev",
