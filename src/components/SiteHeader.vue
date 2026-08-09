@@ -53,9 +53,9 @@ function closeProjectsMenu() {
         </RouterLink>
 
         <a class="nav__contact" href="mailto:eric.vel@outlook.com">{{ t("nav.contact") }}</a>
-
-        <LanguageToggle />
       </nav>
+
+      <LanguageToggle class="header__language" />
     </div>
   </header>
 </template>
@@ -70,10 +70,10 @@ function closeProjectsMenu() {
 }
 
 .header__shell {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-5);
+  column-gap: var(--space-6);
   min-height: 68px;
   padding-block: var(--space-3);
 }
@@ -91,6 +91,7 @@ function closeProjectsMenu() {
 .nav {
   display: flex;
   align-items: center;
+  justify-self: end;
   gap: var(--space-6);
   font-size: var(--step--1);
 }
@@ -206,15 +207,45 @@ function closeProjectsMenu() {
 
 @media (max-width: 720px) {
   .header__shell {
-    flex-wrap: wrap;
+    grid-template-columns: minmax(0, 1fr) auto;
     row-gap: var(--space-2);
     padding-block: var(--space-3) var(--space-4);
   }
 
   .nav {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     width: 100%;
-    justify-content: space-between;
     gap: var(--space-4);
+  }
+
+  .nav__link {
+    min-width: 44px;
+    justify-content: center;
+  }
+
+  .menu {
+    justify-self: start;
+  }
+
+  .nav > .nav__link {
+    justify-self: center;
+  }
+
+  .nav__contact {
+    justify-self: end;
+    min-width: 44px;
+    justify-content: flex-end;
+    white-space: nowrap;
+  }
+
+  .menu__list {
+    top: calc(anchor(bottom) + var(--space-2));
+    left: anchor(left);
+    width: min(232px, calc(100vw - (2 * var(--gutter))));
+    min-width: 0;
   }
 }
 </style>

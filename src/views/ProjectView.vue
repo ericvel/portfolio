@@ -69,7 +69,13 @@ const figures = computed(() => {
         </p>
       </div>
 
-      <div class="project__figures">
+      <div
+        class="project__figures"
+        :class="{
+          'project__figures--single': figures.length === 1,
+          'project__figures--compact': project.id === 'habiit',
+        }"
+      >
         <figure v-for="figure in figures" :key="figure.src" class="figure">
           <img
             class="figure__image"
@@ -197,6 +203,22 @@ const figures = computed(() => {
   gap: var(--space-7);
 }
 
+/* Lone screenshots are evidence within the reading flow, not full-bleed backdrops.
+   A centered column grid gives the landscape interface room to read while keeping
+   the near-square phone composition deliberately compact. */
+.project__figures--single {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--space-3);
+
+  .figure {
+    grid-column: 2 / -2;
+  }
+}
+
+.project__figures--compact .figure {
+  grid-column: 4 / -4;
+}
+
 .figure {
   margin: 0;
   display: flex;
@@ -224,6 +246,20 @@ const figures = computed(() => {
   .project__head {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-7);
+  }
+
+  .project__figures--single .figure {
+    grid-column: 1 / -1;
+  }
+
+  .project__figures--compact .figure {
+    grid-column: 2 / -2;
+  }
+}
+
+@media (max-width: 560px) {
+  .project__figures--compact .figure {
+    grid-column: 1 / -1;
   }
 }
 </style>

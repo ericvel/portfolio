@@ -85,19 +85,19 @@ const ROWS = PROJECTS.map((project) => ({
    everything inside it inverts to paper. */
 .work {
   /* Two rhythms, because the region holds two kinds of object: the lead row buys air, and a
-     corroborating line spends about half of it. The gap between those two numbers is what
+     corroborating line spends half of it. The gap between those two numbers is what
      makes the hierarchy legible before a single word is read. */
   --row-pad: var(--space-7);
   --line-pad: var(--space-5);
 
   background: var(--field);
   color: var(--paper);
-  padding-block: clamp(var(--space-9), 10vw, var(--space-10));
+  padding-block: clamp(var(--space-8), 8vw, var(--space-9));
   --focus: var(--paper);
 }
 
 .work__heading {
-  margin: 0 0 var(--space-8);
+  margin: 0 0 var(--space-7);
   font-size: var(--step-4);
   font-weight: 500;
   letter-spacing: -0.025em;
@@ -223,10 +223,12 @@ const ROWS = PROJECTS.map((project) => ({
   /* 64px between the two registers, where a line gets 32: the interval is part of the
      argument, not just spacing. */
   column-gap: var(--space-8);
-  padding-block: calc(var(--row-pad) + var(--space-6));
+  padding-block: var(--row-pad);
 
   .work__body {
     grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-3);
   }
 
@@ -253,14 +255,19 @@ const ROWS = PROJECTS.map((project) => ({
   }
 
   .work__more {
+    align-self: start;
     margin-top: var(--space-5);
   }
 }
 
 .work__body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "title more"
+    "blurb more"
+    "meta more";
+  gap: var(--space-2) var(--space-6);
   min-width: 0;
 }
 
@@ -313,6 +320,7 @@ const ROWS = PROJECTS.map((project) => ({
 }
 
 .work__title {
+  grid-area: title;
   margin: 0;
   font-size: var(--step-2);
   font-weight: 500;
@@ -322,6 +330,7 @@ const ROWS = PROJECTS.map((project) => ({
 }
 
 .work__blurb {
+  grid-area: blurb;
   margin: 0;
   /* Wider than the lead row's 40ch, because a line has the whole column to spend and a
      shorter measure here is what left the emptiness on the right in the first place. */
@@ -338,6 +347,7 @@ const ROWS = PROJECTS.map((project) => ({
    which is what keeps the row one line tall. The lead row's six-technology list does not fit
    beside a dated role at any width the site has, so it alone breaks to a second line. */
 .work__meta {
+  grid-area: meta;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -402,13 +412,14 @@ const ROWS = PROJECTS.map((project) => ({
    moves the label — the same idiom as the header's contact link. At rest this is field mist:
    the only resting cue that the row is live has to clear 3:1 on its own ground. */
 .work__more {
+  grid-area: more;
   display: inline-flex;
   align-items: center;
-  /* The affordance sits in the body column now, so it has to hug its own label: stretched to the
-     column it would drag its underline across the whole row. */
-  align-self: start;
+  /* Corroborating rows pin the affordance to the far edge, but the underline still hugs its
+     label rather than stretching across the available grid column. */
+  align-self: center;
   gap: var(--space-2);
-  margin-top: var(--space-2);
+  margin-top: 0;
   padding-bottom: 5px;
   font-size: var(--step--1);
   font-weight: 500;
@@ -473,6 +484,17 @@ const ROWS = PROJECTS.map((project) => ({
     /* The row is now as wide as the viewport, so an outset ring would draw its vertical
        sides off-screen. Inset keeps all four edges of the indicator visible. */
     outline-offset: -3px;
+  }
+
+  .work__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .work__more {
+    align-self: start;
+    margin-top: var(--space-2);
   }
 
   .work__row--lead .work__blurb {
