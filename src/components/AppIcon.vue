@@ -5,14 +5,7 @@
  * beside it carries the meaning.
  */
 import { computed } from "vue";
-import {
-  ArrowLeft,
-  ArrowRight,
-  ArrowUpRight,
-  Check,
-  ChevronDown,
-  Copy,
-} from "@lucide/vue";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Copy } from "@lucide/vue";
 
 const ICONS = {
   "arrow-right": ArrowRight,

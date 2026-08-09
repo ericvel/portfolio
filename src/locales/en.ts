@@ -23,7 +23,7 @@ export default {
     copyFailure: "Couldn’t copy — select the address.",
   },
   meta: {
-    title: "Eric Veliyulin {separator} Frontend dev",
+    title: "Eric Veliyulin {separator} Frontend specialist",
     titleProject: "Eric Veliyulin {separator} {project}",
     description:
       "Freelance frontend specialist. React, Vue and TypeScript, with test coverage and " +
