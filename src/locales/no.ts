@@ -10,7 +10,8 @@ export default {
     eyebrow: "Frontendspesialist · frilans",
     title: "Frontend som tåler virkeligheten.",
     lede:
-      "Fem år med React, Vue og TypeScript. Testdekning og universell utforming som standard.",
+      "Fem år med React, Vue og TypeScript. Testdekning og universell utforming som standard. " +
+      "Jeg tar oppdrag alene eller i team.",
     proofProductionLabel: "Produksjon",
     proofProduction: "ASKO · Røde Kors",
     proofExpertiseLabel: "Faglig",
@@ -64,9 +65,7 @@ export default {
   },
   cta: {
     title: "Ta kontakt om oppdrag",
-    lede:
-      "Jeg tar frilansoppdrag som frontendspesialist, alene eller i team. Send en e-post, " +
-      "så tar vi det derfra.",
+    lede: "Send en e-post, så tar vi det derfra.",
   },
   project: {
     back: "Tilbake",
