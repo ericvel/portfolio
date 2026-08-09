@@ -8,8 +8,9 @@ export default {
   },
   hero: {
     eyebrow: "Frontendspesialist · frilans",
-    title: "Frontend er faget mitt.",
-    lede: "Fem år med React, Vue og TypeScript. Testdekning og tilgjengelighet som standard.",
+    title: "Frontend som tåler virkeligheten.",
+    lede:
+      "Fem år med React, Vue og TypeScript. Testdekning og universell utforming som standard.",
     proofProductionLabel: "Produksjon",
     proofProduction: "ASKO · Røde Kors",
     proofExpertiseLabel: "Faglig",

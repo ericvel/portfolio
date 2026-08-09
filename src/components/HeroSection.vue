@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref } from "vue";
+import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import AppIcon from "@/components/AppIcon.vue";
+import { useClipboard } from "@/composables/useClipboard";
 
 const EMAIL = "eric.vel@outlook.com";
-const COPY_FEEDBACK_MS = 800;
 const { t } = useI18n();
-const copyState = ref<"idle" | "copied" | "failed">("idle");
-let copyAttempt = 0;
-let copyResetTimer: ReturnType<typeof setTimeout> | undefined;
+const { copy: copyEmail, copyState } = useClipboard(EMAIL);
 
 const copyStatus = computed(() => {
   if (copyState.value === "copied") return t("hero.copySuccess");
@@ -21,67 +19,6 @@ const copyButtonLabel = computed(() => {
   if (copyState.value === "failed") return t("hero.copyRetryLabel");
   return t("hero.copyEmail", { email: EMAIL });
 });
-
-function clearCopyResetTimer() {
-  if (copyResetTimer === undefined) return;
-  clearTimeout(copyResetTimer);
-  copyResetTimer = undefined;
-}
-
-onBeforeUnmount(() => {
-  copyAttempt += 1;
-  clearCopyResetTimer();
-});
-
-function fallbackCopy(text: string) {
-  const textarea = document.createElement("textarea");
-  textarea.value = text;
-  textarea.setAttribute("readonly", "");
-  textarea.style.position = "fixed";
-  textarea.style.insetInlineStart = "-9999px";
-  textarea.style.insetBlockStart = "-9999px";
-  document.body.append(textarea);
-  textarea.focus();
-  textarea.select();
-
-  try {
-    return document.execCommand("copy");
-  } finally {
-    textarea.remove();
-  }
-}
-
-async function copyText(text: string) {
-  if (navigator.clipboard?.writeText) {
-    try {
-      await navigator.clipboard.writeText(text);
-      return;
-    } catch {
-      // Fall through to the legacy path when clipboard permission is unavailable.
-    }
-  }
-
-  if (!fallbackCopy(text)) throw new Error("Clipboard copy failed");
-}
-
-async function copyEmail() {
-  clearCopyResetTimer();
-  const attempt = ++copyAttempt;
-  copyState.value = "idle";
-
-  try {
-    await copyText(EMAIL);
-    if (attempt !== copyAttempt) return;
-
-    copyState.value = "copied";
-    copyResetTimer = setTimeout(() => {
-      if (attempt === copyAttempt) copyState.value = "idle";
-      copyResetTimer = undefined;
-    }, COPY_FEEDBACK_MS);
-  } catch {
-    if (attempt === copyAttempt) copyState.value = "failed";
-  }
-}
 </script>
 
 <template>
