@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-09T14:22:11.000Z",
+  "generatedAt": "2026-09-05T20:51:53.000Z",
   "title": "Design System: Eric Veliyulin — Frontend Specialist Portfolio",
   "extensions": {
     "colorMeta": {
@@ -31,13 +31,23 @@
           "oklch(59% 0.018 88)",
           "oklch(70% 0.018 88)",
           "oklch(84% 0.018 88)",
-          "oklch(93% 0.018 88)"
+          "oklch(95% 0.018 88)"
         ]
       },
       "paper-soft": {
         "role": "neutral",
         "displayName": "Muted Paper",
-        "canonical": "#a8a49a"
+        "canonical": "#a8a49a",
+        "tonalRamp": [
+          "oklch(15% 0.012 88)",
+          "oklch(26% 0.012 88)",
+          "oklch(37% 0.012 88)",
+          "oklch(48% 0.012 88)",
+          "oklch(59% 0.012 88)",
+          "oklch(70% 0.012 88)",
+          "oklch(84% 0.012 88)",
+          "oklch(95% 0.012 88)"
+        ]
       },
       "ink": {
         "role": "neutral",
@@ -57,22 +67,62 @@
       "ink-soft": {
         "role": "neutral",
         "displayName": "Soft Ink",
-        "canonical": "#55534a"
+        "canonical": "#55534a",
+        "tonalRamp": [
+          "oklch(15% 0.018 88)",
+          "oklch(26% 0.018 88)",
+          "oklch(37% 0.018 88)",
+          "oklch(48% 0.018 88)",
+          "oklch(59% 0.018 88)",
+          "oklch(70% 0.018 88)",
+          "oklch(84% 0.018 88)",
+          "oklch(95% 0.018 88)"
+        ]
       },
       "ink-rule": {
         "role": "neutral",
         "displayName": "Ink Hairline",
-        "canonical": "#34353a"
+        "canonical": "#34353a",
+        "tonalRamp": [
+          "oklch(15% 0.01 265)",
+          "oklch(26% 0.01 265)",
+          "oklch(37% 0.01 265)",
+          "oklch(48% 0.01 265)",
+          "oklch(59% 0.01 265)",
+          "oklch(70% 0.01 265)",
+          "oklch(84% 0.01 265)",
+          "oklch(95% 0.01 265)"
+        ]
       },
       "rule": {
         "role": "neutral",
         "displayName": "Hairline",
-        "canonical": "#d8d2c4"
+        "canonical": "#d8d2c4",
+        "tonalRamp": [
+          "oklch(15% 0.018 88)",
+          "oklch(26% 0.018 88)",
+          "oklch(37% 0.018 88)",
+          "oklch(48% 0.018 88)",
+          "oklch(59% 0.018 88)",
+          "oklch(70% 0.018 88)",
+          "oklch(84% 0.018 88)",
+          "oklch(95% 0.018 88)"
+        ]
       },
       "rule-strong": {
         "role": "neutral",
         "displayName": "Strong Hairline",
-        "canonical": "#b9b2a1"
+        "canonical": "#b9b2a1",
+        "tonalRamp": [
+          "oklch(15% 0.018 88)",
+          "oklch(26% 0.018 88)",
+          "oklch(37% 0.018 88)",
+          "oklch(48% 0.018 88)",
+          "oklch(59% 0.018 88)",
+          "oklch(70% 0.018 88)",
+          "oklch(84% 0.018 88)",
+          "oklch(95% 0.018 88)"
+        ]
       },
       "field": {
         "role": "secondary",
@@ -92,12 +142,32 @@
       "field-soft": {
         "role": "secondary",
         "displayName": "Field Mist",
-        "canonical": "#c3d4c8"
+        "canonical": "#c3d4c8",
+        "tonalRamp": [
+          "oklch(15% 0.035 160)",
+          "oklch(26% 0.035 160)",
+          "oklch(37% 0.035 160)",
+          "oklch(48% 0.035 160)",
+          "oklch(59% 0.035 160)",
+          "oklch(70% 0.035 160)",
+          "oklch(84% 0.035 160)",
+          "oklch(95% 0.035 160)"
+        ]
       },
       "field-rule": {
         "role": "secondary",
         "displayName": "Field Hairline",
-        "canonical": "#3d6a58"
+        "canonical": "#3d6a58",
+        "tonalRamp": [
+          "oklch(15% 0.055 160)",
+          "oklch(26% 0.055 160)",
+          "oklch(37% 0.055 160)",
+          "oklch(48% 0.055 160)",
+          "oklch(59% 0.055 160)",
+          "oklch(70% 0.055 160)",
+          "oklch(84% 0.055 160)",
+          "oklch(95% 0.055 160)"
+        ]
       },
       "signal": {
         "role": "primary",
@@ -117,37 +187,47 @@
       "signal-deep": {
         "role": "primary",
         "displayName": "Signal Deep",
-        "canonical": "#c8461f"
+        "canonical": "#c8461f",
+        "tonalRamp": [
+          "oklch(15% 0.17 38)",
+          "oklch(26% 0.17 38)",
+          "oklch(37% 0.17 38)",
+          "oklch(48% 0.17 38)",
+          "oklch(59% 0.17 38)",
+          "oklch(70% 0.17 38)",
+          "oklch(84% 0.17 38)",
+          "oklch(95% 0.17 38)"
+        ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Once per page: the name in the hero, the title on a project page. Capped at 17ch, text-wrap balance."
+        "purpose": "Hero h1 and project-page h1 only; capped by a character measure and balanced."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "The footer's closing call at weight 800; the featured talk title at weight 500."
+        "purpose": "Footer closing call and featured talk title."
       },
       "title": {
         "displayName": "Section Title",
-        "purpose": "Section headings — Utvalgt arbeid, Foredrag."
+        "purpose": "Section headings and the lead project title."
       },
       "subtitle": {
         "displayName": "Subtitle",
-        "purpose": "Project row titles and the project-page CTA question."
+        "purpose": "Supporting project titles and the next-project name in the pager."
       },
       "lede": {
         "displayName": "Lede",
-        "purpose": "Hero lede at 44ch, project blurb at 42ch, footer email button label. Always soft ink when prose."
+        "purpose": "Hero lede and project-page summary; soft ink when used as prose."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Project blurbs, talk descriptions, button labels. Long-form project paragraphs step up one to 1.125rem at 1.6 and 68ch."
+        "purpose": "Project blurbs, talk descriptions, links, and button labels."
       },
       "mono": {
         "displayName": "Mono Label",
-        "purpose": "Measurement only — technologies, durations, venues, locale codes. Fixed at 0.75rem by the shared .mono primitive; 0.05–0.06em tracking when uppercase."
+        "purpose": "Measurement only: technologies, durations, venues, periods, and locale codes."
       }
     },
     "shadows": [
@@ -161,37 +241,42 @@
       {
         "name": "ease-color",
         "value": "ease",
-        "purpose": "Pure colour changes only — nav link, menu item ground, locale option, and the project row's ground flip. 140–200ms."
+        "purpose": "Small color changes on navigation, menu items, and locale controls."
       },
       {
         "name": "ease-move",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Anything that moves or grows — 180ms button lift, 200ms caret rotation, 220ms underline growth and icon nudge."
+        "purpose": "Movement, growth, and compound project-row responses."
       },
       {
         "name": "duration-quick",
         "value": "160ms",
-        "purpose": "Text and border colour on quiet links and nav links."
+        "purpose": "Text and underline changes on quiet links and navigation."
       },
       {
         "name": "duration-action",
         "value": "180ms",
-        "purpose": "Primary button ground change plus its -2px lift; skip-link drop-in."
+        "purpose": "Primary button lift and skip-link movement."
       },
       {
-        "name": "duration-flip",
-        "value": "200ms",
-        "purpose": "The project row's ground flip: background and colour together, field to paper, on hover and focus-visible."
+        "name": "row-answer-in",
+        "value": "140ms",
+        "purpose": "Project-row hover and focus arrival on the shared response clock."
+      },
+      {
+        "name": "row-answer-out",
+        "value": "190ms",
+        "purpose": "Project-row departure on the shared response clock."
       },
       {
         "name": "duration-hint",
         "value": "220ms",
-        "purpose": "Directional icon nudge on parent hover, and an underline growing by background-size."
+        "purpose": "Talk-link directional icon movement."
       },
       {
         "name": "reduced-motion",
-        "value": "animation-duration: 0.01ms; transition-duration: 0.01ms; scroll-behavior: auto",
-        "purpose": "Global prefers-reduced-motion block. The row's ground flip still happens, instantly, because it is the affordance rather than an embellishment."
+        "value": "animation-duration: 0.01ms; transition-duration: 0.01ms; transition-delay: 0s",
+        "purpose": "Global prefers-reduced-motion clamp; interaction feedback remains instantaneous."
       }
     ],
     "breakpoints": [
@@ -200,7 +285,7 @@
         "value": "560px"
       },
       {
-        "name": "row-stack",
+        "name": "project-mobile-band",
         "value": "560px"
       },
       {
@@ -212,12 +297,16 @@
         "value": "860px"
       },
       {
-        "name": "grid-collapse",
+        "name": "detail-grid-collapse",
         "value": "900px"
       },
       {
-        "name": "row-collapse",
+        "name": "lead-project-collapse",
         "value": "1024px"
+      },
+      {
+        "name": "supporting-project-min-track",
+        "value": "340px (auto-fit)"
       },
       {
         "name": "measure",
@@ -250,20 +339,12 @@
       "css": ".ds-footer-ground { background: var(--ink, #17181a); padding: 32px; --focus: var(--signal, #e4572e); } .ds-mail { display: inline-block; padding: 16px 32px; background: var(--signal, #e4572e); color: var(--ink, #17181a); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 1.375rem; font-weight: 500; letter-spacing: -0.015em; text-decoration: none; word-break: break-word; border-radius: 0; transition: background 180ms ease, transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-mail:hover { background: var(--paper, #f4f1ea); transform: translateY(-2px); } .ds-mail:active { transform: translateY(0); } .ds-mail:focus-visible { outline: 2px solid var(--focus, #e4572e); outline-offset: 3px; }"
     },
     {
-      "name": "Project Row",
+      "name": "Project Grid",
       "kind": "custom",
       "refersTo": "project-row",
-      "description": "The signature. Two registers on the green field — a mark plate and an entry — divided by a hairline only where two rows meet. The row under consideration flips its own ground to paper on hover and focus, which is the system's only nested inversion and its whole depth vocabulary. One inherited variable carries the flip down to the blurb and the meta line, and the affordance's underline becomes 2px signal only once the ground is paper. A corroborating row is a line rather than a panel — 24px padding-block, a 1.375rem title and a 58ch blurb against the lead row's 80px, --step-4 and 40ch — because the emptiness beside a short claim is row height, not row width.",
-      "html": "<div class=\"ds-field-ground\"><ul class=\"ds-ledger\"><li class=\"ds-ledger__item\"><a class=\"ds-row\" href=\"#\" aria-label=\"ASKO Servering — Se prosjektet\"><span class=\"ds-row__mark\"><span class=\"ds-row__logo\">ASKO</span></span><span class=\"ds-row__entry\"><span class=\"ds-row__title\">ASKO Servering</span><span class=\"ds-row__blurb\">Varebøker med titusenvis av varer, tastaturnavigasjon og forutsigbare tilstander — på tvers av nettstedet og administrasjonsløsningen Fiks.</span><span class=\"ds-row__meta\"><span class=\"ds-mono\">2023–2026</span><span class=\"ds-mono ds-row__sep\" aria-hidden=\"true\">·</span><span class=\"ds-row__role\">Lead frontendutvikler</span><span class=\"ds-row__stack\"><span class=\"ds-mono\">Vue</span><span class=\"ds-mono\">Vite</span><span class=\"ds-mono\">TypeScript</span><span class=\"ds-mono\">Vitest</span><span class=\"ds-mono\">Playwright</span><span class=\"ds-mono\">TanStack Query</span></span></span><span class=\"ds-row__more\">Se prosjektet<svg class=\"ds-icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></span></a></li><li class=\"ds-ledger__item\"><a class=\"ds-row\" href=\"#\" aria-label=\"Mitt Røde Kors — Se prosjektet\"><span class=\"ds-row__mark\"><span class=\"ds-row__logo ds-row__logo--wide\">Røde Kors</span></span><span class=\"ds-row__entry\"><span class=\"ds-row__title\">Mitt Røde Kors</span><span class=\"ds-row__blurb\">Aktiviteter for frivillige — planlegging, publisering og påmelding. Universell utforming var et krav, ikke et tillegg.</span><span class=\"ds-row__meta\"><span class=\"ds-mono\">2021–2023</span><span class=\"ds-mono ds-row__sep\" aria-hidden=\"true\">·</span><span class=\"ds-row__role\">Lead frontendutvikler</span><span class=\"ds-row__stack\"><span class=\"ds-mono\">React</span><span class=\"ds-mono\">Next.js</span><span class=\"ds-mono\">Tailwind CSS</span></span></span><span class=\"ds-row__more\">Se prosjektet<svg class=\"ds-icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></span></a></li></ul></div>",
-      "css": ".ds-field-ground { background: var(--field, #1f4d3c); padding: 48px 24px; color: var(--paper, #f4f1ea); --focus: var(--paper, #f4f1ea); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); } .ds-ledger { margin: 0; padding: 0; list-style: none; } .ds-ledger__item { border-bottom: 1px solid var(--field-rule, #3d6a58); } .ds-ledger__item:last-child { border-bottom: 0; } .ds-row { --row-secondary: var(--field-soft, #c3d4c8); --row-affordance: var(--field-soft, #c3d4c8); display: grid; grid-template-columns: 172px minmax(0, 1fr); align-items: start; column-gap: 32px; row-gap: 24px; padding: 24px 24px; margin-inline: -24px; color: inherit; text-decoration: none; border-radius: 0; transition: background 200ms ease, color 200ms ease; } .ds-row:hover, .ds-row:focus-visible { --row-secondary: var(--ink-soft, #55534a); --row-affordance: var(--signal, #e4572e); --focus: var(--ink, #17181a); background: var(--paper, #f4f1ea); color: var(--ink, #17181a); } .ds-row:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: 3px; } .ds-row__mark { display: grid; place-items: center start; justify-self: start; width: 180px; height: 48px; padding: 4px 12px 4px 0; background: var(--paper, #f4f1ea); } .ds-row__logo { max-height: 28px; max-width: 100%; mix-blend-mode: multiply; color: var(--ink, #17181a); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; white-space: nowrap; } .ds-row__logo--wide { font-size: 1.125rem; letter-spacing: -0.01em; } .ds-row__entry { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; } .ds-row__title { font-size: 1.375rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; } .ds-row__blurb { max-width: 58ch; font-size: 1rem; line-height: 1.5; color: var(--row-secondary); text-wrap: pretty; transition: color 200ms ease; } .ds-row__meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; margin-top: 4px; color: var(--row-secondary); transition: color 200ms ease; } .ds-row__sep { color: inherit; } .ds-row__role { font-size: 0.875rem; font-weight: 500; color: inherit; } .ds-row__stack { display: flex; flex-wrap: wrap; gap: 8px 12px; } .ds-row__more { display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; margin-top: 8px; padding-bottom: 5px; font-size: 0.875rem; font-weight: 500; white-space: nowrap; background-image: linear-gradient(var(--row-affordance), var(--row-affordance)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 1px; transition: background-size 200ms ease; } .ds-row:hover .ds-row__more, .ds-row:focus-visible .ds-row__more { background-size: 100% 2px; } .ds-row .ds-icon { flex: none; transform: translateY(-0.5px); transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-row:hover .ds-row__more .ds-icon { transform: translate(3px, -0.5px); } .ds-mono { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; line-height: 1.4; }"
-    },
-    {
-      "name": "Project Mark Plate",
-      "kind": "custom",
-      "refersTo": "project-mark-plate",
-      "description": "The only persistent paper object in the system, and not a card: a 180x64 plate that exists solely to give mix-blend-mode: multiply a light ground to print a client logo onto. Shown on the field and on paper — on paper the plate's own edge disappears, which is what happens when a row flips. Deliberately wide rather than tall so a 2.5:1 lockup and a 4.4:1 wordmark are both height-bound and land at the same optical weight.",
-      "html": "<div class=\"ds-plate-demo\"><div class=\"ds-plate-ground\"><span class=\"ds-plate\"><span class=\"ds-plate__logo\">ASKO</span></span><span class=\"ds-plate\"><span class=\"ds-plate__logo ds-plate__logo--wide\">Røde Kors</span></span></div><div class=\"ds-plate-ground ds-plate-ground--flipped\"><span class=\"ds-plate\"><span class=\"ds-plate__logo\">ASKO</span></span><span class=\"ds-plate\"><span class=\"ds-plate__logo ds-plate__logo--wide\">Røde Kors</span></span></div></div>",
-      "css": ".ds-plate-demo { display: flex; flex-direction: column; } .ds-plate-ground { display: flex; gap: 24px; align-items: center; background: var(--field, #1f4d3c); padding: 32px 24px; } .ds-plate-ground--flipped { background: var(--paper, #f4f1ea); } .ds-plate { display: grid; place-items: center; width: 180px; height: 48px; padding: 4px 12px 4px 0; background: var(--paper, #f4f1ea); border-radius: 0; } .ds-plate__logo { max-height: 28px; max-width: 100%; mix-blend-mode: multiply; color: var(--ink, #17181a); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; white-space: nowrap; } .ds-plate__logo--wide { font-size: 1.125rem; letter-spacing: -0.01em; }"
+      "description": "The signature project composition: ASKO spans the measure as the only claim-and-screenshot lead; Mitt Røde Kors and Habiit share equal text-only tracks below. Supporting tracks collapse intrinsically before 340px, while every link keeps the field ground, quiet 4% response lift, and one inherited answer clock.",
+      "html": "<section class=\"ds-projects\"><a class=\"ds-project ds-project--lead\" href=\"#\" aria-label=\"ASKO Servering — Se prosjektet\"><span class=\"ds-project__body\"><strong class=\"ds-project__title ds-project__title--lead\">ASKO Servering</strong><span class=\"ds-project__blurb ds-project__blurb--lead\">Nettbutikk og administrasjonsverktøy for varekataloger med titusenvis av varer.</span><span class=\"ds-project__meta\"><span class=\"ds-mono\">2023–2026</span><span aria-hidden=\"true\">·</span><span>Lead frontendutvikler</span></span><span class=\"ds-project__stack ds-mono\"><span>Vue</span><span>Vite</span><span>TypeScript</span><span>Vitest</span><span>Playwright</span></span><span class=\"ds-project__more\">Se prosjektet<svg class=\"ds-project__icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></span><span class=\"ds-project__evidence\"><span class=\"ds-mono\">Produksjonsskjermbilde</span></span></a><a class=\"ds-project\" href=\"#\" aria-label=\"Mitt Røde Kors — Se prosjektet\"><span class=\"ds-project__body\"><strong class=\"ds-project__title\">Mitt Røde Kors</strong><span class=\"ds-project__blurb\">Planlegging, publisering og påmelding for frivillige.</span><span class=\"ds-project__meta\"><span class=\"ds-mono\">2021–2023</span><span aria-hidden=\"true\">·</span><span>Lead frontendutvikler</span></span><span class=\"ds-project__stack ds-mono\"><span>React</span><span>Next.js</span><span>Tailwind CSS</span></span><span class=\"ds-project__more\">Se prosjektet<svg class=\"ds-project__icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></span></a><a class=\"ds-project\" href=\"#\" aria-label=\"Habiit — Se prosjektet\"><span class=\"ds-project__body\"><strong class=\"ds-project__title\">Habiit</strong><span class=\"ds-project__blurb\">Et digitalt verktøy som hjelper barn med rutiner og følelser.</span><span class=\"ds-project__meta\"><span class=\"ds-mono\">2020</span><span aria-hidden=\"true\">·</span><span>iOS-utvikler</span></span><span class=\"ds-project__stack ds-mono\"><span>Swift</span><span>Firebase</span><span>iOS</span></span><span class=\"ds-project__more\">Se prosjektet<svg class=\"ds-project__icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></span></a></section>",
+      "css": ".ds-projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 64px; padding: 48px 24px; background: var(--field, #1f4d3c); color: var(--paper, #f4f1ea); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); --focus: var(--paper, #f4f1ea); } .ds-project { --row-secondary: var(--field-soft, #c3d4c8); --row-affordance: var(--field-soft, #c3d4c8); display: block; min-width: 0; height: 100%; padding: 24px; margin-inline: -24px; border-top: 1px solid var(--field-rule, #3d6a58); color: inherit; text-decoration: none; transition: background 190ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 190ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-project:hover, .ds-project:focus-visible { --row-secondary: color-mix(in srgb, var(--field-soft, #c3d4c8) 62%, var(--paper, #f4f1ea)); --row-affordance: var(--paper, #f4f1ea); background: color-mix(in srgb, var(--paper, #f4f1ea) 4%, var(--field, #1f4d3c)); box-shadow: inset 0 -1px 0 var(--paper, #f4f1ea); transition-duration: 140ms; } .ds-project:focus-visible { outline: 2px solid var(--focus, #f4f1ea); outline-offset: 3px; } .ds-project--lead { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr); gap: 64px; padding-block: 48px; border-top: 0; } .ds-project__body { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; } .ds-project__title { font-size: 1.375rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; } .ds-project__title--lead { font-size: clamp(1.875rem, 3.2vw, 2.5rem); letter-spacing: -0.025em; } .ds-project__blurb { max-width: 58ch; margin-top: 12px; color: var(--row-secondary); line-height: 1.5; } .ds-project__blurb--lead { max-width: 40ch; font-size: 1.375rem; line-height: 1.4; } .ds-project__meta { display: flex; flex-wrap: wrap; gap: 8px 12px; margin-top: 16px; color: var(--row-secondary); font-size: 0.875rem; } .ds-project__stack { display: flex; flex-wrap: wrap; gap: 8px 12px; margin-top: 8px; font-size: 0.875rem; } .ds-mono { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.75rem; line-height: 1.4; } .ds-project__more { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; padding-bottom: 5px; font-size: 0.875rem; font-weight: 500; background-image: linear-gradient(var(--row-affordance), var(--row-affordance)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 1px; } .ds-project:hover .ds-project__more, .ds-project:focus-visible .ds-project__more { background-size: 100% 2px; } .ds-project__icon { transform: translateY(-0.5px); transition: transform 190ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-project:hover .ds-project__icon, .ds-project:focus-visible .ds-project__icon { transform: translate(3px, -0.5px); transition-duration: 140ms; } .ds-project__evidence { display: grid; place-items: end start; min-width: 0; aspect-ratio: 2400 / 1528; padding: 12px; background: var(--paper-deep, #ece7da); color: var(--ink-soft, #55534a); } @media (max-width: 760px) { .ds-project--lead { grid-template-columns: minmax(0, 1fr); } .ds-project__evidence { order: 3; } }"
     },
     {
       "name": "Technology Tag",
@@ -308,40 +389,41 @@
   ],
   "narrative": {
     "northStar": "The Sixty-Second Scan",
-    "overview": "The system is built for one reader: someone with a staffing need open in another tab, deciding in under a minute whether this person matches the work. Everything is therefore ranged left against a single column edge that runs unbroken from the header rule to the footer address, so the eye never has to re-find the start of a line. Personality comes from type and grid — a display weight used exactly once per page, hairline rules instead of boxes, and a mono face that appears only where something is being measured. There is no borrowed artifact, no texture, no illustrative conceit; the page looks like what it is.\n\nColour does the structural work that cards usually do. Three grounds exist and each one owns a whole region: warm paper is the default, a deep green field owns the projects region edge to edge, and ink closes the page under the footer. A region flip is the section break — there are no dividers between grounds and no containers floating on top of them. Inside the green field a project row flips back to paper the moment it is pointed at, which is the only nesting inversion in the system. One saturated orange is reserved for actions and never spends itself on decoration.\n\nDensity is generous: 96px between major sections and up to 128px around the projects region, 48px inside a project row, hairlines rather than gaps where two things need separating — and a hairline only where two rows meet, never closing a list at its top and bottom. The region carries exactly two rules for its three rows; everything else there is type on a ground. The confirmed rejections are the dark developer-portfolio default (there is no dark mode and no dark ground except the deliberate ink footer), cards-as-structure (there is no card at rest anywhere in the system), and faded text as an emphasis device (see The Never-Fade Rule).",
+    "overview": "The system is built for one reader: someone with a staffing need open in another tab, deciding in under a minute whether this person matches the work. Everything is therefore ranged left against a single column edge that runs unbroken from the header rule to the footer address, so the eye never has to re-find the start of a line. Personality comes from type and grid — a display weight used exactly once per page, hairline rules instead of boxes, and a mono face that appears only where something is being measured. There is no borrowed artifact, no texture, no illustrative conceit; the page looks like what it is.\n\nColour does the structural work that cards usually do. Three grounds exist and each one owns a whole region: warm paper is the default, a deep green field owns the projects region edge to edge, and ink closes the page under the footer. A region change is the section break — there are no dividers between grounds and no containers floating on top of them. Inside the green field, a project row never claims a new ground: pointing at it mixes 4% paper into the field, raises its secondary ink and draws one inset paper edge. One saturated orange is reserved for actions and never spends itself on decoration.\n\nDensity is generous between regions and deliberately uneven inside the projects region: 96px between major sections and up to 96px around the projects region, but 48px inside the lead project against 24px inside each corroborating one. The lead spans the measure as a block of claim and visual evidence; Mitt Røde Kors and Habiit then share an equal two-column row, echoing the featured-plus-pair rhythm of the talks section. Each supporting project starts beneath its own hairline and reads vertically as title, claim, metadata, technologies and action. At narrow widths the pair stacks in source order. The confirmed rejections are the dark developer-portfolio default (there is no dark mode and no dark ground except the deliberate ink footer), cards-as-structure (there is no card at rest anywhere in the system), and faded text as an emphasis device (see The Never-Fade Rule).",
     "keyCharacteristics": [
       "One unbroken left column edge, `--measure` 1240px wide inside a fluid `--gutter`, shared by every section — the projects region's ground runs to the viewport edges, but its heading, its rules and each row's first register all start on the column",
-      "The hero answers fit before asking for contact: title, freelance role and lede lead into a full-width two-cell proof rail naming ASKO, Røde Kors and NDC London 2026, then the inquiry row",
+      "The hero answers fit before asking for contact: title, freelance role and lede name both capability and engagement format before a full-width two-cell proof rail names ASKO, Røde Kors and NDC London 2026, then the inquiry row",
       "Three region grounds — paper, green field, ink — each flipping text colour with it",
-      "One lead project row that argues and two that corroborate — the lead trades its mark plate for a screenshot, and that trade is the whole of the hierarchy",
-      "A project row is two registers, a mark and an entry: period, role and technologies read as one mono meta line under the claim rather than as columns of their own, and no technology on the field wears a box",
-      "Exactly one photograph of the person on the site, in the talks region, running off the right page edge while the type holds the column",
-      "Zero border-radius, anywhere; zero shadows except one dropdown",
+      "One lead project that argues and two equal columns that corroborate — the lead owns the full measure and the only screenshot; the supporting pair is text-only",
+      "A project entry is one vertical register: title and claim, quiet metadata, one readable technology line, then its action",
+      "The supporting pair uses the same 64px column rhythm and individual top hairlines as the talks pair, then collapses without reordering",
+      "Exactly one photograph of the person on the site, contained beside the featured talk inside the shared column",
+      "Zero border-radius anywhere; one elevation shadow under the dropdown, plus one inset project-row edge that carries no depth",
       "Two self-hosted families, no runtime third-party font requests",
       "Signal orange as fill or rule only, never as text",
-      "Emphasis by ground change alone; nothing is faded and there is no `opacity` declaration anywhere in the system",
+      "Emphasis by a restrained ground-and-ink lift; nothing is faded through `opacity`",
       "Focus rings invert per region so the indicator is always visible",
       "Every measure sized for Norwegian, the longer of the two locales"
     ],
     "rules": [
       {
         "name": "The Region Owns the Ground Rule",
-        "body": "A ground belongs to a whole region, not to a component. Paper is the default; the projects section owns the field; the footer owns ink. Setting a region ground means setting its text colour in the same rule, and anything nested that needs to sit apart (a hovered project row, a mark plate) inverts all the way back to ink-on-paper rather than half-way.",
+        "body": "A ground belongs to a whole region, not to a component. Paper is the default; the projects section owns the field; the footer owns ink. Setting a region ground means setting its text colour in the same rule. Components do not claim a competing ground: the project-row state stays recognizably field.",
         "section": "colors"
       },
       {
         "name": "The Signal-Never-Text Rule",
-        "body": "Signal orange is only ever a fill, a 2px rule, or an outline. There is no `color: var(--signal)` in the system and there must not be one — as text it fails on every ground the site has. Signal never appears on the green field in any form: in the projects region it becomes available only once a row has flipped its own ground to paper, and then only as the 2px underline beneath that row's affordance.",
+        "body": "Signal orange is only ever a fill, a 2px rule, or an outline. There is no `color: var(--signal)` in the system and there must not be one — as text it fails on every ground the site has. Signal never appears on the green field in any form. A project-row affordance brightens from field mist to paper instead.",
         "section": "colors"
       },
       {
         "name": "The Inverting Focus Rule",
-        "body": "`--focus` is a token, and every region that changes its ground reassigns it: paper uses ink, `.work` uses paper, `.footer` uses signal, and the active locale button uses paper against its own ink fill. A project row reassigns it a second time — back to ink — in the same rule that flips the row to paper, because the flip fires on `:focus-visible` too and a paper ring on a paper sheet is not an indicator. Any new region or state with a non-paper ground must set `--focus` in the same rule that sets `background`. WCAG 2.2 AA is a hard product requirement.",
+        "body": "`--focus` is a token, and every region that changes its ground reassigns it: paper uses ink, `.work` uses paper, `.footer` uses signal, and the active locale button uses paper against its own ink fill. A project row keeps the field's paper ring because its 4% lift never leaves the field. Any new region with a non-paper ground must set `--focus` in the same rule that sets `background`. WCAG 2.2 AA is a hard product requirement.",
         "section": "colors"
       },
       {
         "name": "The Mono-Is-Measurement Rule",
-        "body": "Martian Mono appears only where something is counted, named as a technology, timed, or located — tech tags, \"60 MIN\", \"NDC London 2026\", \"NO\"/\"EN\". It is never a costume for \"technical\", never a body face, and never a heading. Everything mono goes through the shared `.mono` primitive, which fixes it at `--step--2`; if a new label needs a different size, that is a signal the label is not mono.",
+        "body": "Martian Mono appears only where something is counted, named as a technology, timed, or located — tech tags, \"60 MIN\", \"NDC London 2026\", \"NO\"/\"EN\". It is never a costume for \"technical\", never a body face, and never a heading. Everything mono goes through the shared `.mono` primitive at `--step--2`; the project ledger's buyer-critical technology line is the single `--step--1` exception.",
         "section": "typography"
       },
       {
@@ -356,7 +438,7 @@
       },
       {
         "name": "The Unbroken Column Rule",
-        "body": "A new surface uses `.shell` or reproduces its exact inner edge. Nothing on this site sets its own max-width in px, and no section indents its content past the shared gutter. Every heading on the site starts on that line — `h1`, all four `h2`s, and the `h3`s in both the projects and talks regions — and so does the first register of every row. Nothing is centred rather than ranged.",
+        "body": "A new surface uses `.shell` or reproduces its exact inner edge. Nothing on this site sets its own max-width in px, and no section indents its content past the shared gutter. Every section heading and featured entry starts on that line; repeating two-column groups establish one subordinate start edge for their second item. Nothing is centred rather than ranged.",
         "section": "layout"
       },
       {
@@ -365,39 +447,36 @@
         "section": "layout"
       },
       {
-        "name": "The One Shadow Rule",
-        "body": "A shadow exists only where an element overlays content it did not push out of the way. If a new element is in normal flow, it gets a hairline or a ground change — not a shadow.",
-        "section": "elevation"
+        "name": "The One Elevation Shadow Rule",
+        "body": "An elevation shadow exists only where an element overlays content it did not push out of the way. If a new element is in normal flow, it gets a hairline or a ground change — not an elevation shadow. An inset `box-shadow` may implement a zero-displacement rule, but it must not imply depth.",
+        "section": "elevation-depth"
       },
       {
         "name": "The Never-Fade Rule",
-        "body": "No text and no control label ever carries `opacity`, at any state. Faded text drops below the contrast floor, and a site whose central claim is WCAG 2.2 AA cannot fade a third of its evidence to 2:1 for effect: de-emphasis is a cooler ground, never a lower alpha. There is no `opacity` declaration left anywhere in the system, and a new use of it on anything readable is a defect. Note what this costs and why it is worth paying: the projects region distinguishes the row being considered from the other two entirely by ground, which is why the ground flip has to be as large as it is.",
-        "section": "elevation"
+        "body": "No text and no control label ever carries `opacity`, at any state. Faded text drops below the contrast floor, and a site whose central claim is WCAG 2.2 AA cannot fade evidence for effect. There is no `opacity` declaration left anywhere in the system, and a new use of it on anything readable is a defect. The project row instead transitions its secondary text from field mist toward paper while a 4% ground lift preserves contrast throughout.",
+        "section": "elevation-depth"
       },
       {
-        "name": "The Printed Mark Rule",
-        "body": "Client logos arrive on white grounds — a baked-in white in a JPG, a white `<rect>` in an SVG — and a white rectangle on warm paper is a visible defect. Every logo is rendered with `mix-blend-mode: multiply`, which drops the white into the paper and lets the plate merge into a row that has flipped to paper; where the ground is part of the file it is deleted from the asset as well. A supplied mark also gets cropped to its own bounding box before it ships, so the plate's budget is spent on logo rather than on the file's own margin.",
-        "section": "shapes"
+        "name": "The Area-Proportional State Rule",
+        "body": "A state treatment's visual weight scales with the area it changes. A full inversion made the lead row shout more loudly than a corroborating line, even though both interactions meant the same thing. Large bands therefore change ground only slightly: the project row mixes 4% paper into field and lets ink, rule weight and the arrow carry the response. Small controls may make stronger colour changes because their area keeps them local.",
+        "section": "components"
       },
       {
-        "name": "The Wide Plate Rule",
-        "body": "The marks in use run from a 2.5:1 lockup (ASKO) to a 4.4:1 wordmark (Røde Kors), and a mark with less than roughly 156px of **content** width goes width-bound — which lands it visibly shorter than the others and reads as a mistake rather than as variety. The number governs content, not the plate box, and the plate's `padding-inline` comes off the box: the plate is `min(100%, 180px)` against a `156px` minimum and a 36px `max-height`, its column is `180px` at full width and `172px` below 1024px, and its inline padding is `0` at the start edge and `12px` at the end. Read that as one rule with one job — every mark ends up bounded by height, so all of them arrive at the same optical weight. Check a new mark's rendered height against the others rather than trusting the `max-height` alone; if it comes back short, the column is too narrow, not the `max-height` too low.",
-        "section": "shapes"
-      },
-      {
-        "name": "The Ranged Mark Rule",
-        "body": "The plate has no padding at its start edge, because the mark's own ink is what has to land on the shared column line — not the rectangle drawn around it. A mark centred in a fixed plate starts at a different x in every row, which is precisely the re-finding the whole grid exists to prevent, and it is fully exposed the moment the row flips to paper and the plate dissolves into the sheet.",
-        "section": "shapes"
+        "name": "The One Answer Clock Rule",
+        "body": "A compound state answers as one gesture. The project row inherits `--answer` and `--ease-row` into its background, secondary ink, inset edge, affordance colour, underline weight and arrow. Arrival is faster than departure, but parts within either direction do not keep separate clocks or delays. A reader sees one response, not an effect assembling itself.",
+        "section": "components"
       }
     ],
     "dos": [
-      "**Do** wrap every new section's content in `.shell`, or reproduce its inner edge exactly with `max(var(--gutter), calc((100% - var(--measure)) / 2 + var(--gutter)))` if the section is full-bleed.",
-      "**Do** set `--focus` in the same rule where you set a `background` that changes the ground — paper ground uses ink, field uses paper, ink uses signal, and a row flipping to paper resets it to ink.",
+      "**Do** wrap every new section's content in `.shell`; only a non-content state band may extend into the gutter.",
+      "**Do** set `--focus` in the same rule where you establish a region ground — paper uses ink, field uses paper and ink uses signal. A project-row state stays on the field and inherits its paper ring.",
       "**Do** reach for a hairline (1px `rule`, `rule-strong`, or `field-rule`) or a 2px ink rule where you are tempted to draw a box — and on the field, check first whether interval alone will separate the two things, because that region has one line and spends it on row divisions.",
       "**Do** keep signal orange as a ground under ink text, a 2px underline, or a focus outline — and only on paper.",
-      "**Do** use `.mono` only for measured values — technologies, durations, venues, locale codes — and let it stay at `--step--2`.",
+      "**Do** use `.mono` only for measured values — technologies, durations, venues, locale codes — at `--step--2`, except the ledger's buyer-critical technology line at `--step--1`.",
       "**Do** size every measure and heading wrap in `ch`, and check the surface in Norwegian first.",
-      "**Do** distinguish one item from its siblings with a ground change, and pass it down to nested text through an inherited variable rather than restating each colour.",
+      "**Do** distinguish one row from its siblings with a restrained ground-and-ink lift, and pass the state to nested text through inherited variables rather than restating each colour.",
+      "**Do** keep a compound state on one inherited answer clock; 140ms in and 190ms out on the interaction curve are the project row's established figures.",
+      "**Do** register a custom colour with `@property` when it must interpolate on that shared clock rather than snap.",
       "**Do** grow a changing underline with `background-size` on a `linear-gradient`, so the label it belongs to never moves.",
       "**Do** add new icons as single 1.5-stroke paths in the same 16-unit box in `AppIcon.vue`, `aria-hidden`, with a real text label beside them.",
       "**Do** add every new string to both `src/locales/no.ts` and `src/locales/en.ts`.",
@@ -405,28 +484,30 @@
     ],
     "donts": [
       "**Don't** add a `border-radius`. Every corner in this system is square.",
-      "**Don't** add a `box-shadow` to anything in normal flow — the dropdown overlay is the only shadow that exists.",
+      "**Don't** add an elevation `box-shadow` to anything in normal flow — the dropdown overlay owns the only elevation shadow. An inset shadow may draw a zero-displacement rule, as the project row does.",
       "**Don't** put `opacity` on anything. There is no `opacity` declaration left in the system, on text or on images; de-emphasis is a cooler ground.",
       "**Don't** write `color: var(--signal)`. Signal is a fill, a rule, or an outline; as text it fails on every ground here.",
-      "**Don't** put signal orange on the green field in any form. In the projects region it becomes available only after a row has flipped its own ground to paper.",
+      "**Don't** put signal orange on the green field in any form. Project-row affordances move from field mist to paper, never to signal.",
+      "**Don't** invert a project row to paper or reprint its type in ink. The field remains the ground; a 4% lift is the maximum established change.",
+      "**Don't** give the parts of one project-row response separate clocks or delays. Background, ink, edge, underline and arrow answer together.",
       "**Don't** introduce a third accent, a gray, or a dark mode. There are three grounds and one accent.",
       "**Don't** use mono as a \"technical\" costume for headings, prose, or button labels.",
       "**Don't** add a fourth font weight, an italic, or a second sans; three Cabinet Grotesk files and one variable mono are what ships.",
       "**Don't** load a font, icon set, or stylesheet from a third-party host at runtime.",
-      "**Don't** wrap content in a card. There is no persistent card in this system — grouping is hairlines, lifting is a ground flip in response to the reader, and the mark plate is a light ground for a logo, not a container.",
-      "**Don't** put a screenshot in a project row other than the lead row. The lead row is the one licensed exception and it stays one; a second screenshot here turns the ledger back into a list of cards. Elsewhere a row is a mark and an entry — a name, a claim and one meta line — and screenshots are the project page's evidence.",
-      "**Don't** put a border on anything inside the projects region: not a technology, not a screenshot, not a set of facts. The only line on the field is the hairline where two rows meet. Every border removed there was removed on purpose, and adding one back re-crowds the region the reader is meant to scan in under a minute.",
-      "**Don't** close the row list with a rule at its top or bottom. Two rules for three rows; the field's own edges are where the region ends.",
-      "**Don't** give the ledger a third register. Period, role and technologies belong on the meta line — a new fact goes into that line or it does not go into this region.",
-      "**Don't** give the lead row a mark plate, and don't give the other rows a screenshot. Each row type is missing exactly one thing the other has, and that trade is what the hierarchy is made of.",
-      "**Don't** drop a supplied logo in untrimmed or without `mix-blend-mode: multiply`, and don't centre a mark in its plate — it ranges left so its ink starts on the column line.",
-      "**Don't** narrow a mark below ~156px of **content** width, and don't judge a new mark by its `max-height`. The plate's inline padding comes off its column, so a 156px column is not a 156px mark: a 4.4:1 wordmark goes width-bound and lands visibly shorter than the others. Measure its rendered height against them.",
-      "**Don't** rest an interactive underline on a hairline token. On the field the affordance rests at `field-soft`, not `field-rule` — on touch the flip never fires, so that underline is the only resting evidence the row is live.",
+      "**Don't** wrap content in a card. There is no card in this system — grouping is interval and hairlines, and every project row stays on the field.",
+      "**Don't** put a screenshot in a project row other than the lead row. The lead row is the one licensed exception and it stays one; the supporting pair remains text-only so it compares without becoming two cards.",
+      "**Don't** put a border around anything inside the projects region: not a technology, screenshot, set of facts, or whole project. Resting structure uses only the top hairline on each supporting item; the active row may add its documented inset paper edge.",
+      "**Don't** add a closing rule beneath the supporting pair. The field's own edge says where the region ends.",
+      "**Don't** give the ledger a third column or visual register. Period, role and the separate technology line all belong inside the entry; a new fact goes into that entry or it does not go into this region.",
+      "**Don't** split a supporting project into internal columns. Its grid track is already its horizontal allocation; title, claim, metadata, stack and action remain one vertical reading path.",
+      "**Don't** set a corroborating row at the lead row's numbers. There are two row rhythms and two title steps, and closing the gap between them removes the hierarchy that lets a buyer see which project is the argument.",
+      "**Don't** add project logos back to the home-page region. Names carry identity; the lead screenshot and supporting copy carry evidence.",
+      "**Don't** rest an interactive underline on a hairline token. On the field the affordance rests at `field-soft`, not `field-rule` — on touch the lift never fires, so that underline is the only resting evidence the row is live.",
       "**Don't** reintroduce carousel machinery — a track, arrows, a counter, a notion of an active item — for three projects. All three fit on the column at once, and the reader is comparing, not advancing.",
       "**Don't** give a label, button, or nav item a fixed px width; Norwegian is the longer locale and it is canonical.",
-      "**Don't** collapse the mobile header into a hamburger drawer; it wraps to a second full-width row at 720px by design.",
-      "**Don't** let type cross the column line. A ground may bleed, and two images do; a heading, a label or a paragraph never does.",
-      "**Don't** compute a bleed from `vw`. `100vw` includes the scrollbar and buys a horizontal scroll on the whole page; derive it from `--column-inset`, which is a percentage.",
+      "**Don't** collapse the mobile header into a hamburger drawer; it becomes static and wraps to a second full-width row at 720px by design.",
+      "**Don't** let type or imagery cross the column line. The project row's active background band may extend into the gutter; its content never follows it.",
+      "**Don't** compute the project-row band from `vw`. Pair container-relative padding with an equal negative margin so the page never gains horizontal scroll.",
       "**Don't** put a second email action on a page that already ends on the footer. The footer's address button is the site's one conversion, and it closes every page; an ask stacked directly above it competes with the thing it is copying. A surface that feels like it needs a closer gets navigation or evidence there instead — see Project Pager.",
       "**Don't** add a second photograph of Eric. One is evidence in the talks region; two make the first one decoration, and this system has no decoration."
     ]

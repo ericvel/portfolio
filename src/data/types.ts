@@ -20,16 +20,14 @@ export interface ProjectImage {
 export interface Project {
   id: ProjectId;
   title: string;
-  logo: string;
   /** Engagement period, e.g. `'2023–2026'` or a single year. Rendered as a measured value. */
   year: string;
   /** Individual tech tags, shown both in the ledger row and on the project page. */
   tech: string[];
   images: ProjectImage[];
   /**
-   * The one project the ledger argues from. The lead row drops the mark plate and carries
-   * `images[0]` instead — see the Project Ledger section of DESIGN.md. Exactly one project
-   * sets this.
+   * The one project the ledger argues from. It carries `images[0]` in the home-page feature
+   * while the two corroborating projects remain text-only. Exactly one project sets this.
    */
   lead?: true;
 }
