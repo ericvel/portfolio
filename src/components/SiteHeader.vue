@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { nextTick, onBeforeUnmount, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { RouterLink } from "vue-router";
 import AppIcon from "@/components/AppIcon.vue";
@@ -8,21 +8,165 @@ import { PROJECTS } from "@/data/projects";
 
 const { t } = useI18n();
 
+const headerShell = ref<HTMLElement | null>(null);
 const projectsMenu = ref<HTMLElement | null>(null);
+const projectsMenuTrigger = ref<HTMLButtonElement | null>(null);
+const isProjectsMenuOpen = ref(false);
 
-function closeProjectsMenu() {
-  projectsMenu.value?.hidePopover();
+let typeaheadQuery = "";
+let typeaheadTimer: ReturnType<typeof setTimeout> | undefined;
+
+function getMenuItems() {
+  return Array.from(projectsMenu.value?.querySelectorAll<HTMLElement>("[role='menuitem']") ?? []);
 }
+
+function focusMenuItem(index: number) {
+  const items = getMenuItems();
+
+  if (items.length === 0) return;
+
+  items[(index + items.length) % items.length]?.focus();
+}
+
+function openProjectsMenu(position: "first" | "last" = "first") {
+  const menu = projectsMenu.value;
+
+  if (!menu) return;
+
+  if (!menu.matches(":popover-open")) menu.showPopover();
+  isProjectsMenuOpen.value = true;
+
+  void nextTick(() => focusMenuItem(position === "first" ? 0 : -1));
+}
+
+function closeProjectsMenu(restoreTriggerFocus = false) {
+  const menu = projectsMenu.value;
+
+  if (menu?.matches(":popover-open")) menu.hidePopover();
+  isProjectsMenuOpen.value = false;
+
+  if (restoreTriggerFocus) projectsMenuTrigger.value?.focus();
+}
+
+function toggleProjectsMenu() {
+  if (projectsMenu.value?.matches(":popover-open")) {
+    closeProjectsMenu();
+  } else {
+    openProjectsMenu();
+  }
+}
+
+function moveFocusFromMenu(backwards: boolean) {
+  const trigger = projectsMenuTrigger.value;
+  const focusableElements = Array.from(
+    headerShell.value?.querySelectorAll<HTMLElement>(
+      "a[href]:not([tabindex='-1']), button:not(:disabled):not([tabindex='-1']), [tabindex]:not([tabindex='-1'])",
+    ) ?? [],
+  );
+  const triggerIndex = trigger ? focusableElements.indexOf(trigger) : -1;
+
+  focusableElements[triggerIndex + (backwards ? -1 : 1)]?.focus();
+}
+
+function handleTriggerKeydown(event: KeyboardEvent) {
+  if (event.key === "ArrowUp") {
+    event.preventDefault();
+    openProjectsMenu("last");
+  }
+
+  if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    openProjectsMenu();
+  }
+}
+
+function handleMenuKeydown(event: KeyboardEvent) {
+  const items = getMenuItems();
+  const currentIndex = items.indexOf(document.activeElement as HTMLElement);
+
+  switch (event.key) {
+    case "ArrowDown":
+      event.preventDefault();
+      focusMenuItem(currentIndex + 1);
+      return;
+    case "ArrowUp":
+      event.preventDefault();
+      focusMenuItem(currentIndex - 1);
+      return;
+    case "Home":
+      event.preventDefault();
+      focusMenuItem(0);
+      return;
+    case "End":
+      event.preventDefault();
+      focusMenuItem(-1);
+      return;
+    case "Escape":
+      event.preventDefault();
+      event.stopPropagation();
+      closeProjectsMenu(true);
+      return;
+    case "Tab":
+      event.preventDefault();
+      closeProjectsMenu();
+      moveFocusFromMenu(event.shiftKey);
+      return;
+    case " ":
+      event.preventDefault();
+      items[currentIndex]?.click();
+      return;
+  }
+
+  if (event.ctrlKey || event.metaKey || event.altKey || event.key.length !== 1) return;
+
+  typeaheadQuery += event.key.toLocaleLowerCase();
+  clearTimeout(typeaheadTimer);
+  typeaheadTimer = setTimeout(() => {
+    typeaheadQuery = "";
+  }, 500);
+
+  const isRepeatedCharacter = new Set(typeaheadQuery).size === 1;
+  const searchTerm = isRepeatedCharacter ? typeaheadQuery.charAt(0) : typeaheadQuery;
+
+  for (let offset = 1; offset <= items.length; offset += 1) {
+    const item = items[(currentIndex + offset) % items.length];
+
+    if (item?.textContent?.trim().toLocaleLowerCase().startsWith(searchTerm)) {
+      event.preventDefault();
+      item.focus();
+      return;
+    }
+  }
+}
+
+function handleMenuToggle() {
+  isProjectsMenuOpen.value = projectsMenu.value?.matches(":popover-open") ?? false;
+
+  if (!isProjectsMenuOpen.value) typeaheadQuery = "";
+}
+
+onBeforeUnmount(() => clearTimeout(typeaheadTimer));
 </script>
 
 <template>
   <header class="header">
-    <div class="header__shell shell">
+    <div ref="headerShell" class="header__shell shell">
       <RouterLink view-transition class="logo" :to="{ name: 'home' }"> Eric Veliyulin </RouterLink>
 
       <nav class="nav">
         <div class="menu">
-          <button type="button" class="menu__trigger nav__link" popovertarget="projects-menu">
+          <button
+            id="projects-menu-trigger"
+            ref="projectsMenuTrigger"
+            type="button"
+            class="menu__trigger nav__link"
+            popovertarget="projects-menu"
+            aria-haspopup="menu"
+            aria-controls="projects-menu"
+            :aria-expanded="isProjectsMenuOpen"
+            @click.prevent="toggleProjectsMenu"
+            @keydown="handleTriggerKeydown"
+          >
             {{ t("nav.projects") }}
             <span class="menu__caret">
               <AppIcon name="chevron-down" />
@@ -33,14 +177,19 @@ function closeProjectsMenu() {
             ref="projectsMenu"
             class="menu__list"
             popover="auto"
+            role="menu"
             :aria-label="t('nav.projectsMenu')"
+            @keydown="handleMenuKeydown"
+            @toggle="handleMenuToggle"
           >
-            <li v-for="project in PROJECTS" :key="project.id">
+            <li v-for="project in PROJECTS" :key="project.id" role="none">
               <RouterLink
                 view-transition
                 class="menu__item"
                 :to="{ name: 'project', params: { id: project.id } }"
-                @click="closeProjectsMenu"
+                role="menuitem"
+                tabindex="-1"
+                @click="closeProjectsMenu()"
               >
                 {{ project.title }}
               </RouterLink>
@@ -200,7 +349,8 @@ function closeProjectsMenu() {
   color: var(--ink);
   transition: background 140ms ease;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     background: var(--paper-deep);
   }
 }
