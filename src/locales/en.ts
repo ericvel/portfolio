@@ -27,7 +27,8 @@ export default {
     titleProject: "Eric Veliyulin {separator} {project}",
     description:
       "I'm a freelance frontend specialist working with React, Vue and TypeScript. Testing and " +
-      "accessibility come as standard. I've worked on projects for ASKO, Røde Kors and Habiit.",
+      "accessibility come as standard. I've delivered work for ASKO and Røde Kors, and built " +
+      "Rewindify.",
   },
   a11y: {
     skip: "Skip to main content",
@@ -77,6 +78,7 @@ export default {
     backLabel: "Back to home page",
     tech: "Technologies",
     role: "Role",
+    repository: "GitHub",
     next: "Next project",
     /** Landmark name for the pager at the foot of a project page. */
     pagerNav: "Project navigation",
@@ -84,11 +86,12 @@ export default {
   projects: {
     asko: {
       blurb:
-        "I've worked on both the storefront and the Fiks admin tool. That includes catalogues " +
-        "with tens of thousands of items, keyboard navigation and predictable states.",
+        "E-commerce and internal catalogue management for tens of thousands of items, with " +
+        "keyboard navigation and predictable states.",
       role: "Lead frontend developer",
-      /** Short caption for the ledger's lead-row screenshot; the full one is in `captions`. */
-      leadCaption: "Order details with delivery status",
+      /** Short caption for the ledger's dedicated lead-row screenshot. */
+      leadCaption: "Home page with search across more than 30,000 products",
+      sectionTitles: ["ASKO Servering", "Fiks"],
       body: [
         "ASKO Servering is the e-commerce platform for professional catering. It covers product " +
           "search, shopping lists, ordering and delivery follow-up. I've worked on all parts of " +
@@ -102,14 +105,15 @@ export default {
           "pipeline.",
       ],
       captions: [
-        "ASKO Servering: order details with delivery status and order summary.",
-        "ASKO Servering Fiks: catalogue maintenance with search, filters and status editing.",
+        "ASKO Servering checkout with suggested products, order lines and delivery details.",
+        "Fiks home page with an overview of chains and customers.",
+        "Fiks catalogue maintenance with search, filters, import, export and item status.",
       ],
     },
     rodekors: {
       blurb:
-        "Volunteers can plan and publish activities, then manage sign-ups. Accessibility was a " +
-        "requirement throughout the project.",
+        "A tool for volunteers to plan and publish activities and manage sign-ups. Accessibility " +
+        "was required throughout.",
       role: "Lead frontend developer",
       body: [
         "Mitt Røde Kors brings volunteer activities together in one place. Volunteers can create " +
@@ -122,21 +126,25 @@ export default {
       ],
       captions: ["Overview of upcoming events with filtering and sign-up status."],
     },
-    habiit: {
+    rewindify: {
       blurb:
-        "A digital tool and mobile game that helps children manage routines and school schedules, " +
-        "and put their feelings into words.",
-      role: "iOS developer",
+        "A music player for practice with precise stepping and A/B loops for any passage on " +
+        "Spotify.",
+      role: "Sole developer",
       body: [
-        "Habiit turns everyday routines into quests. Children see their weekly plan and school " +
-          "timetable in a form they'll actually open. They collect rewards along the way and get " +
-          "simple ways to describe how they're feeling.",
-        "The iOS app is written in Swift and uses Firebase as its backend for data, authentication " +
-          "and syncing between children and guardians. Its game mechanics use maps and location. " +
-          "Much of the work went into keeping the experience playful without compromising privacy " +
-          "or battery life.",
+        "I built Rewindify to practise an instrument with music from Spotify. Instead of aiming at " +
+          "a progress bar, I can step backwards or forwards by a fixed number of seconds. Once I " +
+          "find the passage I am working on, I set A and B points on the timeline and let it play " +
+          "in a loop.",
+        "The app is built with Vue, TypeScript and Pinia around the Spotify Web Playback SDK. The " +
+          "entire player can be controlled from the keyboard. Loop points can be nudged, saved per " +
+          "track and shared in the URL. Separate desktop and mobile views keep the same precise " +
+          "controls usable at both screen sizes.",
       ],
-      captions: ["Habiit: avatar, map-based quests and the week's timetable."],
+      captions: [
+        "Desktop view with a full-track waveform, precise loop points and visible keyboard shortcuts.",
+        "Mobile view with the same loop controls adapted for touch.",
+      ],
     },
   },
 };

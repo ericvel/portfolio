@@ -71,19 +71,23 @@ maker. English-language visitors are the default case; Norwegian visitors can sw
   English follows it.
 - Contact identities are fixed: `eric.vel@outlook.com`, `github.com/ericvel`,
   `linkedin.com/in/eric-veliyulin`.
-- Client names appear as plain text in the home-page project comparison; screenshots carry the
+- Project names appear as plain text in the home-page project comparison; screenshots carry the
   visual evidence.
 
 ## Evidence on Hand
 
 Real, in-repo, and usable:
 
-- **ASKO Servering / Fiks** — [asko-servering.png](src/assets/projects/asko-servering.png),
-  [asko-fiks.png](src/assets/projects/asko-fiks.png), [asko-logo.jpg](src/assets/projects/asko-logo.jpg).
-  Vue, Vite, TypeScript, Vitest, Playwright, TanStack Query.
+- **ASKO Servering / Fiks** — [askoservering-forside.png](src/assets/projects/askoservering-forside.png),
+  [askoservering-handlekurv.png](src/assets/projects/askoservering-handlekurv.png),
+  [fiks-forside.png](src/assets/projects/fiks-forside.png), and
+  [fiks-varebok.png](src/assets/projects/fiks-varebok.png). Vue, Vite, TypeScript, Vitest,
+  Playwright, TanStack Query.
 - **Mitt Røde Kors** — [mitt-rode-kors.png](src/assets/projects/mitt-rode-kors.png). React,
   Next.js, Tailwind CSS.
-- **Habiit** — [habiit.png](src/assets/projects/habiit.png). Swift, Firebase, iOS.
+- **Rewindify** — [rewindify-desktop.jpg](src/assets/projects/rewindify-desktop.jpg),
+  [rewindify-mobile.jpg](src/assets/projects/rewindify-mobile.jpg). Vue, TypeScript, Pinia,
+  Spotify Web Playback SDK, Vitest.
 - **Talks** — NDC London 2026, "The New Frontend Toolkit", recording at
   `youtube.com/watch?v=rjMwM7--9cA`, 60 min, English. Framsia Oslo, "Customizable select
   components", `meetup.com/framsia/events/313652618/`. Ongoing in-house sessions, on request.

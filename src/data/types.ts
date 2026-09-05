@@ -4,7 +4,7 @@ export type Locale = "no" | "en";
  * Literal union rather than `string` so that template-literal message keys such as
  * `` `projects.${id}.blurb` `` still resolve against the typed locale schema.
  */
-export type ProjectId = "asko" | "rodekors" | "habiit";
+export type ProjectId = "asko" | "rodekors" | "rewindify";
 
 export interface ProjectImage {
   /** Resolved asset URL. */
@@ -24,9 +24,13 @@ export interface Project {
   year: string;
   /** Individual tech tags, shown both in the ledger row and on the project page. */
   tech: string[];
+  /** Optional screenshot used only by the lead row in the home-page project ledger. */
+  leadImage?: ProjectImage;
   images: ProjectImage[];
+  /** Optional public source repository, shown as an external action on the project page. */
+  repository?: string;
   /**
-   * The one project the ledger argues from. It carries `images[0]` in the home-page feature
+   * The one project the ledger argues from. It carries `leadImage` in the home-page feature
    * while the two corroborating projects remain text-only. Exactly one project sets this.
    */
   lead?: true;

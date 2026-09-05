@@ -47,8 +47,8 @@ const copyButtonLabel = computed(() => {
       <div class="hero__contact">
         <a class="action" href="mailto:eric.vel@outlook.com">{{ t("hero.contact") }}</a>
         <div class="hero__email-tools">
-          <span class="hero__email">{{ EMAIL }}</span>
           <button type="button" class="hero__copy" :aria-label="copyButtonLabel" @click="copyEmail">
+            <span class="hero__email">{{ EMAIL }}</span>
             <AppIcon :name="copyState === 'copied' ? 'check' : 'copy'" />
           </button>
           <span class="visually-hidden" role="status" aria-live="polite" aria-atomic="true">
@@ -212,13 +212,8 @@ const copyButtonLabel = computed(() => {
 }
 
 .hero__email {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  color: var(--ink-soft);
   font-family: var(--font-mono);
   font-size: var(--step--1);
-  user-select: text;
 }
 
 .hero__email-tools {
@@ -233,11 +228,13 @@ const copyButtonLabel = computed(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
+  gap: var(--space-3);
   min-height: 44px;
+  padding-inline: var(--space-3);
   border: 0;
   color: var(--ink-soft);
   cursor: pointer;
+  user-select: text;
   transition:
     color 160ms ease,
     background 160ms ease;
@@ -295,7 +292,7 @@ const copyButtonLabel = computed(() => {
     justify-content: center;
   }
 
-  .hero__email {
+  .hero__copy {
     margin-right: auto;
   }
 

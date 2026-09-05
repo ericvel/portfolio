@@ -6,10 +6,10 @@ import { PROJECTS } from "@/data/projects";
 
 const { t } = useI18n();
 
-/** The lead project's screenshot, resolved once so the template never indexes into `images`. */
+/** The lead project's dedicated ledger screenshot, resolved once outside the template. */
 const ROWS = PROJECTS.map((project) => ({
   project,
-  shot: project.lead ? project.images[0] : undefined,
+  shot: project.lead ? project.leadImage : undefined,
 }));
 </script>
 
@@ -154,7 +154,7 @@ const ROWS = PROJECTS.map((project) => ({
    claim-and-screenshot split and more generous vertical rhythm. */
 .work__row--lead {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
   column-gap: var(--space-8);
   row-gap: var(--space-5);

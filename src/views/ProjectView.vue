@@ -20,6 +20,10 @@ const copy = computed(() => {
     blurb: t(`projects.${found.id}.blurb`),
     role: t(`projects.${found.id}.role`),
     body: (tm(`projects.${found.id}.body`) as string[]).map((paragraph) => rt(paragraph)),
+    sectionTitles:
+      found.id === "asko"
+        ? (tm(`projects.${found.id}.sectionTitles`) as string[]).map((title) => rt(title))
+        : [],
   };
 });
 
@@ -31,6 +35,24 @@ const figures = computed(() => {
     ...image,
     caption: rt(captions[index] ?? ""),
   }));
+});
+
+const askoSections = computed(() => {
+  const detailCopy = copy.value;
+  if (project.value?.id !== "asko" || !detailCopy) return [];
+
+  return [
+    {
+      title: detailCopy.sectionTitles[0] ?? "",
+      body: detailCopy.body[0] ?? "",
+      figures: figures.value.slice(0, 1),
+    },
+    {
+      title: detailCopy.sectionTitles[1] ?? "",
+      body: detailCopy.body[1] ?? "",
+      figures: figures.value.slice(1),
+    },
+  ];
 });
 </script>
 
@@ -58,36 +80,82 @@ const figures = computed(() => {
           <ul class="tags">
             <li v-for="item in project.tech" :key="item" class="tag mono">{{ item }}</li>
           </ul>
-          <h2 class="label mono label--spaced">{{ t("project.role") }}</h2>
-          <p class="project__role">{{ copy.role }}</p>
+          <div class="project__role-row">
+            <div class="project__role-group">
+              <h2 class="label mono">{{ t("project.role") }}</h2>
+              <p class="project__role">{{ copy.role }}</p>
+            </div>
+            <a
+              v-if="project.repository"
+              class="project__repo"
+              :href="project.repository"
+              target="_blank"
+              rel="noopener"
+            >
+              {{ t("project.repository") }}
+              <AppIcon name="arrow-up-right" />
+            </a>
+          </div>
         </div>
       </div>
 
-      <div class="project__body">
-        <p v-for="(paragraph, index) in copy.body" :key="index" class="project__paragraph">
-          {{ paragraph }}
-        </p>
+      <div v-if="askoSections.length" class="project__sections">
+        <section
+          v-for="(section, index) in askoSections"
+          :key="section.title"
+          class="project__section"
+          :aria-labelledby="`project-section-${index}`"
+        >
+          <div class="project__section-copy">
+            <h2 :id="`project-section-${index}`" class="project__section-title">
+              {{ section.title }}
+            </h2>
+            <p class="project__paragraph">{{ section.body }}</p>
+          </div>
+
+          <div class="project__section-figures">
+            <figure v-for="figure in section.figures" :key="figure.src" class="figure">
+              <img
+                class="figure__image"
+                :src="figure.src"
+                :alt="figure.caption"
+                :style="{ aspectRatio: figure.ratio }"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="figure__caption">{{ figure.caption }}</figcaption>
+            </figure>
+          </div>
+        </section>
       </div>
 
-      <div
-        class="project__figures"
-        :class="{
-          'project__figures--single': figures.length === 1,
-          'project__figures--compact': project.id === 'habiit',
-        }"
-      >
-        <figure v-for="figure in figures" :key="figure.src" class="figure">
-          <img
-            class="figure__image"
-            :src="figure.src"
-            :alt="figure.caption"
-            :style="{ aspectRatio: figure.ratio }"
-            loading="lazy"
-            decoding="async"
-          />
-          <figcaption class="figure__caption">{{ figure.caption }}</figcaption>
-        </figure>
-      </div>
+      <template v-else>
+        <div class="project__body">
+          <p v-for="(paragraph, index) in copy.body" :key="index" class="project__paragraph">
+            {{ paragraph }}
+          </p>
+        </div>
+
+        <div
+          class="project__figures"
+          :class="{
+            'project__figures--single': figures.length === 1,
+            'project__figures--rewindify': project.id === 'rewindify',
+          }"
+        >
+          <figure v-for="figure in figures" :key="figure.src" class="figure">
+            <img
+              class="figure__image"
+              :src="figure.src"
+              :alt="figure.caption"
+              :style="{ aspectRatio: figure.ratio }"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="figure__caption">{{ figure.caption }}</figcaption>
+          </figure>
+        </div>
+      </template>
 
       <ProjectPager :current-id="project.id" />
     </div>
@@ -157,10 +225,6 @@ const figures = computed(() => {
   color: var(--ink-soft);
 }
 
-.label--spaced {
-  margin-top: var(--space-4);
-}
-
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -181,9 +245,50 @@ const figures = computed(() => {
   font-size: var(--step-0);
 }
 
+.project__role-row {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-6);
+  margin-top: var(--space-4);
+}
+
+.project__role-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.project__repo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-bottom: 4px;
+  font-size: var(--step--1);
+  font-weight: 500;
+  background-image: linear-gradient(var(--signal), var(--signal));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 2px;
+  transition: background-size 220ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover,
+  &:focus-visible {
+    background-size: 100% 6px;
+  }
+
+  :deep(.icon) {
+    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover :deep(.icon),
+  &:focus-visible :deep(.icon) {
+    transform: translate(2px, -2.5px);
+  }
+}
+
 .project__body {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: var(--space-7);
   padding-block: var(--space-8);
 }
@@ -197,15 +302,48 @@ const figures = computed(() => {
   text-wrap: pretty;
 }
 
-.project__figures {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+.project__sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-9);
+  padding-top: var(--space-8);
+}
+
+.project__section {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-7);
 }
 
-/* Lone screenshots are evidence within the reading flow, not full-bleed backdrops.
-   A centered column grid gives the landscape interface room to read while keeping
-   the near-square phone composition deliberately compact. */
+.project__section-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.project__section-title {
+  margin: 0;
+  font-size: var(--step-3);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.project__section-figures {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.project__figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  gap: var(--space-7);
+}
+
+/* Screenshots are evidence within the reading flow, not full-bleed backdrops.
+   A centered column grid gives lone landscape interfaces room to read. */
 .project__figures--single {
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--space-3);
@@ -215,8 +353,20 @@ const figures = computed(() => {
   }
 }
 
-.project__figures--compact .figure {
-  grid-column: 4 / -4;
+.project__figures--rewindify {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--space-6);
+  align-items: start;
+
+  .figure:first-child {
+    grid-column: 1 / span 9;
+  }
+
+  .figure:last-child {
+    grid-column: 10 / -1;
+    width: min(100%, 360px);
+    justify-self: center;
+  }
 }
 
 .figure {
@@ -248,17 +398,28 @@ const figures = computed(() => {
     gap: var(--space-7);
   }
 
+  .project__section-copy {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+
   .project__figures--single .figure {
     grid-column: 1 / -1;
   }
 
-  .project__figures--compact .figure {
-    grid-column: 2 / -2;
+  .project__figures--rewindify {
+    .figure:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .figure:last-child {
+      grid-column: 4 / -4;
+    }
   }
 }
 
 @media (max-width: 560px) {
-  .project__figures--compact .figure {
+  .project__figures--rewindify .figure:last-child {
     grid-column: 1 / -1;
   }
 }

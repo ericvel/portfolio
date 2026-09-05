@@ -27,8 +27,8 @@ export default {
     titleProject: "Eric Veliyulin {separator} {project}",
     description:
       "Jeg jobber som frilans frontendspesialist med React, Vue og TypeScript. Testdekning og " +
-      "universell utforming er en selvfølge. Jeg har jobbet med prosjekter for ASKO, Røde Kors og " +
-      "Habiit.",
+      "universell utforming er en selvfølge. Jeg har levert løsninger for ASKO og Røde Kors, og " +
+      "bygget Rewindify.",
   },
   a11y: {
     skip: "Hopp til hovedinnhold",
@@ -78,6 +78,7 @@ export default {
     backLabel: "Tilbake til forsiden",
     tech: "Teknologier",
     role: "Rolle",
+    repository: "GitHub",
     next: "Neste prosjekt",
     /** Landmark name for the pager at the foot of a project page. */
     pagerNav: "Prosjektnavigasjon",
@@ -85,11 +86,12 @@ export default {
   projects: {
     asko: {
       blurb:
-        "Jeg har jobbet med både nettbutikken og administrasjonsverktøyet Fiks. Det omfatter " +
-        "varebøker med titusenvis av varer, tastaturnavigasjon og forutsigbare tilstander.",
+        "Netthandel og intern vareadministrasjon for titusenvis av varer, med tastaturnavigasjon " +
+        "og forutsigbare tilstander.",
       role: "Lead frontendutvikler",
-      /** Short caption for the ledger's lead-row screenshot; the full one is in `captions`. */
-      leadCaption: "Bestillingsdetaljer med leveringsstatus",
+      /** Short caption for the ledger's dedicated lead-row screenshot. */
+      leadCaption: "Forside med søk blant over 30 000 varer",
+      sectionTitles: ["ASKO Servering", "Fiks"],
       body: [
         "ASKO Servering er netthandelen for storhusholdning. Den dekker varesøk, handlelister, " +
           "bestilling og oppfølging av leveranser. Jeg har jobbet med alle deler av løsningen, " +
@@ -101,14 +103,15 @@ export default {
           "dekker logikken, mens Playwright kjører de kritiske flytene i pipeline.",
       ],
       captions: [
-        "ASKO Servering: bestillingsdetaljer med leveringsstatus og ordresammendrag.",
-        "ASKO Servering Fiks: vedlikehold av varebok med søk, filtre og statusredigering.",
+        "Handlekurven i ASKO Servering med vareforslag, ordrelinjer og leveringsdetaljer.",
+        "Forsiden i Fiks med oversikt over kjeder og kunder.",
+        "Vedlikehold av varebok i Fiks med søk, filtre, import, eksport og varestatus.",
       ],
     },
     rodekors: {
       blurb:
-        "Frivillige kan planlegge og publisere aktiviteter og håndtere påmeldinger. Universell " +
-        "utforming var et krav gjennom hele prosjektet.",
+        "En løsning der frivillige kan planlegge og publisere aktiviteter og håndtere påmeldinger. " +
+        "Universell utforming var et krav hele veien.",
       role: "Lead frontendutvikler",
       body: [
         "Mitt Røde Kors samler aktivitetene til de frivillige på ett sted. De kan opprette og " +
@@ -121,21 +124,25 @@ export default {
       ],
       captions: ["Oversikt over kommende arrangementer med filtrering og påmeldingsstatus."],
     },
-    habiit: {
+    rewindify: {
       blurb:
-        "Et digitalt verktøy og mobilspill som hjelper barn med rutiner, skoleoversikt og å sette " +
-        "ord på følelsene sine.",
-      role: "iOS-utvikler",
+        "En musikkspiller for øving med presis spoling og A/B-looping av valgfrie partier i " +
+        "Spotify.",
+      role: "Eneutvikler",
       body: [
-        "Habiit gjør hverdagsrutiner til oppdrag. Barna får ukeplan og timeplan i en form de " +
-          "faktisk gidder å åpne. Underveis samler de belønninger og får enkle måter å sette ord på " +
-          "hvordan de har det.",
-        "iOS-appen er skrevet i Swift og bruker Firebase som backend for data, autentisering og " +
-          "synkronisering mellom barn og foresatte. Spillmekanikken bruker kart og posisjon. Mye " +
-          "av arbeidet gikk ut på å holde opplevelsen leken uten å gå på akkord med personvern eller " +
-          "batteritid.",
+        "Jeg bygget Rewindify for å øve på instrument til musikk fra Spotify. I stedet for å sikte " +
+          "på en fremdriftslinje kan jeg spole tilbake eller fremover med et fast antall sekunder. " +
+          "Når jeg har funnet partiet jeg jobber med, setter jeg A- og B-punkter på tidslinjen og " +
+          "lar det spille i loop.",
+        "Appen er bygget i Vue, TypeScript og Pinia rundt Spotify Web Playback SDK. Hele " +
+          "avspillingen kan styres fra tastaturet. Loop-punkter kan finjusteres, lagres per låt og " +
+          "deles i URL-en. Egne desktop- og mobilvisninger gjør de samme presise kontrollene " +
+          "brukbare på begge skjermstørrelser.",
       ],
-      captions: ["Habiit: avatar, kartbaserte oppdrag og ukens timeplan."],
+      captions: [
+        "Desktopvisning med bølgeform for hele låten, presise looppunkter og synlige tastatursnarveier.",
+        "Mobilvisning med de samme loopkontrollene tilpasset berøring.",
+      ],
     },
   },
 };
