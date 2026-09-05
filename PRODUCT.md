@@ -46,14 +46,14 @@ tens of thousands of items, keyboard navigation, predictable states).
 Visitors evaluate on desktop during a workday and on mobile between meetings. They typically arrive
 from a LinkedIn profile, a referral, or a direct link sent by a colleague, already knowing the name.
 They scan for stack match and evidence, then leave to email or to forward the link to a decision
-maker. Norwegian-language visitors are the default case; English visitors are the secondary case.
+maker. English-language visitors are the default case; Norwegian visitors can switch languages.
 
 ## Capabilities and Constraints
 
 - Existing implementation: Vue 3 + Vite + TypeScript, vue-router, SCSS, deliberately unstyled at
   the current commit and awaiting a visual system.
-- Bilingual via vue-i18n. **Norwegian (`no`) is the default locale and the canonical copy;**
-  English (`en`) is the secondary translation. Locale persists to `localStorage`
+- Bilingual via vue-i18n. **English (`en`) is the default locale; Norwegian (`no`) remains the
+  canonical copy.** Locale persists to `localStorage`
   (`ev-portfolio-lang`) and is mirrored to `document.documentElement.lang`. Every string added
   anywhere must exist in both [no.ts](src/locales/no.ts) and [en.ts](src/locales/en.ts).
 - Surfaces: home (hero, project carousel, talks, contact footer) and a per-project detail route.

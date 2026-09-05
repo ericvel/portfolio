@@ -6,8 +6,8 @@ import { setLocale } from "@/i18n";
 const { t, locale } = useI18n();
 
 const LOCALES: { value: Locale; label: string }[] = [
-  { value: "no", label: "NO" },
   { value: "en", label: "EN" },
+  { value: "no", label: "NO" },
 ];
 </script>
 

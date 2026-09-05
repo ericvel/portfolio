@@ -13,7 +13,7 @@ declare module "vue-i18n" {
 }
 
 const LANG_KEY = "ev-portfolio-lang";
-const DEFAULT_LOCALE: Locale = "no";
+const DEFAULT_LOCALE: Locale = "en";
 
 function isLocale(value: unknown): value is Locale {
   return value === "no" || value === "en";

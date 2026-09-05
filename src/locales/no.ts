@@ -7,27 +7,28 @@ export default {
     language: "Språk",
   },
   hero: {
-    eyebrow: "Frontendspesialist · frilans",
+    eyebrow: "Frilans frontendspesialist",
     title: "Frontend som tåler virkeligheten.",
     lede:
-      "Fem år med React, Vue og TypeScript. Testdekning og universell utforming som standard. " +
-      "Jeg tar oppdrag alene eller i team.",
-    proofProductionLabel: "Produksjon",
+      "Fem års erfaring med React, Vue og TypeScript. Testing og universell utforming er en " +
+      "selvfølge. Jeg jobber alene eller i team.",
+    proofProductionLabel: "I produksjon hos",
     proofProduction: "ASKO · Røde Kors",
-    proofExpertiseLabel: "Faglig",
+    proofExpertiseLabel: "Foredrag om webplattformen",
     proofExpertise: "NDC London 2026 · Framsia",
-    contact: "Ta kontakt om oppdrag",
+    contact: "Send meg en e-post om et oppdrag",
     copyEmail: "Kopier {email}",
-    copyRetryLabel: "Prøv å kopiere e-postadressen igjen",
+    copyRetryLabel: "Prøv å kopiere e-postadressen på nytt",
     copySuccess: "E-postadressen er kopiert.",
-    copyFailure: "Kunne ikke kopiere — marker adressen.",
+    copyFailure: "Kopieringen mislyktes. Marker adressen og kopier den manuelt.",
   },
   meta: {
     title: "Eric Veliyulin {separator} Frontendspesialist",
     titleProject: "Eric Veliyulin {separator} {project}",
     description:
-      "Frontendspesialist på frilans. React, Vue og TypeScript, med testdekning og " +
-      "tilgjengelighet som standard. Prosjekter for ASKO, Røde Kors og Habiit.",
+      "Jeg jobber som frilans frontendspesialist med React, Vue og TypeScript. Testdekning og " +
+      "universell utforming er en selvfølge. Jeg har jobbet med prosjekter for ASKO, Røde Kors og " +
+      "Habiit.",
   },
   a11y: {
     skip: "Hopp til hovedinnhold",
@@ -41,31 +42,35 @@ export default {
   talks: {
     heading: "Foredrag",
     lede:
-      "Jeg snakker om det som er nytt i nettleseren, og hva det betyr for hvordan vi bygger " +
-      "grensesnitt — på konferanse, meetup og internt.",
+      "Jeg holder foredrag på konferanser, meetuper og internt om nye funksjoner i nettleseren og " +
+      "hvordan de påvirker måten vi bygger grensesnitt på.",
     watch: "Se opptaket",
     ongoing: "Løpende",
     onRequest: "Etter avtale",
     ndc: {
       desc:
-        "Popover API, dialog-elementet og de nye layout-primitivene har overtatt jobben til en " +
-        "haug med biblioteker. Hva du kan slette fra prosjektet ditt i dag — og hva du fortsatt " +
-        "trenger hjelp til.",
+        "Popover API, dialog-elementet og nye layout-primitiver gjør nå mye av jobben som før " +
+        "krevde en haug med biblioteker. Foredraget handler om hva du kan fjerne fra prosjektet i " +
+        "dag, og hva du fortsatt trenger hjelp til.",
       meta: "60 min · engelsk",
       photoAlt: "Eric Veliyulin på scenen under NDC London 2026.",
       photoCaption: "Fra scenen, NDC London 2026",
     },
     framsia: {
-      desc: "Å bygge nedtrekksmenyer rett på plattformen — med stilbarhet og tilgjengelighet i behold.",
+      desc:
+        "Jeg viser hvordan du bygger nedtrekksmenyer direkte på webplattformen, med " +
+        "stilbarhet og universell utforming i behold.",
     },
     inhouse: {
       title: "Interne fagdelinger",
-      desc: "Faste innlegg for utviklerteam om tilgjengelighet, testing og nye nettleser-API-er.",
+      desc:
+        "Jeg holder jevnlige fagdelinger for utviklerteam om universell utforming, testing og nye " +
+        "nettleser-API-er.",
     },
   },
   cta: {
-    title: "Ta kontakt om oppdrag",
-    lede: "Send en e-post, så tar vi det derfra.",
+    title: "Trenger du en frontendspesialist?",
+    lede: "Send meg en e-post, så tar vi det derfra.",
   },
   project: {
     back: "Tilbake",
@@ -80,56 +85,57 @@ export default {
   projects: {
     asko: {
       blurb:
-        "Varebøker med titusenvis av varer, tastaturnavigasjon og forutsigbare tilstander — på " +
-        "tvers av nettstedet og administrasjonsløsningen Fiks.",
+        "Jeg har jobbet med både nettbutikken og administrasjonsverktøyet Fiks. Det omfatter " +
+        "varebøker med titusenvis av varer, tastaturnavigasjon og forutsigbare tilstander.",
       role: "Lead frontendutvikler",
       /** Short caption for the ledger's lead-row screenshot; the full one is in `captions`. */
       leadCaption: "Bestillingsdetaljer med leveringsstatus",
       body: [
-        "ASKO Servering er netthandelen for storhusholdning: varesøk, handleliste, bestillingsflyt " +
-          "og oppfølging av leveranser. Jeg har jobbet i hele bredden av flaten — fra søk og " +
-          "filtrering til bestillingsdetaljer og statussporing — med Vue og TypeScript, og " +
-          "TanStack Query som ryggrad for datahenting og cache.",
-        "Fiks er administrasjonsløsningen bak: vedlikehold av varebøker med titusenvis av varer, " +
-          "abonnementer og innstillinger per kjede og kunde. Store tabeller stiller krav til " +
-          "ytelse, tastaturnavigasjon og forutsigbare tilstander. Vitest dekker logikken, " +
-          "Playwright kjører de kritiske flytene i pipeline.",
+        "ASKO Servering er netthandelen for storhusholdning. Den dekker varesøk, handlelister, " +
+          "bestilling og oppfølging av leveranser. Jeg har jobbet med alle deler av løsningen, " +
+          "blant annet søk og filtrering, bestillingsdetaljer og statussporing. Frontenden bruker " +
+          "Vue og TypeScript, mens TanStack Query håndterer datahenting og mellomlagring.",
+        "Fiks er administrasjonsløsningen bak ASKO Servering. Den håndterer varebøker med " +
+          "titusenvis av varer, abonnementer og innstillinger for hver kjede og kunde. Store " +
+          "tabeller må være raske, støtte tastaturnavigasjon og oppføre seg forutsigbart. Vitest " +
+          "dekker logikken, mens Playwright kjører de kritiske flytene i pipeline.",
       ],
       captions: [
-        "ASKO Servering — bestillingsdetaljer med leveringsstatus og ordresammendrag.",
-        "ASKO Servering Fiks — vedlikehold av varebok med søk, filtre og statusredigering.",
+        "ASKO Servering: bestillingsdetaljer med leveringsstatus og ordresammendrag.",
+        "ASKO Servering Fiks: vedlikehold av varebok med søk, filtre og statusredigering.",
       ],
     },
     rodekors: {
       blurb:
-        "Aktiviteter for frivillige — planlegging, publisering og påmelding. Universell " +
-        "utforming var et krav, ikke et tillegg.",
+        "Frivillige kan planlegge og publisere aktiviteter og håndtere påmeldinger. Universell " +
+        "utforming var et krav gjennom hele prosjektet.",
       role: "Lead frontendutvikler",
       body: [
-        "Mitt Røde Kors samler aktivitetene til de frivillige på ett sted: opprette og publisere " +
-          "arrangementer, håndtere påmeldinger, følge opp nye frivillige. Brukerne er tusenvis av " +
-          "frivillige med svært ulik digital erfaring, så løsningen måtte være enkel å forstå " +
-          "første gang og rask å bruke hundrede gang.",
-        "Bygget i React og Next.js med Tailwind CSS på et delt komponentbibliotek. Universell " +
-          "utforming var et krav, ikke et tillegg — hele flyten fungerer med tastatur og " +
-          "skjermleser.",
+        "Mitt Røde Kors samler aktivitetene til de frivillige på ett sted. De kan opprette og " +
+          "publisere arrangementer, håndtere påmeldinger og følge opp nye frivillige. Tusenvis av " +
+          "frivillige bruker løsningen, og den digitale erfaringen deres varierer mye. Derfor " +
+          "måtte den være enkel å forstå første gang og rask å bruke også gang nummer hundre.",
+        "Løsningen er bygget i React og Next.js, med Tailwind CSS og et delt komponentbibliotek. " +
+          "Universell utforming var et krav gjennom hele prosjektet. Hele flyten fungerer med " +
+          "tastatur og skjermleser.",
       ],
       captions: ["Oversikt over kommende arrangementer med filtrering og påmeldingsstatus."],
     },
     habiit: {
       blurb:
-        "Et digitalt verktøy og mobilspill som hjelper barn med rutiner, skoleoversikt og " +
-        "refleksjon rundt følelser.",
+        "Et digitalt verktøy og mobilspill som hjelper barn med rutiner, skoleoversikt og å sette " +
+        "ord på følelsene sine.",
       role: "iOS-utvikler",
       body: [
         "Habiit gjør hverdagsrutiner til oppdrag. Barna får ukeplan og timeplan i en form de " +
-          "faktisk gidder å åpne, samler belønninger underveis, og får enkle måter å sette ord på " +
+          "faktisk gidder å åpne. Underveis samler de belønninger og får enkle måter å sette ord på " +
           "hvordan de har det.",
-        "Appen er skrevet i Swift for iOS med Firebase som backend for data, autentisering og " +
-          "synkronisering mellom barn og foresatte. Spillmekanikken bruker kart og posisjon, så " +
-          "mye av arbeidet lå i å holde det lekent uten å gå på akkord med personvern og batteri.",
+        "iOS-appen er skrevet i Swift og bruker Firebase som backend for data, autentisering og " +
+          "synkronisering mellom barn og foresatte. Spillmekanikken bruker kart og posisjon. Mye " +
+          "av arbeidet gikk ut på å holde opplevelsen leken uten å gå på akkord med personvern eller " +
+          "batteritid.",
       ],
-      captions: ["Habiit — avatar, kartbaserte oppdrag og ukens timeplan."],
+      captions: ["Habiit: avatar, kartbaserte oppdrag og ukens timeplan."],
     },
   },
 };

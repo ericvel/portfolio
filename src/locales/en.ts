@@ -7,27 +7,27 @@ export default {
     language: "Language",
   },
   hero: {
-    eyebrow: "Frontend specialist · freelance",
-    title: "Frontend that holds up in the real world.",
+    eyebrow: "Freelance frontend specialist",
+    title: "Frontend built for the real world.",
     lede:
-      "Five years of React, Vue and TypeScript. Test coverage and accessibility as standard. " +
-      "I take on engagements solo or embedded in a team.",
-    proofProductionLabel: "Production",
+      "I've worked with React, Vue and TypeScript for five years. Testing and accessibility come " +
+      "as standard. I work alone or join a team.",
+    proofProductionLabel: "Production work",
     proofProduction: "ASKO · Røde Kors",
-    proofExpertiseLabel: "Expertise",
+    proofExpertiseLabel: "Browser talks",
     proofExpertise: "NDC London 2026 · Framsia",
-    contact: "Get in touch about work",
+    contact: "Email me about a project",
     copyEmail: "Copy {email}",
     copyRetryLabel: "Try copying the email address again",
     copySuccess: "Email address copied.",
-    copyFailure: "Couldn’t copy — select the address.",
+    copyFailure: "Copying failed. Select the address instead.",
   },
   meta: {
     title: "Eric Veliyulin {separator} Frontend specialist",
     titleProject: "Eric Veliyulin {separator} {project}",
     description:
-      "Freelance frontend specialist. React, Vue and TypeScript, with test coverage and " +
-      "accessibility as standard. Projects for ASKO, Røde Kors and Habiit.",
+      "I'm a freelance frontend specialist working with React, Vue and TypeScript. Testing and " +
+      "accessibility come as standard. I've worked on projects for ASKO, Røde Kors and Habiit.",
   },
   a11y: {
     skip: "Skip to main content",
@@ -41,33 +41,35 @@ export default {
   talks: {
     heading: "Talks",
     lede:
-      "I speak about what's new in the browser, and what it means for the way we build " +
-      "interfaces — at conferences, meetups and in-house.",
+      "I speak at conferences, meetups and in-house sessions about new browser features and how " +
+      "they change the way we build interfaces.",
     watch: "Watch the recording",
     ongoing: "Ongoing",
     onRequest: "On request",
     ndc: {
       desc:
-        "The Popover API, the dialog element and the new layout primitives have taken over the " +
-        "job of a pile of libraries. What you can delete from your project today — and what you " +
-        "still need help with.",
+        "The Popover API, the dialog element and new layout primitives can now do work that used " +
+        "to require a pile of libraries. This talk covers what you can remove from a project " +
+        "today and where you'll still need help.",
       meta: "60 min · English",
       photoAlt: "Eric Veliyulin on stage at NDC London 2026.",
       photoCaption: "On stage, NDC London 2026",
     },
     framsia: {
       desc:
-        "Building dropdowns straight on the platform — keeping both styling control and " +
+        "I show how to build dropdowns with the web platform while keeping control over styling and " +
         "accessibility.",
     },
     inhouse: {
       title: "In-house sessions",
-      desc: "Regular sessions for development teams on accessibility, testing and new browser APIs.",
+      desc:
+        "I run regular sessions for development teams on accessibility, testing and new browser " +
+        "APIs.",
     },
   },
   cta: {
-    title: "Get in touch about work",
-    lede: "Send an email and we'll take it from there.",
+    title: "Need a frontend specialist?",
+    lede: "Send me an email and we'll take it from there.",
   },
   project: {
     back: "Back",
@@ -82,57 +84,59 @@ export default {
   projects: {
     asko: {
       blurb:
-        "Product catalogues with tens of thousands of items, keyboard navigation and predictable " +
-        "states — across the storefront and the Fiks administration tool.",
+        "I've worked on both the storefront and the Fiks admin tool. That includes catalogues " +
+        "with tens of thousands of items, keyboard navigation and predictable states.",
       role: "Lead frontend developer",
       /** Short caption for the ledger's lead-row screenshot; the full one is in `captions`. */
       leadCaption: "Order details with delivery status",
       body: [
-        "ASKO Servering is the e-commerce platform for professional catering: product search, " +
-          "shopping lists, ordering and delivery follow-up. I've worked across the whole surface " +
-          "— from search and filtering to order details and status tracking — in Vue and " +
-          "TypeScript, with TanStack Query as the backbone for data fetching and caching.",
-        "Fiks is the administration tool behind it: maintaining product catalogues with tens of " +
-          "thousands of items, subscriptions and settings per chain and customer. Large tables " +
-          "put real demands on performance, keyboard navigation and predictable states. Vitest " +
-          "covers the logic, Playwright runs the critical flows in the pipeline.",
+        "ASKO Servering is the e-commerce platform for professional catering. It covers product " +
+          "search, shopping lists, ordering and delivery follow-up. I've worked on all parts of " +
+          "the product, including search and filtering, order details and status tracking. The " +
+          "frontend uses Vue and TypeScript, while TanStack Query handles data fetching and " +
+          "caching.",
+        "Fiks is the administration tool behind ASKO Servering. It handles product catalogues " +
+          "with tens of thousands of items, subscriptions and settings for each chain and " +
+          "customer. Large tables have to stay fast, support keyboard navigation and behave " +
+          "predictably. Vitest covers the logic, while Playwright runs the critical flows in the " +
+          "pipeline.",
       ],
       captions: [
-        "ASKO Servering — order details with delivery status and order summary.",
-        "ASKO Servering Fiks — catalogue maintenance with search, filters and status editing.",
+        "ASKO Servering: order details with delivery status and order summary.",
+        "ASKO Servering Fiks: catalogue maintenance with search, filters and status editing.",
       ],
     },
     rodekors: {
       blurb:
-        "Activities for volunteers — planning, publishing and sign-ups. Accessibility was a " +
-        "requirement, not an add-on.",
+        "Volunteers can plan and publish activities, then manage sign-ups. Accessibility was a " +
+        "requirement throughout the project.",
       role: "Lead frontend developer",
       body: [
-        "Mitt Røde Kors gathers volunteer activity in one place: creating and publishing events, " +
-          "handling sign-ups, following up new volunteers. The users are thousands of volunteers " +
-          "with wildly different digital experience, so it had to be easy to understand the first " +
-          "time and fast to use the hundredth time.",
-        "Built in React and Next.js with Tailwind CSS on top of a shared component library. " +
-          "Accessibility was a requirement, not an add-on — the entire flow works with keyboard " +
-          "and screen reader.",
+        "Mitt Røde Kors brings volunteer activities together in one place. Volunteers can create " +
+          "and publish events, manage sign-ups and follow up with new volunteers. Thousands of " +
+          "volunteers use Mitt Røde Kors, and their levels of digital experience vary widely. It " +
+          "had to be easy to understand the first time and fast to use the hundredth time.",
+        "It is built in React and Next.js, with Tailwind CSS and a shared component library. " +
+          "Accessibility was a requirement throughout the project. The full flow works with a " +
+          "keyboard and screen reader.",
       ],
       captions: ["Overview of upcoming events with filtering and sign-up status."],
     },
     habiit: {
       blurb:
-        "A digital tool and mobile game that helps children with routines, school schedules and " +
-        "reflecting on their feelings.",
+        "A digital tool and mobile game that helps children manage routines and school schedules, " +
+        "and put their feelings into words.",
       role: "iOS developer",
       body: [
-        "Habiit turns everyday routines into quests. Kids get their weekly plan and school " +
-          "timetable in a form they'll actually open, collect rewards along the way, and get " +
-          "simple ways to put words to how they're doing.",
-        "The app is written in Swift for iOS with Firebase as the backend for data, " +
-          "authentication and syncing between children and guardians. The game mechanics use maps " +
-          "and location, so much of the work went into keeping it playful without compromising on " +
-          "privacy or battery.",
+        "Habiit turns everyday routines into quests. Children see their weekly plan and school " +
+          "timetable in a form they'll actually open. They collect rewards along the way and get " +
+          "simple ways to describe how they're feeling.",
+        "The iOS app is written in Swift and uses Firebase as its backend for data, authentication " +
+          "and syncing between children and guardians. Its game mechanics use maps and location. " +
+          "Much of the work went into keeping the experience playful without compromising privacy " +
+          "or battery life.",
       ],
-      captions: ["Habiit — avatar, map-based quests and the week's timetable."],
+      captions: ["Habiit: avatar, map-based quests and the week's timetable."],
     },
   },
 };
