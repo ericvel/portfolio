@@ -227,6 +227,35 @@ body {
   padding-inline: var(--gutter);
 }
 
+/* Header preferences share one framed-control contract. Components add only the
+   state treatment that belongs to their interaction model. */
+.preference-control {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--rule-strong);
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.preference-control:hover:not([aria-pressed="true"]) {
+  border-color: var(--ink);
+  background: var(--paper-deep);
+  color: var(--ink);
+}
+
+.preference-control:focus-visible {
+  outline-offset: -3px;
+}
+
 /* Mono is reserved for measurement — technologies, counts, durations, venues. It is
    never a costume for "technical". */
 .mono {

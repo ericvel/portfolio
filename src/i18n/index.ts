@@ -47,6 +47,14 @@ export function setLocale(locale: Locale) {
   }
 }
 
+window.addEventListener("storage", (event) => {
+  if (event.key !== LANG_KEY) return;
+
+  const locale = isLocale(event.newValue) ? event.newValue : DEFAULT_LOCALE;
+  i18n.global.locale.value = locale;
+  document.documentElement.lang = locale;
+});
+
 document.documentElement.lang = i18n.global.locale.value;
 
 export default i18n;

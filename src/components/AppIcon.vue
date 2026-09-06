@@ -1,8 +1,8 @@
 <script setup lang="ts">
 /**
  * The site's icon vocabulary. Keep semantic names local so callers do not
- * depend on library component names. Decorative by definition — the label
- * beside it carries the meaning.
+ * depend on library component names. Decorative by definition: adjacent text
+ * or the owning icon-only control carries the accessible name.
  */
 import { computed } from "vue";
 import {

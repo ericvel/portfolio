@@ -5,12 +5,12 @@ export default {
     contact: "Get in touch",
     projectsMenu: "Project menu",
     language: "Language",
+    englishLanguage: "English",
+    norwegianLanguage: "Norsk",
   },
   theme: {
     lightLabel: "Theme: light. Switch to dark mode.",
     darkLabel: "Theme: dark. Switch to light mode.",
-    lightTitle: "Theme: light",
-    darkTitle: "Theme: dark",
   },
   hero: {
     eyebrow: "Freelance frontend specialist",

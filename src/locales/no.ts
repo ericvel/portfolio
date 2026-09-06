@@ -5,12 +5,12 @@ export default {
     contact: "Ta kontakt",
     projectsMenu: "Prosjektmeny",
     language: "Språk",
+    englishLanguage: "English",
+    norwegianLanguage: "Norsk",
   },
   theme: {
     lightLabel: "Tema: lyst. Bytt til mørkt tema.",
     darkLabel: "Tema: mørkt. Bytt til lyst tema.",
-    lightTitle: "Tema: lyst",
-    darkTitle: "Tema: mørkt",
   },
   hero: {
     eyebrow: "Frilans frontendspesialist",

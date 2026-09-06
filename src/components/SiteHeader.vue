@@ -206,8 +206,8 @@ onBeforeUnmount(() => clearTimeout(typeaheadTimer));
       </nav>
 
       <div class="header__preferences">
-        <ThemeToggle />
         <LanguageToggle class="header__language" />
+        <ThemeToggle />
       </div>
     </div>
   </header>
@@ -233,7 +233,7 @@ onBeforeUnmount(() => clearTimeout(typeaheadTimer));
 
 .header__preferences {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   gap: var(--space-2);
 }
 

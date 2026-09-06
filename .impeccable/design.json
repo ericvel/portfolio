@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-05T20:51:53.000Z",
+  "generatedAt": "2026-09-06T00:00:00.000Z",
   "title": "Design System: Eric Veliyulin — Frontend Specialist Portfolio",
   "extensions": {
     "colorMeta": {
@@ -169,6 +169,21 @@
           "oklch(95% 0.055 160)"
         ]
       },
+      "field-ink": {
+        "role": "secondary",
+        "displayName": "Field Paper",
+        "canonical": "#f4f1ea",
+        "tonalRamp": [
+          "oklch(15% 0.012 88)",
+          "oklch(26% 0.012 88)",
+          "oklch(37% 0.012 88)",
+          "oklch(48% 0.012 88)",
+          "oklch(59% 0.012 88)",
+          "oklch(70% 0.012 88)",
+          "oklch(84% 0.012 88)",
+          "oklch(95% 0.012 88)"
+        ]
+      },
       "signal": {
         "role": "primary",
         "displayName": "Signal Orange",
@@ -187,7 +202,7 @@
       "signal-deep": {
         "role": "primary",
         "displayName": "Signal Deep",
-        "canonical": "#c8461f",
+        "canonical": "#bd3f1d",
         "tonalRamp": [
           "oklch(15% 0.17 38)",
           "oklch(26% 0.17 38)",
@@ -198,12 +213,147 @@
           "oklch(84% 0.17 38)",
           "oklch(95% 0.17 38)"
         ]
+      },
+      "signal-ink": {
+        "role": "primary",
+        "displayName": "Signal Ink",
+        "canonical": "#17181a",
+        "tonalRamp": [
+          "oklch(15% 0.004 265)",
+          "oklch(26% 0.004 265)",
+          "oklch(37% 0.004 265)",
+          "oklch(48% 0.004 265)",
+          "oklch(59% 0.004 265)",
+          "oklch(70% 0.004 265)",
+          "oklch(84% 0.004 265)",
+          "oklch(95% 0.004 265)"
+        ]
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Warm Midnight",
+        "canonical": "#161815",
+        "tonalRamp": [
+          "oklch(15% 0.014 145)",
+          "oklch(26% 0.014 145)",
+          "oklch(37% 0.014 145)",
+          "oklch(48% 0.014 145)",
+          "oklch(59% 0.014 145)",
+          "oklch(70% 0.014 145)",
+          "oklch(84% 0.014 145)",
+          "oklch(95% 0.014 145)"
+        ]
+      },
+      "night-deep": {
+        "role": "neutral",
+        "displayName": "Raised Soot",
+        "canonical": "#22251f",
+        "tonalRamp": [
+          "oklch(15% 0.02 110)",
+          "oklch(26% 0.02 110)",
+          "oklch(37% 0.02 110)",
+          "oklch(48% 0.02 110)",
+          "oklch(59% 0.02 110)",
+          "oklch(70% 0.02 110)",
+          "oklch(84% 0.02 110)",
+          "oklch(95% 0.02 110)"
+        ]
+      },
+      "night-ink": {
+        "role": "neutral",
+        "displayName": "Night Paper",
+        "canonical": "#f3efe5",
+        "tonalRamp": [
+          "oklch(15% 0.012 88)",
+          "oklch(26% 0.012 88)",
+          "oklch(37% 0.012 88)",
+          "oklch(48% 0.012 88)",
+          "oklch(59% 0.012 88)",
+          "oklch(70% 0.012 88)",
+          "oklch(84% 0.012 88)",
+          "oklch(95% 0.012 88)"
+        ]
+      },
+      "night-ink-soft": {
+        "role": "neutral",
+        "displayName": "Night Soft Ink",
+        "canonical": "#b8b5aa",
+        "tonalRamp": [
+          "oklch(15% 0.012 88)",
+          "oklch(26% 0.012 88)",
+          "oklch(37% 0.012 88)",
+          "oklch(48% 0.012 88)",
+          "oklch(59% 0.012 88)",
+          "oklch(70% 0.012 88)",
+          "oklch(84% 0.012 88)",
+          "oklch(95% 0.012 88)"
+        ]
+      },
+      "night-rule": {
+        "role": "neutral",
+        "displayName": "Night Hairline",
+        "canonical": "#343831",
+        "tonalRamp": [
+          "oklch(15% 0.012 145)",
+          "oklch(26% 0.012 145)",
+          "oklch(37% 0.012 145)",
+          "oklch(48% 0.012 145)",
+          "oklch(59% 0.012 145)",
+          "oklch(70% 0.012 145)",
+          "oklch(84% 0.012 145)",
+          "oklch(95% 0.012 145)"
+        ]
+      },
+      "night-rule-strong": {
+        "role": "neutral",
+        "displayName": "Night Strong Hairline",
+        "canonical": "#5d6257",
+        "tonalRamp": [
+          "oklch(15% 0.015 110)",
+          "oklch(26% 0.015 110)",
+          "oklch(37% 0.015 110)",
+          "oklch(48% 0.015 110)",
+          "oklch(59% 0.015 110)",
+          "oklch(70% 0.015 110)",
+          "oklch(84% 0.015 110)",
+          "oklch(95% 0.015 110)"
+        ]
+      },
+      "footer-ground": {
+        "role": "neutral",
+        "displayName": "Footer Ink",
+        "canonical": "#17181a",
+        "tonalRamp": [
+          "oklch(15% 0.004 265)",
+          "oklch(26% 0.004 265)",
+          "oklch(37% 0.004 265)",
+          "oklch(48% 0.004 265)",
+          "oklch(59% 0.004 265)",
+          "oklch(70% 0.004 265)",
+          "oklch(84% 0.004 265)",
+          "oklch(95% 0.004 265)"
+        ]
+      },
+      "footer-ink": {
+        "role": "neutral",
+        "displayName": "Footer Paper",
+        "canonical": "#f4f1ea",
+        "tonalRamp": [
+          "oklch(15% 0.012 88)",
+          "oklch(26% 0.012 88)",
+          "oklch(37% 0.012 88)",
+          "oklch(48% 0.012 88)",
+          "oklch(59% 0.012 88)",
+          "oklch(70% 0.012 88)",
+          "oklch(84% 0.012 88)",
+          "oklch(95% 0.012 88)"
+        ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Hero h1 and project-page h1 only; capped by a character measure and balanced."
+        "purpose": "Hero and project-page h1 only; capped by a character measure and balanced."
       },
       "headline": {
         "displayName": "Headline",
@@ -225,6 +375,10 @@
         "displayName": "Body",
         "purpose": "Project blurbs, talk descriptions, links, and button labels."
       },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Navigation, dropdown items, captions, back links, and inline affordances."
+      },
       "mono": {
         "displayName": "Mono Label",
         "purpose": "Measurement only: technologies, durations, venues, periods, and locale codes."
@@ -241,22 +395,27 @@
       {
         "name": "ease-color",
         "value": "ease",
-        "purpose": "Small color changes on navigation, menu items, and locale controls."
+        "purpose": "Small color changes on navigation, menus, and preference controls."
       },
       {
         "name": "ease-move",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Movement, growth, and compound project-row responses."
+        "purpose": "Movement, growth, incoming route sheets, and compound project-row responses."
+      },
+      {
+        "name": "ease-exit",
+        "value": "cubic-bezier(0.4, 0, 1, 1)",
+        "purpose": "Outgoing dropdown and route-sheet motion."
       },
       {
         "name": "duration-quick",
         "value": "160ms",
-        "purpose": "Text and underline changes on quiet links and navigation."
+        "purpose": "Text, border, ground, and underline changes on quiet controls."
       },
       {
         "name": "duration-action",
         "value": "180ms",
-        "purpose": "Primary button lift and skip-link movement."
+        "purpose": "Primary button lift, skip-link movement, and outgoing route sheets."
       },
       {
         "name": "row-answer-in",
@@ -271,7 +430,12 @@
       {
         "name": "duration-hint",
         "value": "220ms",
-        "purpose": "Talk-link directional icon movement."
+        "purpose": "Directional icons, dropdown reveal, and incoming route sheets."
+      },
+      {
+        "name": "route-distance",
+        "value": "clamp(28px, 6vw, 72px)",
+        "purpose": "Shallow directional travel that establishes route order without moving the header."
       },
       {
         "name": "reduced-motion",
@@ -318,9 +482,9 @@
     {
       "name": "Hero Proof Rail",
       "kind": "custom",
-      "description": "The buyer's first-view sequence: title, freelance role and lede, then a full-width two-cell proof rail naming production and public expertise before the contact row. The rail is open at its inline edges and stacks at 560px; the hero contains no technology inventory or project-data dependency.",
-      "html": "<section class=\"ds-hero\"><h1 class=\"ds-hero__title\">Frontend er faget mitt.</h1><p class=\"ds-hero__role ds-mono\"><span class=\"ds-hero__marker\" aria-hidden=\"true\"></span>Frontendspesialist · frilans</p><p class=\"ds-hero__lede\">Fem år med React, Vue og TypeScript. Testdekning og tilgjengelighet som standard.</p><dl class=\"ds-hero__proof\"><div class=\"ds-hero__proof-item\"><dt class=\"ds-hero__proof-label ds-mono\">Produksjon</dt><dd class=\"ds-hero__proof-value\">ASKO · Røde Kors</dd></div><div class=\"ds-hero__proof-item\"><dt class=\"ds-hero__proof-label ds-mono\">Faglig</dt><dd class=\"ds-hero__proof-value\">NDC London 2026</dd></div></dl><div class=\"ds-hero__contact\"><a class=\"ds-hero__action\" href=\"mailto:eric.vel@outlook.com\">Ta kontakt om oppdrag</a><a class=\"ds-hero__quiet ds-hero__email\" href=\"mailto:eric.vel@outlook.com\">eric.vel@outlook.com</a><span class=\"ds-hero__elsewhere\"><a class=\"ds-hero__quiet\" href=\"https://github.com/ericvel\">GitHub</a><a class=\"ds-hero__quiet\" href=\"https://www.linkedin.com/in/eric-veliyulin/\">LinkedIn</a></span></div></section>",
-      "css": ".ds-hero { padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 64px) 64px; background: var(--paper, #f4f1ea); color: var(--ink, #17181a); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); } .ds-hero__title { max-width: 17ch; margin: 0; font-size: clamp(2.75rem, 7.4vw, 5.5rem); font-weight: 800; line-height: 0.94; letter-spacing: -0.035em; text-wrap: balance; } .ds-hero__role { display: flex; align-items: center; gap: 12px; margin: 32px 0 0; color: var(--ink-soft, #55534a); text-transform: uppercase; letter-spacing: 0.06em; } .ds-hero__marker { width: 9px; height: 9px; flex: none; background: var(--signal, #e4572e); } .ds-hero__lede { max-width: 44ch; margin: 64px 0 0; color: var(--ink-soft, #55534a); font-size: 1.375rem; line-height: 1.4; } .ds-hero__proof { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 48px 0 0; padding: 0; border-block: 1px solid var(--rule-strong, #b9b2a1); } .ds-hero__proof-item { min-width: 0; padding: 24px 32px 32px 0; } .ds-hero__proof-item + .ds-hero__proof-item { padding-inline: 32px 0; border-left: 1px solid var(--rule-strong, #b9b2a1); } .ds-hero__proof-label { color: var(--ink-soft, #55534a); text-transform: uppercase; letter-spacing: 0.06em; } .ds-hero__proof-value { margin: 12px 0 0; font-size: 1.75rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; } .ds-hero__contact { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 48px; margin-top: 24px; } .ds-hero__action { display: inline-flex; align-items: center; min-height: 56px; padding: 16px 32px; background: var(--signal, #e4572e); color: var(--ink, #17181a); font-size: 1rem; font-weight: 500; text-decoration: none; transition: background 180ms ease, transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-hero__action:hover { background: var(--signal-deep, #c8461f); color: var(--paper, #f4f1ea); transform: translateY(-2px); } .ds-hero__action:active { transform: translateY(0); } .ds-hero__quiet { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink-soft, #55534a); text-decoration: none; background-image: linear-gradient(var(--rule-strong, #b9b2a1), var(--rule-strong, #b9b2a1)); background-repeat: no-repeat; background-position: 0 calc(100% - 8px); background-size: 100% 1px; transition: color 160ms ease, background-size 160ms ease; } .ds-hero__quiet:hover { color: var(--ink, #17181a); background-image: linear-gradient(var(--ink, #17181a), var(--ink, #17181a)); background-size: 100% 2px; } .ds-hero__email { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.875rem; } .ds-hero__elsewhere { display: flex; gap: 24px; } .ds-hero a:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: 3px; } .ds-mono { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.75rem; font-weight: 400; line-height: 1.4; } @media (max-width: 560px) { .ds-hero__role { margin-top: 24px; } .ds-hero__lede { margin-top: 32px; } .ds-hero__proof { grid-template-columns: minmax(0, 1fr); margin-top: 24px; } .ds-hero__proof-item, .ds-hero__proof-item + .ds-hero__proof-item { padding: 16px 0 24px; } .ds-hero__proof-item + .ds-hero__proof-item { border-top: 1px solid var(--rule, #d8d2c4); border-left: 0; } .ds-hero__proof-value { margin-top: 8px; font-size: 1.375rem; } .ds-hero__contact { align-items: stretch; gap: 12px 24px; } .ds-hero__action { width: 100%; justify-content: center; } .ds-hero__email { margin-right: auto; } }"
+      "description": "The buyer's first-view sequence: title, freelance role and lede, then a full-width two-cell proof rail naming production and public expertise before a contact row with the inquiry link, selectable copy control, and quiet external links. The rail is open at its inline edges and stacks at 560px.",
+      "html": "<section class=\"ds-hero\"><h1 class=\"ds-hero__title\">Frontend er faget mitt.</h1><p class=\"ds-hero__role ds-mono\"><span class=\"ds-hero__marker\" aria-hidden=\"true\"></span>Frontendspesialist · frilans</p><p class=\"ds-hero__lede\">Fem år med React, Vue og TypeScript. Testdekning og tilgjengelighet som standard.</p><dl class=\"ds-hero__proof\"><div class=\"ds-hero__proof-item\"><dt class=\"ds-hero__proof-label ds-mono\">Produksjon</dt><dd class=\"ds-hero__proof-value\">ASKO · Røde Kors</dd></div><div class=\"ds-hero__proof-item\"><dt class=\"ds-hero__proof-label ds-mono\">Faglig</dt><dd class=\"ds-hero__proof-value\">NDC London 2026</dd></div></dl><div class=\"ds-hero__contact\"><a class=\"ds-hero__action\" href=\"mailto:eric.vel@outlook.com\">Ta kontakt om oppdrag</a><button type=\"button\" class=\"ds-hero__copy\" aria-label=\"Kopier e-postadressen eric.vel@outlook.com\"><span class=\"ds-hero__email\">eric.vel@outlook.com</span><svg class=\"ds-icon\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button><span class=\"ds-hero__elsewhere\"><a class=\"ds-hero__quiet\" href=\"https://github.com/ericvel\">GitHub</a><a class=\"ds-hero__quiet\" href=\"https://www.linkedin.com/in/eric-veliyulin/\">LinkedIn</a></span></div></section>",
+      "css": ".ds-hero { padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 64px) 64px; background: var(--paper, #f4f1ea); color: var(--ink, #17181a); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); } .ds-hero__title { max-width: 17ch; margin: 0; font-size: clamp(2.75rem, 7.4vw, 5.5rem); font-weight: 800; line-height: 0.94; letter-spacing: -0.035em; text-wrap: balance; } .ds-hero__role { display: flex; align-items: center; gap: 12px; margin: 32px 0 0; color: var(--ink-soft, #55534a); text-transform: uppercase; letter-spacing: 0.06em; } .ds-hero__marker { width: 9px; height: 9px; flex: none; background: var(--signal, #e4572e); } .ds-hero__lede { max-width: 44ch; margin: 64px 0 0; color: var(--ink-soft, #55534a); font-size: 1.375rem; line-height: 1.4; } .ds-hero__proof { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 48px 0 0; padding: 0; border-block: 1px solid var(--rule-strong, #b9b2a1); } .ds-hero__proof-item { min-width: 0; padding: 24px 32px 32px 0; } .ds-hero__proof-item + .ds-hero__proof-item { padding-inline: 32px 0; border-left: 1px solid var(--rule-strong, #b9b2a1); } .ds-hero__proof-label { color: var(--ink-soft, #55534a); text-transform: uppercase; letter-spacing: 0.06em; } .ds-hero__proof-value { margin: 12px 0 0; font-size: 1.75rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; } .ds-hero__contact { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 48px; margin-top: 24px; } .ds-hero__action { display: inline-flex; align-items: center; min-height: 56px; padding: 16px 32px; background: var(--signal, #e4572e); color: var(--ink, #17181a); font-size: 1rem; font-weight: 500; text-decoration: none; transition: background 180ms ease, transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-hero__action:hover { background: var(--signal-deep, #bd3f1d); color: var(--paper, #f4f1ea); transform: translateY(-2px); } .ds-hero__action:active { transform: translateY(0); } .ds-hero__quiet { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink-soft, #55534a); text-decoration: none; background-image: linear-gradient(var(--rule-strong, #b9b2a1), var(--rule-strong, #b9b2a1)); background-repeat: no-repeat; background-position: 0 calc(100% - 8px); background-size: 100% 1px; transition: color 160ms ease, background-size 160ms ease; } .ds-hero__quiet:hover { color: var(--ink, #17181a); background-image: linear-gradient(var(--ink, #17181a), var(--ink, #17181a)); background-size: 100% 2px; } .ds-hero__copy { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; padding-inline: 12px; border: 0; background: transparent; color: var(--ink-soft, #55534a); cursor: pointer; transition: color 160ms ease, background 160ms ease; } .ds-hero__copy:hover { background: var(--paper-deep, #ece7da); color: var(--ink, #17181a); } .ds-hero__email { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.875rem; } .ds-hero__elsewhere { display: flex; gap: 24px; } .ds-hero a:focus-visible, .ds-hero button:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: 3px; } .ds-mono { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.75rem; font-weight: 400; line-height: 1.4; } @media (max-width: 560px) { .ds-hero__role { margin-top: 24px; } .ds-hero__lede { margin-top: 32px; } .ds-hero__proof { grid-template-columns: minmax(0, 1fr); margin-top: 24px; } .ds-hero__proof-item, .ds-hero__proof-item + .ds-hero__proof-item { padding: 16px 0 24px; } .ds-hero__proof-item + .ds-hero__proof-item { border-top: 1px solid var(--rule, #d8d2c4); border-left: 0; } .ds-hero__proof-value { margin-top: 8px; font-size: 1.375rem; } .ds-hero__contact { align-items: stretch; gap: 12px 24px; } .ds-hero__action { width: 100%; justify-content: center; } .ds-hero__copy { margin-right: auto; } }"
     },
     {
       "name": "Hero Inquiry Action",
@@ -328,7 +492,7 @@
       "refersTo": "action-primary",
       "description": "The localized freelance-inquiry conversion in the hero. Signal ground under ink text, square, at least 56px high and lifting 2px on hover; the visible email address below it remains the fallback.",
       "html": "<a class=\"ds-action\" href=\"mailto:eric.vel@outlook.com\">Ta kontakt om oppdrag</a>",
-      "css": ".ds-action { display: inline-flex; align-items: center; min-height: 56px; padding: 16px 32px; background: var(--signal, #e4572e); color: var(--ink, #17181a); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 1rem; font-weight: 500; text-decoration: none; border: 0; border-radius: 0; cursor: pointer; transition: background 180ms ease, transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-action:hover { background: var(--signal-deep, #c8461f); color: var(--paper, #f4f1ea); transform: translateY(-2px); } .ds-action:active { transform: translateY(0); } .ds-action:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: 3px; }"
+      "css": ".ds-action { display: inline-flex; align-items: center; min-height: 56px; padding: 16px 32px; background: var(--signal, #e4572e); color: var(--ink, #17181a); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 1rem; font-weight: 500; text-decoration: none; border: 0; border-radius: 0; cursor: pointer; transition: background 180ms ease, transform 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-action:hover { background: var(--signal-deep, #bd3f1d); color: var(--paper, #f4f1ea); transform: translateY(-2px); } .ds-action:active { transform: translateY(0); } .ds-action:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: 3px; }"
     },
     {
       "name": "Footer Mail Action",
@@ -342,8 +506,8 @@
       "name": "Project Grid",
       "kind": "custom",
       "refersTo": "project-row",
-      "description": "The signature project composition: ASKO spans the measure as the only claim-and-screenshot lead; Mitt Røde Kors and Habiit share equal text-only tracks below. Supporting tracks collapse intrinsically before 340px, while every link keeps the field ground, quiet 4% response lift, and one inherited answer clock.",
-      "html": "<section class=\"ds-projects\"><a class=\"ds-project ds-project--lead\" href=\"#\" aria-label=\"ASKO Servering — Se prosjektet\"><span class=\"ds-project__body\"><strong class=\"ds-project__title ds-project__title--lead\">ASKO Servering</strong><span class=\"ds-project__blurb ds-project__blurb--lead\">Nettbutikk og administrasjonsverktøy for varekataloger med titusenvis av varer.</span><span class=\"ds-project__meta\"><span class=\"ds-mono\">2023–2026</span><span aria-hidden=\"true\">·</span><span>Lead frontendutvikler</span></span><span class=\"ds-project__stack ds-mono\"><span>Vue</span><span>Vite</span><span>TypeScript</span><span>Vitest</span><span>Playwright</span></span><span class=\"ds-project__more\">Se prosjektet<svg class=\"ds-project__icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></span><span class=\"ds-project__evidence\"><span class=\"ds-mono\">Produksjonsskjermbilde</span></span></a><a class=\"ds-project\" href=\"#\" aria-label=\"Mitt Røde Kors — Se prosjektet\"><span class=\"ds-project__body\"><strong class=\"ds-project__title\">Mitt Røde Kors</strong><span class=\"ds-project__blurb\">Planlegging, publisering og påmelding for frivillige.</span><span class=\"ds-project__meta\"><span class=\"ds-mono\">2021–2023</span><span aria-hidden=\"true\">·</span><span>Lead frontendutvikler</span></span><span class=\"ds-project__stack ds-mono\"><span>React</span><span>Next.js</span><span>Tailwind CSS</span></span><span class=\"ds-project__more\">Se prosjektet<svg class=\"ds-project__icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></span></a><a class=\"ds-project\" href=\"#\" aria-label=\"Habiit — Se prosjektet\"><span class=\"ds-project__body\"><strong class=\"ds-project__title\">Habiit</strong><span class=\"ds-project__blurb\">Et digitalt verktøy som hjelper barn med rutiner og følelser.</span><span class=\"ds-project__meta\"><span class=\"ds-mono\">2020</span><span aria-hidden=\"true\">·</span><span>iOS-utvikler</span></span><span class=\"ds-project__stack ds-mono\"><span>Swift</span><span>Firebase</span><span>iOS</span></span><span class=\"ds-project__more\">Se prosjektet<svg class=\"ds-project__icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></span></a></section>",
+      "description": "The signature project composition: ASKO spans the measure as the only claim-and-screenshot lead; Mitt Røde Kors and Rewindify share equal text-only tracks below. Supporting tracks collapse intrinsically before 340px, while every link keeps the field ground, quiet 4% response lift, and one inherited answer clock.",
+      "html": "<section class=\"ds-projects\"><a class=\"ds-project ds-project--lead\" href=\"#\" aria-label=\"ASKO Servering — Se prosjektet\"><span class=\"ds-project__body\"><strong class=\"ds-project__title ds-project__title--lead\">ASKO Servering</strong><span class=\"ds-project__blurb ds-project__blurb--lead\">Nettbutikk og administrasjonsverktøy for varekataloger med titusenvis av varer.</span><span class=\"ds-project__meta\"><span class=\"ds-mono\">2023–2026</span><span aria-hidden=\"true\">·</span><span>Lead frontendutvikler</span></span><span class=\"ds-project__stack ds-mono\"><span>Vue</span><span>Vite</span><span>TypeScript</span><span>Vitest</span><span>Playwright</span></span><span class=\"ds-project__more\">Se prosjektet<svg class=\"ds-project__icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></span><span class=\"ds-project__evidence\"><span class=\"ds-mono\">Produksjonsskjermbilde</span></span></a><a class=\"ds-project\" href=\"#\" aria-label=\"Mitt Røde Kors — Se prosjektet\"><span class=\"ds-project__body\"><strong class=\"ds-project__title\">Mitt Røde Kors</strong><span class=\"ds-project__blurb\">Planlegging, publisering og påmelding for frivillige.</span><span class=\"ds-project__meta\"><span class=\"ds-mono\">2021–2023</span><span aria-hidden=\"true\">·</span><span>Lead frontendutvikler</span></span><span class=\"ds-project__stack ds-mono\"><span>React</span><span>Next.js</span><span>Tailwind CSS</span></span><span class=\"ds-project__more\">Se prosjektet<svg class=\"ds-project__icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></span></a><a class=\"ds-project\" href=\"#\" aria-label=\"Rewindify — Se prosjektet\"><span class=\"ds-project__body\"><strong class=\"ds-project__title\">Rewindify</strong><span class=\"ds-project__blurb\">En musikkspiller for øving med presis spoling og A/B-looping i Spotify.</span><span class=\"ds-project__meta\"><span class=\"ds-mono\">2026</span><span aria-hidden=\"true\">·</span><span>Eneutvikler</span></span><span class=\"ds-project__stack ds-mono\"><span>Vue</span><span>TypeScript</span><span>Vitest</span><span>Impeccable</span><span>Spotify Web API</span></span><span class=\"ds-project__more\">Se prosjektet<svg class=\"ds-project__icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M2 8h12m0 0l-4.5-4.5M14 8l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></span></span></a></section>",
       "css": ".ds-projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 64px; padding: 48px 24px; background: var(--field, #1f4d3c); color: var(--paper, #f4f1ea); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); --focus: var(--paper, #f4f1ea); } .ds-project { --row-secondary: var(--field-soft, #c3d4c8); --row-affordance: var(--field-soft, #c3d4c8); display: block; min-width: 0; height: 100%; padding: 24px; margin-inline: -24px; border-top: 1px solid var(--field-rule, #3d6a58); color: inherit; text-decoration: none; transition: background 190ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 190ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-project:hover, .ds-project:focus-visible { --row-secondary: color-mix(in srgb, var(--field-soft, #c3d4c8) 62%, var(--paper, #f4f1ea)); --row-affordance: var(--paper, #f4f1ea); background: color-mix(in srgb, var(--paper, #f4f1ea) 4%, var(--field, #1f4d3c)); box-shadow: inset 0 -1px 0 var(--paper, #f4f1ea); transition-duration: 140ms; } .ds-project:focus-visible { outline: 2px solid var(--focus, #f4f1ea); outline-offset: 3px; } .ds-project--lead { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr); gap: 64px; padding-block: 48px; border-top: 0; } .ds-project__body { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; } .ds-project__title { font-size: 1.375rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; } .ds-project__title--lead { font-size: clamp(1.875rem, 3.2vw, 2.5rem); letter-spacing: -0.025em; } .ds-project__blurb { max-width: 58ch; margin-top: 12px; color: var(--row-secondary); line-height: 1.5; } .ds-project__blurb--lead { max-width: 40ch; font-size: 1.375rem; line-height: 1.4; } .ds-project__meta { display: flex; flex-wrap: wrap; gap: 8px 12px; margin-top: 16px; color: var(--row-secondary); font-size: 0.875rem; } .ds-project__stack { display: flex; flex-wrap: wrap; gap: 8px 12px; margin-top: 8px; font-size: 0.875rem; } .ds-mono { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.75rem; line-height: 1.4; } .ds-project__more { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; padding-bottom: 5px; font-size: 0.875rem; font-weight: 500; background-image: linear-gradient(var(--row-affordance), var(--row-affordance)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 1px; } .ds-project:hover .ds-project__more, .ds-project:focus-visible .ds-project__more { background-size: 100% 2px; } .ds-project__icon { transform: translateY(-0.5px); transition: transform 190ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-project:hover .ds-project__icon, .ds-project:focus-visible .ds-project__icon { transform: translate(3px, -0.5px); transition-duration: 140ms; } .ds-project__evidence { display: grid; place-items: end start; min-width: 0; aspect-ratio: 2400 / 1528; padding: 12px; background: var(--paper-deep, #ece7da); color: var(--ink-soft, #55534a); } @media (max-width: 760px) { .ds-project--lead { grid-template-columns: minmax(0, 1fr); } .ds-project__evidence { order: 3; } }"
     },
     {
@@ -358,7 +522,7 @@
       "name": "Header Navigation",
       "kind": "nav",
       "refersTo": "nav-link",
-      "description": "Sticky paper bar on a hairline. The wordmark, nav links and contact link are at least 44px high. Links rest in soft ink; the one persistent action grows a signal underline instead of changing colour, so the target never moves.",
+      "description": "Sticky paper bar on a hairline. The wordmark, navigation, language radios, and theme button all provide 44px targets. Links rest in soft ink; the persistent contact action grows a signal underline without moving its label.",
       "html": "<header class=\"ds-header\"><a class=\"ds-logo\" href=\"#\">Eric Veliyulin</a><nav class=\"ds-nav\"><a class=\"ds-nav__link\" href=\"#\">Prosjekter<svg class=\"ds-icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M3.5 6.5L8 11l4.5-4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></a><a class=\"ds-nav__link\" href=\"#\">Foredrag</a><a class=\"ds-nav__contact\" href=\"mailto:eric.vel@outlook.com\">Ta kontakt</a></nav></header>",
       "css": ".ds-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 68px; padding: 12px 24px; background: var(--paper, #f4f1ea); border-bottom: 1px solid var(--rule, #d8d2c4); font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); } .ds-logo { display: inline-flex; align-items: center; min-height: 44px; font-size: 1.125rem; font-weight: 500; letter-spacing: -0.015em; color: var(--ink, #17181a); text-decoration: none; white-space: nowrap; } .ds-nav { display: flex; align-items: center; gap: 32px; font-size: 0.875rem; } .ds-nav__link { display: inline-flex; align-items: center; min-height: 44px; gap: 8px; color: var(--ink-soft, #55534a); text-decoration: none; transition: color 160ms ease; } .ds-nav__link:hover { color: var(--ink, #17181a); } .ds-nav__contact { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink, #17181a); font-weight: 500; text-decoration: none; padding-bottom: 3px; background-image: linear-gradient(var(--signal, #e4572e), var(--signal, #e4572e)); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 2px; transition: background-size 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav__contact:hover { background-size: 100% 8px; } .ds-nav a:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: 3px; } .ds-header .ds-icon { flex: none; transform: translateY(-0.5px); }"
     },
@@ -366,17 +530,25 @@
       "name": "Language Toggle",
       "kind": "custom",
       "refersTo": "lang-option",
-      "description": "Two mono buttons, each at least 44px square, in one hairline frame. The active option inverts to an ink fill and locally reassigns --focus to paper, because the ring is drawn inset.",
-      "html": "<div class=\"ds-toggle\" role=\"group\" aria-label=\"Språk\"><button type=\"button\" class=\"ds-option ds-mono ds-option--active\" aria-pressed=\"true\">NO</button><button type=\"button\" class=\"ds-option ds-mono\" aria-pressed=\"false\">EN</button></div>",
-      "css": ".ds-toggle { display: inline-flex; align-items: stretch; border: 1px solid var(--rule-strong, #b9b2a1); border-radius: 0; } .ds-option { appearance: none; min-width: 44px; min-height: 44px; border: 0; border-radius: 0; cursor: pointer; padding: 7px 10px; letter-spacing: 0.06em; background: transparent; color: var(--ink-soft, #55534a); transition: background 160ms ease, color 160ms ease; } .ds-option:hover:not(.ds-option--active) { background: var(--paper-deep, #ece7da); color: var(--ink, #17181a); } .ds-option:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: -3px; } .ds-option--active { background: var(--ink, #17181a); color: var(--paper, #f4f1ea); --focus: var(--paper, #f4f1ea); } .ds-mono { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.75rem; font-weight: 400; line-height: 1.4; }"
+      "description": "Two native radio inputs inside a borderless fieldset. Their 44px mono controls overlap adjacent borders by 1px; the checked option inverts to ink and draws an inset paper focus ring.",
+      "html": "<fieldset class=\"ds-toggle\"><legend class=\"ds-visually-hidden\">Språk</legend><label class=\"ds-option\"><input class=\"ds-option__input ds-visually-hidden\" type=\"radio\" name=\"language\" value=\"no\" checked aria-label=\"Norsk\"><span class=\"ds-option__control ds-mono\">NO</span></label><label class=\"ds-option\"><input class=\"ds-option__input ds-visually-hidden\" type=\"radio\" name=\"language\" value=\"en\" aria-label=\"English\"><span class=\"ds-option__control ds-mono\">EN</span></label></fieldset>",
+      "css": ".ds-toggle { display: inline-flex; align-items: center; min-inline-size: 0; margin: 0; padding: 0; border: 0; } .ds-option + .ds-option { margin-inline-start: -1px; } .ds-option__control { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 7px 10px; border: 1px solid var(--rule-strong, #b9b2a1); background: transparent; color: var(--ink-soft, #55534a); cursor: pointer; letter-spacing: 0.06em; transition: background 160ms ease, border-color 160ms ease, color 160ms ease; } .ds-option__control:hover { border-color: var(--ink, #17181a); background: var(--paper-deep, #ece7da); color: var(--ink, #17181a); } .ds-option__input:focus-visible + .ds-option__control { outline: 2px solid var(--focus, #17181a); outline-offset: -3px; } .ds-option__input:checked + .ds-option__control { position: relative; z-index: 1; border-color: var(--ink, #17181a); background: var(--ink, #17181a); color: var(--paper, #f4f1ea); } .ds-option__input:checked:focus-visible + .ds-option__control { outline-color: var(--paper, #f4f1ea); } .ds-mono { font-family: var(--font-mono, \"Martian Mono\", ui-monospace, Menlo, monospace); font-size: 0.75rem; font-weight: 400; line-height: 1.4; } .ds-visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }"
+    },
+    {
+      "name": "Theme Toggle",
+      "kind": "button",
+      "refersTo": "theme-toggle",
+      "description": "A 44px square icon-only preference control. The icon shows the available action — moon on light, sun on dark — while the localized accessible name and title state current mode and next action.",
+      "html": "<button type=\"button\" class=\"ds-theme\" aria-label=\"Tema: lyst. Bytt til mørkt tema.\" title=\"Tema: lyst. Bytt til mørkt tema.\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button>",
+      "css": ".ds-theme { appearance: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; min-height: 44px; padding: 0; border: 1px solid var(--rule-strong, #b9b2a1); border-radius: 0; background: transparent; color: var(--ink-soft, #55534a); cursor: pointer; transition: background 160ms ease, border-color 160ms ease, color 160ms ease; } .ds-theme:hover { border-color: var(--ink, #17181a); background: var(--paper-deep, #ece7da); color: var(--ink, #17181a); } .ds-theme:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: -3px; }"
     },
     {
       "name": "Dropdown Menu",
       "kind": "custom",
       "refersTo": "menu-item",
-      "description": "The one overlay in the system, and therefore the one shadow. Paper panel inside a strong hairline; items hover to deep paper.",
-      "html": "<ul class=\"ds-menu\" aria-label=\"Prosjekter\"><li><a class=\"ds-menu__item\" href=\"#\">ASKO Servering</a></li><li><a class=\"ds-menu__item\" href=\"#\">Mitt Røde Kors</a></li><li><a class=\"ds-menu__item\" href=\"#\">Habiit</a></li></ul>",
-      "css": ".ds-menu { display: flex; flex-direction: column; min-width: 232px; margin: 0; padding: 8px 0; list-style: none; background: var(--paper, #f4f1ea); border: 1px solid var(--rule-strong, #b9b2a1); border-radius: 0; box-shadow: 0 14px 30px -14px rgb(23 24 26 / 26%); } .ds-menu__item { display: block; padding: 12px 24px; font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 0.875rem; color: var(--ink, #17181a); text-decoration: none; transition: background 140ms ease; } .ds-menu__item:hover { background: var(--paper-deep, #ece7da); } .ds-menu__item:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: -3px; }"
+      "description": "The one overlay in the system, and therefore the one shadow. The paper panel clips open over 220ms inside a strong hairline; items hover to deep paper.",
+      "html": "<ul class=\"ds-menu\" aria-label=\"Prosjekter\"><li><a class=\"ds-menu__item\" href=\"#\">ASKO Servering</a></li><li><a class=\"ds-menu__item\" href=\"#\">Mitt Røde Kors</a></li><li><a class=\"ds-menu__item\" href=\"#\">Rewindify</a></li></ul>",
+      "css": ".ds-menu { display: flex; flex-direction: column; min-width: 232px; margin: 0; padding: 8px 0; list-style: none; background: var(--paper, #f4f1ea); border: 1px solid var(--rule-strong, #b9b2a1); border-radius: 0; box-shadow: 0 14px 30px -14px rgb(23 24 26 / 26%); } .ds-menu__item { display: block; padding: 12px 24px; font-family: var(--font-display, \"Cabinet Grotesk\", system-ui, sans-serif); font-size: 0.875rem; color: var(--ink, #17181a); text-decoration: none; transition: background 140ms ease; } .ds-menu__item:hover { background: var(--paper-deep, #ece7da); } .ds-menu__item:focus-visible { outline: 2px solid var(--focus, #17181a); outline-offset: -3px; } .ds-menu { clip-path: inset(0); transition: clip-path 220ms cubic-bezier(0.16, 1, 0.3, 1); }"
     },
     {
       "name": "Skip Link",
@@ -389,11 +561,11 @@
   ],
   "narrative": {
     "northStar": "The Sixty-Second Scan",
-    "overview": "The system is built for one reader: someone with a staffing need open in another tab, deciding in under a minute whether this person matches the work. Everything is therefore ranged left against a single column edge that runs unbroken from the header rule to the footer address, so the eye never has to re-find the start of a line. Personality comes from type and grid — a display weight used exactly once per page, hairline rules instead of boxes, and a mono face that appears only where something is being measured. There is no borrowed artifact, no texture, no illustrative conceit; the page looks like what it is.\n\nColour does the structural work that cards usually do. Three grounds exist and each one owns a whole region: warm paper is the default, a deep green field owns the projects region edge to edge, and ink closes the page under the footer. A region change is the section break — there are no dividers between grounds and no containers floating on top of them. Inside the green field, a project row never claims a new ground: pointing at it mixes 4% paper into the field, raises its secondary ink and draws one inset paper edge. One saturated orange is reserved for actions and never spends itself on decoration.\n\nDensity is generous between regions and deliberately uneven inside the projects region: 96px between major sections and up to 96px around the projects region, but 48px inside the lead project against 24px inside each corroborating one. The lead spans the measure as a block of claim and visual evidence; Mitt Røde Kors and Habiit then share an equal two-column row, echoing the featured-plus-pair rhythm of the talks section. Each supporting project starts beneath its own hairline and reads vertically as title, claim, metadata, technologies and action. At narrow widths the pair stacks in source order. The confirmed rejections are the dark developer-portfolio default (there is no dark mode and no dark ground except the deliberate ink footer), cards-as-structure (there is no card at rest anywhere in the system), and faded text as an emphasis device (see The Never-Fade Rule).",
+    "overview": "The system is built for one reader: someone with a staffing need open in another tab, deciding in under a minute whether this person matches the work. Everything is therefore ranged left against a single column edge that runs unbroken from the header rule to the footer address, so the eye never has to re-find the start of a line. Personality comes from type and grid — a display weight used exactly once per page, hairline rules instead of boxes, and a mono face that appears only where something is being measured. There is no borrowed artifact, no texture, no illustrative conceit; the page looks like what it is.\n\nColour does the structural work that cards usually do. The default canvas is warm paper; visitors can explicitly switch to a warm green-black dark mode. A deep green field still owns the projects region edge to edge, and a dedicated near-black ground closes the page under the footer. A region change is the section break — there are no dividers between grounds and no containers floating on top of them. Inside the green field, a project row never claims a new ground: pointing at it mixes 4% of the fixed field ink into the field, raises its secondary ink and draws one inset edge. One saturated orange is reserved for actions and never spends itself on decoration.\n\nDensity is generous between regions and deliberately uneven inside the projects region: 96px between major sections and up to 96px around the projects region, but 48px inside the lead project against 24px inside each corroborating one. The lead spans the measure as a block of claim and visual evidence; Mitt Røde Kors and Rewindify then share an equal two-column row, echoing the featured-plus-pair rhythm of the talks section. Each supporting project starts beneath its own hairline and reads vertically as title, claim, metadata, technologies and action. At narrow widths the pair stacks in source order. The confirmed rejections are the neon developer-portfolio dark-mode cliché, cards-as-structure (there is no card at rest anywhere in the system), and faded text as an emphasis device (see The Never-Fade Rule).",
     "keyCharacteristics": [
       "One unbroken left column edge, `--measure` 1240px wide inside a fluid `--gutter`, shared by every section — the projects region's ground runs to the viewport edges, but its heading, its rules and each row's first register all start on the column",
       "The hero answers fit before asking for contact: title, freelance role and lede name both capability and engagement format before a full-width two-cell proof rail names ASKO, Røde Kors and NDC London 2026, then the inquiry row",
-      "Three region grounds — paper, green field, ink — each flipping text colour with it",
+      "Three region roles — theme-aware canvas, green evidence field, near-black footer — each carrying its own stable foreground",
       "One lead project that argues and two equal columns that corroborate — the lead owns the full measure and the only screenshot; the supporting pair is text-only",
       "A project entry is one vertical register: title and claim, quiet metadata, one readable technology line, then its action",
       "The supporting pair uses the same 64px column rhythm and individual top hairlines as the talks pair, then collapses without reordering",
@@ -403,12 +575,13 @@
       "Signal orange as fill or rule only, never as text",
       "Emphasis by a restrained ground-and-ink lift; nothing is faded through `opacity`",
       "Focus rings invert per region so the indicator is always visible",
+      "Reduced-motion, increased-contrast and forced-colour preferences receive dedicated fallbacks",
       "Every measure sized for Norwegian, the longer of the two locales"
     ],
     "rules": [
       {
         "name": "The Region Owns the Ground Rule",
-        "body": "A ground belongs to a whole region, not to a component. Paper is the default; the projects section owns the field; the footer owns ink. Setting a region ground means setting its text colour in the same rule. Components do not claim a competing ground: the project-row state stays recognizably field.",
+        "body": "A ground belongs to a whole region, not to a component. The theme-aware canvas is the default; the projects section owns the field; the footer owns its dedicated near-black. Setting a region ground means setting its foreground in the same rule. Components do not claim a competing ground: the project-row state stays recognizably field.",
         "section": "colors"
       },
       {
@@ -418,7 +591,7 @@
       },
       {
         "name": "The Inverting Focus Rule",
-        "body": "`--focus` is a token, and every region that changes its ground reassigns it: paper uses ink, `.work` uses paper, `.footer` uses signal, and the active locale button uses paper against its own ink fill. A project row keeps the field's paper ring because its 4% lift never leaves the field. Any new region with a non-paper ground must set `--focus` in the same rule that sets `background`. WCAG 2.2 AA is a hard product requirement.",
+        "body": "`--focus` is a token, and every region that changes its ground reassigns it: canvas uses ink, `.work` uses `field-ink`, `.footer` uses signal, and the selected locale control uses canvas against its own ink fill. A project row keeps the field ring because its 4% lift never leaves the field. Any new region with a non-canvas ground must set `--focus` in the same rule that sets `background`. WCAG 2.2 AA is a hard product requirement.",
         "section": "colors"
       },
       {
@@ -468,48 +641,48 @@
       }
     ],
     "dos": [
-      "**Do** wrap every new section's content in `.shell`; only a non-content state band may extend into the gutter.",
-      "**Do** set `--focus` in the same rule where you establish a region ground — paper uses ink, field uses paper and ink uses signal. A project-row state stays on the field and inherits its paper ring.",
-      "**Do** reach for a hairline (1px `rule`, `rule-strong`, or `field-rule`) or a 2px ink rule where you are tempted to draw a box — and on the field, check first whether interval alone will separate the two things, because that region has one line and spends it on row divisions.",
-      "**Do** keep signal orange as a ground under ink text, a 2px underline, or a focus outline — and only on paper.",
-      "**Do** use `.mono` only for measured values — technologies, durations, venues, locale codes — at `--step--2`, except the ledger's buyer-critical technology line at `--step--1`.",
-      "**Do** size every measure and heading wrap in `ch`, and check the surface in Norwegian first.",
-      "**Do** distinguish one row from its siblings with a restrained ground-and-ink lift, and pass the state to nested text through inherited variables rather than restating each colour.",
-      "**Do** keep a compound state on one inherited answer clock; 140ms in and 190ms out on the interaction curve are the project row's established figures.",
-      "**Do** register a custom colour with `@property` when it must interpolate on that shared clock rather than snap.",
-      "**Do** grow a changing underline with `background-size` on a `linear-gradient`, so the label it belongs to never moves.",
-      "**Do** add new icons as single 1.5-stroke paths in the same 16-unit box in `AppIcon.vue`, `aria-hidden`, with a real text label beside them.",
-      "**Do** add every new string to both `src/locales/no.ts` and `src/locales/en.ts`.",
-      "**Do** ship a photograph as an optimized JPEG cut to the ratio it renders at, with `width`/`height` on the element and `loading=\"lazy\"`."
+      "Do wrap every new section's content in `.shell`; only a non-content state band may extend into the gutter.",
+      "Do set `--focus` in the same rule where you establish a region ground — canvas uses ink, field uses `field-ink`, and footer uses signal. A project-row state stays on the field and inherits its field ring.",
+      "Do reach for a hairline (1px `rule`, `rule-strong`, or `field-rule`) or a 2px ink rule where you are tempted to draw a box — and on the field, check first whether interval alone will separate the two things, because that region has one line and spends it on row divisions.",
+      "Do keep signal orange as a ground under ink text, a 2px underline, or a focus outline — and only on paper.",
+      "Do use `.mono` only for measured values — technologies, durations, venues, locale codes — at `--step--2`, except the ledger's buyer-critical technology line at `--step--1`.",
+      "Do size every measure and heading wrap in `ch`, and check the surface in Norwegian first.",
+      "Do distinguish one row from its siblings with a restrained ground-and-ink lift, and pass the state to nested text through inherited variables rather than restating each colour.",
+      "Do keep a compound state on one inherited answer clock; 140ms in and 190ms out on the interaction curve are the project row's established figures.",
+      "Do register a custom colour with `@property` when it must interpolate on that shared clock rather than snap.",
+      "Do grow a changing underline with `background-size` on a `linear-gradient`, so the label it belongs to never moves.",
+      "Do add new icons at the established 1.5 stroke and 16px size in `AppIcon.vue`, `aria-hidden`, with a real text label or accessible control name.",
+      "Do add every new string to both `src/locales/no.ts` and `src/locales/en.ts`.",
+      "Do ship a photograph as an optimized JPEG cut to the ratio it renders at, with `width`/`height` on the element and `loading=\"lazy\"`."
     ],
     "donts": [
-      "**Don't** add a `border-radius`. Every corner in this system is square.",
-      "**Don't** add an elevation `box-shadow` to anything in normal flow — the dropdown overlay owns the only elevation shadow. An inset shadow may draw a zero-displacement rule, as the project row does.",
-      "**Don't** put `opacity` on anything. There is no `opacity` declaration left in the system, on text or on images; de-emphasis is a cooler ground.",
-      "**Don't** write `color: var(--signal)`. Signal is a fill, a rule, or an outline; as text it fails on every ground here.",
-      "**Don't** put signal orange on the green field in any form. Project-row affordances move from field mist to paper, never to signal.",
-      "**Don't** invert a project row to paper or reprint its type in ink. The field remains the ground; a 4% lift is the maximum established change.",
-      "**Don't** give the parts of one project-row response separate clocks or delays. Background, ink, edge, underline and arrow answer together.",
-      "**Don't** introduce a third accent, a gray, or a dark mode. There are three grounds and one accent.",
-      "**Don't** use mono as a \"technical\" costume for headings, prose, or button labels.",
-      "**Don't** add a fourth font weight, an italic, or a second sans; three Cabinet Grotesk files and one variable mono are what ships.",
-      "**Don't** load a font, icon set, or stylesheet from a third-party host at runtime.",
-      "**Don't** wrap content in a card. There is no card in this system — grouping is interval and hairlines, and every project row stays on the field.",
-      "**Don't** put a screenshot in a project row other than the lead row. The lead row is the one licensed exception and it stays one; the supporting pair remains text-only so it compares without becoming two cards.",
-      "**Don't** put a border around anything inside the projects region: not a technology, screenshot, set of facts, or whole project. Resting structure uses only the top hairline on each supporting item; the active row may add its documented inset paper edge.",
-      "**Don't** add a closing rule beneath the supporting pair. The field's own edge says where the region ends.",
-      "**Don't** give the ledger a third column or visual register. Period, role and the separate technology line all belong inside the entry; a new fact goes into that entry or it does not go into this region.",
-      "**Don't** split a supporting project into internal columns. Its grid track is already its horizontal allocation; title, claim, metadata, stack and action remain one vertical reading path.",
-      "**Don't** set a corroborating row at the lead row's numbers. There are two row rhythms and two title steps, and closing the gap between them removes the hierarchy that lets a buyer see which project is the argument.",
-      "**Don't** add project logos back to the home-page region. Names carry identity; the lead screenshot and supporting copy carry evidence.",
-      "**Don't** rest an interactive underline on a hairline token. On the field the affordance rests at `field-soft`, not `field-rule` — on touch the lift never fires, so that underline is the only resting evidence the row is live.",
-      "**Don't** reintroduce carousel machinery — a track, arrows, a counter, a notion of an active item — for three projects. All three fit on the column at once, and the reader is comparing, not advancing.",
-      "**Don't** give a label, button, or nav item a fixed px width; Norwegian is the longer locale and it is canonical.",
-      "**Don't** collapse the mobile header into a hamburger drawer; it becomes static and wraps to a second full-width row at 720px by design.",
-      "**Don't** let type or imagery cross the column line. The project row's active background band may extend into the gutter; its content never follows it.",
-      "**Don't** compute the project-row band from `vw`. Pair container-relative padding with an equal negative margin so the page never gains horizontal scroll.",
-      "**Don't** put a second email action on a page that already ends on the footer. The footer's address button is the site's one conversion, and it closes every page; an ask stacked directly above it competes with the thing it is copying. A surface that feels like it needs a closer gets navigation or evidence there instead — see Project Pager.",
-      "**Don't** add a second photograph of Eric. One is evidence in the talks region; two make the first one decoration, and this system has no decoration."
+      "Don't add a `border-radius`. Every corner in this system is square.",
+      "Don't add an elevation `box-shadow` to anything in normal flow — the dropdown overlay owns the only elevation shadow. An inset shadow may draw a zero-displacement rule, as the project row does.",
+      "Don't put `opacity` on anything. There is no `opacity` declaration left in the system, on text or on images; de-emphasis is a cooler ground.",
+      "Don't write `color: var(--signal)`. Signal is a fill, a rule, or an outline; as text it fails on every ground here.",
+      "Don't put signal orange on the green field in any form. Project-row affordances move from field mist to paper, never to signal.",
+      "Don't invert a project row to paper or reprint its type in ink. The field remains the ground; a 4% lift is the maximum established change.",
+      "Don't give the parts of one project-row response separate clocks or delays. Background, ink, edge, underline and arrow answer together.",
+      "Don't introduce a third accent, neutralize the warm palette, or turn dark mode into a neon developer theme. Both modes preserve the same three region roles and one orange signal.",
+      "Don't use mono as a \"technical\" costume for headings, prose, or button labels.",
+      "Don't add a fourth font weight, an italic, or a second sans; three Cabinet Grotesk files and one variable mono are what ships.",
+      "Don't load a font, icon set, or stylesheet from a third-party host at runtime.",
+      "Don't wrap content in a card. There is no card in this system — grouping is interval and hairlines, and every project row stays on the field.",
+      "Don't put a screenshot in a project row other than the lead row. The lead row is the one licensed exception and it stays one; the supporting pair remains text-only so it compares without becoming two cards.",
+      "Don't put a border around anything inside the projects region: not a technology, screenshot, set of facts, or whole project. Resting structure uses only the top hairline on each supporting item; the active row may add its documented inset paper edge.",
+      "Don't add a closing rule beneath the supporting pair. The field's own edge says where the region ends.",
+      "Don't give the ledger a third column or visual register. Period, role and the separate technology line all belong inside the entry; a new fact goes into that entry or it does not go into this region.",
+      "Don't split a supporting project into internal columns. Its grid track is already its horizontal allocation; title, claim, metadata, stack and action remain one vertical reading path.",
+      "Don't set a corroborating row at the lead row's numbers. There are two row rhythms and two title steps, and closing the gap between them removes the hierarchy that lets a buyer see which project is the argument.",
+      "Don't add project logos back to the home-page region. Names carry identity; the lead screenshot and supporting copy carry evidence.",
+      "Don't rest an interactive underline on a hairline token. On the field the affordance rests at `field-soft`, not `field-rule` — on touch the lift never fires, so that underline is the only resting evidence the row is live.",
+      "Don't reintroduce carousel machinery — a track, arrows, a counter, a notion of an active item — for three projects. All three fit on the column at once, and the reader is comparing, not advancing.",
+      "Don't give a label, button, or nav item a fixed px width; Norwegian is the longer locale and it is canonical.",
+      "Don't collapse the mobile header into a hamburger drawer; it becomes static and wraps to a second full-width row at 720px by design.",
+      "Don't let type or imagery cross the column line. The project row's active background band may extend into the gutter; its content never follows it.",
+      "Don't compute the project-row band from `vw`. Pair container-relative padding with an equal negative margin so the page never gains horizontal scroll.",
+      "Don't put a second email action on a page that already ends on the footer. The footer's address button is the site's one conversion, and it closes every page; an ask stacked directly above it competes with the thing it is copying. A surface that feels like it needs a closer gets navigation or evidence there instead — see Project Pager.",
+      "Don't add a second photograph of Eric. One is evidence in the talks region; two make the first one decoration, and this system has no decoration."
     ]
   }
 }

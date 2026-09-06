@@ -62,6 +62,12 @@ typography:
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: "normal"
+  small:
+    fontFamily: "Cabinet Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.875rem"
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: "normal"
   mono:
     fontFamily: "Martian Mono, ui-monospace, SFMono-Regular, Menlo, monospace"
     fontSize: "0.75rem"
@@ -111,7 +117,6 @@ components:
   project-row-hover:
     backgroundColor: "color-mix(in srgb, {colors.field-ink} 4%, {colors.field})"
     textColor: "{colors.field-ink}"
-    boxShadow: "inset 0 -1px 0 {colors.field-ink}"
   project-row-lead:
     backgroundColor: "transparent"
     textColor: "{colors.field-ink}"
@@ -126,7 +131,6 @@ components:
   talk-photo:
     backgroundColor: "{colors.paper-deep}"
     rounded: "{rounded.none}"
-    border: "1px solid {colors.rule}"
   tech-tag:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
@@ -136,15 +140,23 @@ components:
   nav-link:
     backgroundColor: "transparent"
     textColor: "{colors.ink-soft}"
-    typography: "{typography.body}"
+    typography: "{typography.small}"
     rounded: "{rounded.none}"
   nav-link-hover:
     textColor: "{colors.ink}"
   nav-contact:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
-    typography: "{typography.body}"
+    typography: "{typography.small}"
     rounded: "{rounded.none}"
+  preference-control:
+    backgroundColor: "transparent"
+    textColor: "{colors.ink-soft}"
+    rounded: "{rounded.none}"
+    size: "44px"
+  preference-control-hover:
+    backgroundColor: "{colors.paper-deep}"
+    textColor: "{colors.ink}"
   lang-option:
     backgroundColor: "transparent"
     textColor: "{colors.ink-soft}"
@@ -223,10 +235,10 @@ A warm, paper-based palette in two ambient-light compositions with exactly one c
 - **Warm Paper / Warm Midnight** (`paper`): The default canvas and the ground shared by the header and dropdown. It resolves to `#f4f1ea` in light mode and `#161815` in dark mode; neither endpoint is pure white or black.
 - **Deep Paper / Raised Soot** (`paper-deep`): The one-step-back or one-step-up tint. It is the hover ground of a dropdown item and inactive control, and the placeholder ground behind a loading image: `#ece7da` by day, `#22251f` by night.
 - **Footer Ground / Ink** (`footer-ground`, `footer-ink`): A separate invariant dark-region pair prevents theme inversion from turning the closing section light. It resolves from `#17181a` / `#f4f1ea` to `#0d0f0e` / `#f3efe5` in dark mode.
-- **Ink** (`ink`): Primary text on the canvas, active locale fill, and 2px structural rule. It resolves from `#17181a` to `#f3efe5`; colored surfaces use their own foreground tokens instead of inheriting this inversion.
+- **Ink** (`ink`): Primary text on the canvas, selected locale fill, and 2px structural rule. It resolves from `#17181a` to `#f3efe5`; colored surfaces use their own foreground tokens instead of inheriting this inversion.
 - **Soft Ink** (`ink-soft`): All secondary text on the canvas — ledes, blurbs, body paragraphs, mono labels, captions, resting nav links. It resolves from `#55534a` to `#b8b5aa`, clearing 4.5:1 in both modes.
 - **Hairline** (`rule`): The default 1px divider on paper: header underline, the hero proof rail's mobile cell separator, image borders, list separators.
-- **Strong Hairline** (`rule-strong`): The 1px border that reads as an edge rather than a division — technology tags, the locale toggle frame, the dropdown border, the secondary-talk top rule, quiet link underlines.
+- **Strong Hairline** (`rule-strong`): The 1px border that reads as an edge rather than a division — technology tags, each header preference control, the dropdown border, the secondary-talk top rule, quiet link underlines.
 - **Ink Hairline** (`ink-rule`): The underline beneath quiet links on the ink footer.
 
 ### Named Rules
@@ -235,7 +247,7 @@ A warm, paper-based palette in two ambient-light compositions with exactly one c
 
 **The Signal-Never-Text Rule.** Signal orange is only ever a fill, a 2px rule, or an outline. There is no `color: var(--signal)` in the system and there must not be one — as text it fails on every ground the site has. Signal never appears on the green field in any form. A project-row affordance brightens from field mist to paper instead.
 
-**The Inverting Focus Rule.** `--focus` is a token, and every region that changes its ground reassigns it: canvas uses ink, `.work` uses `field-ink`, `.footer` uses signal, and the active locale button uses canvas against its own ink fill. A project row keeps the field ring because its 4% lift never leaves the field. Any new region with a non-canvas ground must set `--focus` in the same rule that sets `background`. WCAG 2.2 AA is a hard product requirement.
+**The Inverting Focus Rule.** `--focus` is a token, and every region that changes its ground reassigns it: canvas uses ink, `.work` uses `field-ink`, `.footer` uses signal, and the selected locale control uses canvas against its own ink fill. A project row keeps the field ring because its 4% lift never leaves the field. Any new region with a non-canvas ground must set `--focus` in the same rule that sets `background`. WCAG 2.2 AA is a hard product requirement.
 
 ## Typography
 
@@ -318,7 +330,7 @@ Every corner in the system is square. There is no `border-radius` declaration an
 Form language is drawn with lines rather than boxes:
 
 - **1px `rule`** — divisions inside a region: the header underline, the hero proof rail's mobile cell separator, a figure's border, list separators
-- **1px `rule-strong`** — the perimeter of a small object on paper, plus the hero proof rail's hairlines at its block edges while its inline edges stay open: technology tags, the locale toggle, the dropdown, the secondary-talk top rule
+- **1px `rule-strong`** — the perimeter of a small object on paper, plus the hero proof rail's hairlines at its block edges while its inline edges stay open: technology tags, header preference controls, the dropdown, the secondary-talk top rule
 - **1px `field-rule`** — one resting job on the field: the top edge of each supporting project. A row's resting affordance underline is `field-soft`, not this; its active bottom edge is an inset paper rule
 - **2px `ink`** — the structural break above something that behaves like a section of its own: the featured talk, the project pager, the project head's bottom edge
 - **2px `signal`** — the underline that marks an inline affordance ("Se foredraget", "Les mer"), sitting 3px below the baseline
@@ -333,8 +345,8 @@ The only freestanding mark is the 9px signal square beside the hero role line, d
 - **Shape:** Square, always (0 radius). No borders on filled actions.
 - **Primary action** (`.action`, `.footer__mail`): Signal ground with ink text, `16px 32px` padding, 56px minimum height, weight 500, inline-flex with a 12px gap before an optional arrow icon. The hero uses the localized freelance-inquiry label; the footer uses the address itself. On paper it hovers to signal-deep with paper text; on the ink footer it hovers to paper with ink text — in both cases the ground changes and the text follows it. Both lift `translateY(-2px)` on hover and settle to 0 on `:active`, over 180ms. **There are exactly two of these on any page**, the hero's and the footer's, and only the home page carries both.
 - **Focus:** No component defines its own ring except where inversion demands it. The global `:focus-visible` draws `2px solid var(--focus)` at `3px` offset, and `--focus` is whatever the region or state set.
-- **Quiet link** (`.quiet`, `.footer__link`, `.work__more`): No fill. Text over a 1px hairline drawn as a background underline so the label never shifts; it goes to full contrast on hover. Hero email, GitHub and LinkedIn links are at least 44px high. In the projects region the underline thickens from 1px field mist to 2px paper while the row stays on the field.
-- **Icon buttons:** None. The site has no icon-only control; every icon sits beside a real text label.
+- **Quiet link** (`.quiet`, `.footer__link`, `.work__more`): No fill. Text over a 1px hairline drawn as a background underline so the label never shifts; it goes to full contrast on hover. GitHub and LinkedIn links are at least 44px high. In the projects region the underline thickens from 1px field mist to 2px paper while the row stays on the field.
+- **Icon controls:** The theme switch is a 44px square icon-only button with a localized accessible name and title that state the current mode and next action. The hero's copy control pairs the visible email address with a copy/check icon; its accessible name describes the copy action and a polite live region reports success or failure. Icons stay decorative because the owning control carries the meaning.
 
 ### Chips / Tags
 
@@ -350,7 +362,7 @@ Before adding a container, check whether the content needs a hairline for groupi
 
 ### Inputs / Fields
 
-None. The site has no forms, no inputs, and no backend; the only conversion is a `mailto:` link. Do not introduce an input pattern speculatively — if a field is ever genuinely needed, derive it from the technology tag (square, 1px `rule-strong`, mono where it holds a measured value) rather than importing a component library.
+The site has no content-entry fields and no backend; the only conversion is a `mailto:` link. The language radios are preference controls, not a text-input pattern. Do not introduce a field speculatively — if one is ever genuinely needed, derive it from the technology tag (square, 1px `rule-strong`, mono where it holds a measured value) rather than importing a component library.
 
 ### Navigation
 
@@ -358,8 +370,9 @@ None. The site has no forms, no inputs, and no backend; the only conversion is a
 - **States:** Links rest in soft ink and hover to ink over 160ms. The one persistent action, the contact link, is full ink at weight 500 with a growing signal underline instead of a colour change — the target never shifts.
 - **Dropdown:** Opens on hover, click, and focus; closes on outside pointer-down, focus-out, and document-level Escape (Escape returns focus to the trigger only when focus was already inside). Panel is paper with a 1px `rule-strong` border and the system's single shadow; items are `12px 24px` and hover to deep paper. The caret rotates 180° over 200ms.
 - **Mobile (≤720px):** The header becomes static and wraps rather than collapsing into a drawer — the full navigation remains at page start in a second row, but does not consume reading space throughout the page. There is no hamburger and no overlay menu.
-- **Theme toggle:** One 44px square icon button immediately before the locale control. It switches directly between light and dark, showing the current theme with sun and moon icons. First visit defaults to light and `ev-portfolio-theme` persists explicit choice. A small head script restores the saved theme before first paint, while the button's localized label names current state and next action.
-- **Language toggle:** Two mono buttons inside a single 1px `rule-strong` frame, no gap. Inactive is transparent with soft ink and hovers to deep paper; active is an ink fill with paper text, `aria-pressed`, and a locally inverted `--focus` drawn inset at `-3px` offset so the ring stays inside the fill.
+- **Preference controls:** Language and theme controls sit after navigation with an 8px gap and share `.preference-control`: square geometry, individual 1px `rule-strong` borders, 44px minimum targets, soft ink, and a deep-paper hover. The shared primitive carries visual treatment; each component owns its semantic state.
+- **Language toggle:** A borderless `fieldset` contains two native radio inputs with localized accessible names. Their visible mono controls overlap adjacent 1px borders by 1px so the pair reads as one unit. The checked option rises one stacking level, inverts to ink on paper, and draws its focus ring inset in paper; cross-tab locale changes synchronize through the `storage` event.
+- **Theme toggle:** One 44px square button follows the language group. It switches directly between light and dark and shows the icon for the available action — moon on light, sun on dark. First visit defaults to light and `ev-portfolio-theme` persists explicit choice. A small head script restores the saved theme before first paint, while the button's localized accessible name and title state current mode and next action.
 - **Skip link:** Signal fill, ink text, parked at `translateY(-250%)` and dropping to 0 on focus over 180ms at the gutter's left edge.
 
 ### Hero & Proof Rail (signature)
@@ -368,7 +381,7 @@ The opening is a buyer's sixty-second scan in one downward sequence: display tit
 
 - **Interval:** The region uses `clamp(--space-7, 7vw, --space-9)` above the title and `--space-8` below the contact row. Role follows the title by `--space-6`; lede follows by `--space-8`; rail follows by `--space-7`; contact follows by `--space-5`.
 - **Proof rail:** A semantic `dl` with two equal cells and no side perimeter. `rule-strong` hairlines run across its block start and end; the second cell gets the single vertical separator. Labels are mono uppercase Production / Expertise; values are ASKO · Røde Kors and NDC London 2026 at subtitle scale. This is named evidence, not a technology inventory, and the hero does not derive content from project data.
-- **Contact row:** A 56px signal-filled, localized freelance-inquiry link comes first. The visible mono `mailto:` address remains selectable as the fallback, followed by quiet GitHub and LinkedIn links. Every quiet link is at least 44px high and carries a standing 1px `rule-strong` background underline so touch readers do not depend on hover.
+- **Contact row:** A 56px signal-filled, localized freelance-inquiry link comes first. The visible mono address is a selectable copy button with copy/check feedback, a polite live status, and an inline recovery message if clipboard access fails; the `mailto:` action remains the primary fallback. Quiet GitHub and LinkedIn links follow. Every control is at least 44px high, and quiet links carry a standing 1px `rule-strong` background underline so touch readers do not depend on hover.
 - **Mobile (≤560px):** The proof rail becomes one column, replaces the vertical divider with a horizontal `rule` separator, and reduces the value scale by one step. The primary inquiry becomes full-width; email and social links remain visible beneath it rather than becoming an icon row or hidden action menu.
 
 ### Project Ledger (signature)
@@ -421,11 +434,11 @@ The foot of a project page, and a deliberate refusal of a second conversion. The
 
 ### Icons
 
-One set, defined entirely in `AppIcon.vue`: `arrow-right`, `arrow-left`, `arrow-up-right`, `chevron-down`. All four are single paths in a 16-unit viewBox, `stroke-width: 1.5`, `fill: none`, `stroke: currentColor`, rendered at 16px, `aria-hidden` and `focusable="false"` — always decorative, with the adjacent label carrying the meaning. A shared `translateY(-0.5px)` optically aligns them to cap height. Icons animate only as a directional hint on the parent's hover (3px right for `arrow-right`, 2px up-right for `arrow-up-right`), never on their own.
+One Lucide-backed set is mapped behind local semantic names in `AppIcon.vue`: `arrow-right`, `arrow-left`, `arrow-up-right`, `chevron-down`, `copy`, `check`, `theme-light`, and `theme-dark`. Every icon renders at 16px with an absolute 1.5px stroke, `fill: none`, `stroke: currentColor`, `aria-hidden`, and `focusable="false"`; adjacent text or the owning icon-only control carries the accessible name. A shared `translateY(-0.5px)` optically aligns icons to cap height. Directional icons animate only as a hint on the parent's hover or focus; status and theme icons swap without independent motion.
 
 ### Motion
 
-Two easing families and a short duration ladder. `ease` handles small colour changes at 140–200ms. `cubic-bezier(0.16, 1, 0.3, 1)` handles anything that moves, grows, or answers a pointer: 180ms button lift, 200ms caret, 220ms talk-link icon nudge, and the project row's 140ms arrival / 190ms departure. `prefers-reduced-motion: reduce` clamps all animation and transition durations to 0.01ms **and all transition delays to 0**, and turns off `scroll-behavior: smooth`. There is no JavaScript-driven motion anywhere on the site.
+Two easing families and a short duration ladder govern component states. `ease` handles small colour changes at 140–200ms. `cubic-bezier(0.16, 1, 0.3, 1)` handles movement, growth, and arrival: 180ms button lift, 200ms caret, 220ms talk-link icon nudge and dropdown reveal, and the project row's 140ms arrival / 190ms departure. Route changes use the browser View Transitions API as shallow directional sheets: outgoing content travels 28–72px over 180ms with `cubic-bezier(0.4, 0, 1, 1)`, incoming content settles over 220ms on the standard movement curve, and the header holds still in its own transition layer. Router code only marks forward/back direction; CSS owns the motion. `prefers-reduced-motion: reduce` clamps all animation and transition durations to 0.01ms **and all transition delays to 0**.
 
 **The Area-Proportional State Rule.** A state treatment's visual weight scales with the area it changes. A full inversion made the lead row shout more loudly than a corroborating line, even though both interactions meant the same thing. Large bands therefore change ground only slightly: the project row mixes 4% paper into field and lets ink, rule weight and the arrow carry the response. Small controls may make stronger colour changes because their area keeps them local.
 

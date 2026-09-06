@@ -42,3 +42,4 @@ __screenshots__/
 # AI Agents
 .codex/hooks.json
 .impeccable/live
+.impeccable/critique
