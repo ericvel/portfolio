@@ -60,7 +60,18 @@
 
   /* Signal — owns actions and live elements. Ink sits on it at 4.8:1. */
   --signal: #e4572e;
-  --signal-deep: #c8461f;
+  --signal-deep: #bd3f1d;
+
+  /* Stable foregrounds for colored regions. Ground tokens can change theme without
+     accidentally inverting text that sits on field, signal, or footer surfaces. */
+  --field-ink: #f4f1ea;
+  --signal-ink: #17181a;
+  --signal-deep-ink: #f4f1ea;
+  --footer-ground: #17181a;
+  --footer-ink: #f4f1ea;
+  --footer-soft: #a8a49a;
+  --footer-rule: #34353a;
+  --overlay-shadow: rgb(23 24 26 / 26%);
 
   --focus: var(--ink);
 
@@ -99,11 +110,63 @@
   --measure: 1240px;
 }
 
+/* Dark mode is composed as warm midnight paper, not a mechanical inversion. The brand field
+   and signal keep their roles while canvas, type, rules, elevation, and browser chrome remap. */
+html.dark {
+  color-scheme: dark;
+  --paper: #161815;
+  --paper-deep: #22251f;
+  --ink: #f3efe5;
+  --ink-soft: #b8b5aa;
+  --rule: #343831;
+  --rule-strong: #5d6257;
+  --field: #1b4637;
+  --field-soft: #c6d6c9;
+  --field-rule: #3f6a58;
+  --signal: #ed6842;
+  --signal-deep: #d65a34;
+  --signal-deep-ink: #17181a;
+  --footer-ground: #0d0f0e;
+  --footer-ink: #f3efe5;
+  --footer-soft: #aaa99f;
+  --footer-rule: #30352f;
+  --overlay-shadow: rgb(0 0 0 / 58%);
+}
+
+html.light {
+  color-scheme: light;
+}
+
+/* Honor an explicit request for stronger contrast without changing theme. Structural rules
+   become readable edges and secondary ink moves closer to the foreground in both palettes. */
+@media (prefers-contrast: more) {
+  :root {
+    --ink-soft: #34332e;
+    --rule: #817c71;
+    --rule-strong: #55534a;
+    --paper-soft: #d7d2c7;
+    --ink-rule: #a8a49a;
+    --field-soft: #e1ebe4;
+    --field-rule: #90b2a2;
+  }
+
+  html.dark {
+    --ink-soft: #d9d5ca;
+    --rule: #83887b;
+    --rule-strong: #b8b5aa;
+    --field-soft: #e0ebe3;
+    --field-rule: #91b2a3;
+    --footer-soft: #d8d4ca;
+    --footer-rule: #9c9d95;
+  }
+}
+
 html {
   font-family: var(--font-display);
   background: var(--paper);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
+  scrollbar-color: var(--rule-strong) var(--paper);
 }
 
 body {
@@ -112,6 +175,7 @@ body {
   font-weight: 400;
   text-underline-offset: 0.22em;
   text-decoration-thickness: from-font;
+  caret-color: var(--signal);
 }
 
 :focus-visible {
@@ -121,7 +185,18 @@ body {
 
 ::selection {
   background: var(--signal);
-  color: var(--ink);
+  color: var(--signal-ink);
+}
+
+@media (forced-colors: active) {
+  :focus-visible {
+    outline-color: Highlight;
+  }
+
+  ::selection {
+    background: Highlight;
+    color: HighlightText;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -184,7 +259,7 @@ body {
   z-index: 100;
   padding: var(--space-3) var(--space-5);
   background: var(--signal);
-  color: var(--ink);
+  color: var(--signal-ink);
   font-weight: 500;
   transform: translateY(-250%);
   transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);

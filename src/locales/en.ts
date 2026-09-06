@@ -6,6 +6,12 @@ export default {
     projectsMenu: "Project menu",
     language: "Language",
   },
+  theme: {
+    lightLabel: "Theme: light. Switch to dark mode.",
+    darkLabel: "Theme: dark. Switch to light mode.",
+    lightTitle: "Theme: light",
+    darkTitle: "Theme: dark",
+  },
   hero: {
     eyebrow: "Freelance frontend specialist",
     title: "Frontend built for the real world.",

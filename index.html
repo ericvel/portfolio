@@ -6,6 +6,26 @@
     <link rel="icon" href="/favicon.ico" sizes="32x32">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta name="theme-color" content="#f4f1ea">
+    <script>
+      (function () {
+        var theme = "light";
+
+        try {
+          var saved = localStorage.getItem("ev-portfolio-theme");
+          if (saved === "light" || saved === "dark") theme = saved;
+        } catch (error) {
+          // Storage may be blocked. Light remains the default.
+        }
+
+        var root = document.documentElement;
+
+        root.classList.add(theme);
+        root.setAttribute("data-theme", theme);
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute("content", theme === "dark" ? "#161815" : "#f4f1ea");
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eric Veliyulin | Frontendspesialist</title>
     <meta name="description" content="Eric Veliyulin — frontendspesialist på frilans. Fem år med React, Vue og TypeScript. Testdekning og tilgjengelighet som standard.">
@@ -13,10 +33,10 @@
   <body>
     <!--
       THESIS: A hiring buyer's sixty-second scan, answered by type and grid alone. Refuses the
-      borrowed-artifact conceit and the dark developer-portfolio default in equal measure.
-      OWN-WORLD: Warm paper #F4F1EA, ink #17181A, a deep green field #1F4D3C owning the project
-      region full-bleed, signal orange #E4572E owning every action. Cabinet Grotesk for voice,
-      Martian Mono for measurement. Hairline rules, never cards-as-structure.
+      borrowed-artifact conceit and the neon dark developer-portfolio default in equal measure.
+      OWN-WORLD: Warm paper #F4F1EA by day and warm midnight #161815 by night, a deep green field
+      #1F4D3C owning the project region full-bleed, signal orange #E4572E owning every action.
+      Cabinet Grotesk for voice, Martian Mono for measurement. Hairline rules, never cards.
       STORY: This is a frontend specialist with production evidence and public platform
       expertise; he is worth an email today.
       FIRST VIEWPORT: Name at display scale ranged left, role line in mono beneath it, lede at

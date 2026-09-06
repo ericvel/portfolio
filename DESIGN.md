@@ -1,6 +1,6 @@
 ---
 name: Eric Veliyulin — Frontend Specialist Portfolio
-description: Warm paper, one green field, one signal orange — a hiring buyer's sixty-second scan answered by type, interval and one row that shows its work, with no card, no carousel and one line per row division.
+description: Warm paper by day, warm midnight by night, one green field and one signal orange — a hiring buyer's sixty-second scan answered by type, interval and one row that shows its work.
 colors:
   paper: "#f4f1ea"
   paper-deep: "#ece7da"
@@ -13,8 +13,18 @@ colors:
   field: "#1f4d3c"
   field-soft: "#c3d4c8"
   field-rule: "#3d6a58"
+  field-ink: "#f4f1ea"
   signal: "#e4572e"
-  signal-deep: "#c8461f"
+  signal-deep: "#bd3f1d"
+  signal-ink: "#17181a"
+  night: "#161815"
+  night-deep: "#22251f"
+  night-ink: "#f3efe5"
+  night-ink-soft: "#b8b5aa"
+  night-rule: "#343831"
+  night-rule-strong: "#5d6257"
+  footer-ground: "#17181a"
+  footer-ink: "#f4f1ea"
 typography:
   display:
     fontFamily: "Cabinet Grotesk, ui-sans-serif, system-ui, sans-serif"
@@ -76,7 +86,7 @@ spacing:
 components:
   action-primary:
     backgroundColor: "{colors.signal}"
-    textColor: "{colors.ink}"
+    textColor: "{colors.signal-ink}"
     typography: "{typography.body}"
     rounded: "{rounded.none}"
     padding: "16px 32px"
@@ -95,16 +105,16 @@ components:
     textColor: "{colors.ink}"
   project-row:
     backgroundColor: "transparent"
-    textColor: "{colors.paper}"
+    textColor: "{colors.field-ink}"
     rounded: "{rounded.none}"
     padding: "24px 24px"
   project-row-hover:
-    backgroundColor: "color-mix(in srgb, {colors.paper} 4%, {colors.field})"
-    textColor: "{colors.paper}"
-    boxShadow: "inset 0 -1px 0 {colors.paper}"
+    backgroundColor: "color-mix(in srgb, {colors.field-ink} 4%, {colors.field})"
+    textColor: "{colors.field-ink}"
+    boxShadow: "inset 0 -1px 0 {colors.field-ink}"
   project-row-lead:
     backgroundColor: "transparent"
-    textColor: "{colors.paper}"
+    textColor: "{colors.field-ink}"
     typography: "{typography.title}"
     rounded: "{rounded.none}"
     padding: "48px 24px"
@@ -144,6 +154,11 @@ components:
   lang-option-active:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.paper}"
+  theme-toggle:
+    backgroundColor: "transparent"
+    textColor: "{colors.ink-soft}"
+    rounded: "{rounded.none}"
+    height: "44px"
   menu-item:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
@@ -167,15 +182,15 @@ components:
 
 The system is built for one reader: someone with a staffing need open in another tab, deciding in under a minute whether this person matches the work. Everything is therefore ranged left against a single column edge that runs unbroken from the header rule to the footer address, so the eye never has to re-find the start of a line. Personality comes from type and grid — a display weight used exactly once per page, hairline rules instead of boxes, and a mono face that appears only where something is being measured. There is no borrowed artifact, no texture, no illustrative conceit; the page looks like what it is.
 
-Colour does the structural work that cards usually do. Three grounds exist and each one owns a whole region: warm paper is the default, a deep green field owns the projects region edge to edge, and ink closes the page under the footer. A region change is the section break — there are no dividers between grounds and no containers floating on top of them. Inside the green field, a project row never claims a new ground: pointing at it mixes 4% paper into the field, raises its secondary ink and draws one inset paper edge. One saturated orange is reserved for actions and never spends itself on decoration.
+Colour does the structural work that cards usually do. The default canvas is warm paper; visitors can explicitly switch to a warm green-black dark mode. A deep green field still owns the projects region edge to edge, and a dedicated near-black ground closes the page under the footer. A region change is the section break — there are no dividers between grounds and no containers floating on top of them. Inside the green field, a project row never claims a new ground: pointing at it mixes 4% of the fixed field ink into the field, raises its secondary ink and draws one inset edge. One saturated orange is reserved for actions and never spends itself on decoration.
 
-Density is generous between regions and deliberately uneven inside the projects region: 96px between major sections and up to 96px around the projects region, but 48px inside the lead project against 24px inside each corroborating one. The lead spans the measure as a block of claim and visual evidence; Mitt Røde Kors and Rewindify then share an equal two-column row, echoing the featured-plus-pair rhythm of the talks section. Each supporting project starts beneath its own hairline and reads vertically as title, claim, metadata, technologies and action. At narrow widths the pair stacks in source order. The confirmed rejections are the dark developer-portfolio default (there is no dark mode and no dark ground except the deliberate ink footer), cards-as-structure (there is no card at rest anywhere in the system), and faded text as an emphasis device (see The Never-Fade Rule).
+Density is generous between regions and deliberately uneven inside the projects region: 96px between major sections and up to 96px around the projects region, but 48px inside the lead project against 24px inside each corroborating one. The lead spans the measure as a block of claim and visual evidence; Mitt Røde Kors and Rewindify then share an equal two-column row, echoing the featured-plus-pair rhythm of the talks section. Each supporting project starts beneath its own hairline and reads vertically as title, claim, metadata, technologies and action. At narrow widths the pair stacks in source order. The confirmed rejections are the neon developer-portfolio dark-mode cliché, cards-as-structure (there is no card at rest anywhere in the system), and faded text as an emphasis device (see The Never-Fade Rule).
 
 **Key Characteristics:**
 
 - One unbroken left column edge, `--measure` 1240px wide inside a fluid `--gutter`, shared by every section — the projects region's ground runs to the viewport edges, but its heading, its rules and each row's first register all start on the column
 - The hero answers fit before asking for contact: title, freelance role and lede name both capability and engagement format before a full-width two-cell proof rail names ASKO, Røde Kors and NDC London 2026, then the inquiry row
-- Three region grounds — paper, green field, ink — each flipping text colour with it
+- Three region roles — theme-aware canvas, green evidence field, near-black footer — each carrying its own stable foreground
 - One lead project that argues and two equal columns that corroborate — the lead owns the full measure and the only screenshot; the supporting pair is text-only
 - A project entry is one vertical register: title and claim, quiet metadata, one readable technology line, then its action
 - The supporting pair uses the same 64px column rhythm and individual top hairlines as the talks pair, then collapses without reordering
@@ -185,41 +200,42 @@ Density is generous between regions and deliberately uneven inside the projects 
 - Signal orange as fill or rule only, never as text
 - Emphasis by a restrained ground-and-ink lift; nothing is faded through `opacity`
 - Focus rings invert per region so the indicator is always visible
+- Reduced-motion, increased-contrast and forced-colour preferences receive dedicated fallbacks
 - Every measure sized for Norwegian, the longer of the two locales
 
 ## Colors
 
-A warm, paper-based palette with exactly one chromatic region and exactly one accent; nothing in the system is a neutral gray.
+A warm, paper-based palette in two ambient-light compositions with exactly one chromatic region and one accent. Dark mode is warm midnight rather than a mechanical inversion; neutral roles stay faintly green or ochre-tinted.
 
 ### Primary
 
 - **Signal Orange** (`signal`): The action colour, and only the action colour. It fills the hero email button, the footer address button and the skip link; it draws the 2px underline beneath inline affordances on paper and beneath the next-project name at the foot of a project page; it is the focus ring on the ink footer and the `::selection` ground. Ink sits on it at 4.8:1, which is why it can be this saturated — the orange is always the ground, never the text. The projects field is the one region where an inline affordance uses field mist at rest and paper when active instead.
-- **Signal Deep** (`signal-deep`): The pressed-down hover state of a signal-filled button on paper, paired with paper text.
+- **Signal Deep** (`signal-deep`): The pressed-down hover state of a signal-filled button. Light mode uses `#bd3f1d` with pale ink; dark mode uses `#d65a34` with fixed dark signal ink. Both pairs clear 4.5:1.
 
 ### Secondary
 
-- **Deep Green Field** (`field`): Owns the projects region at page scale, full-bleed edge to edge. It is a region ground, never a component fill, never a text colour, never a border on paper.
+- **Deep Green Field** (`field`): Owns the projects region at page scale, full-bleed edge to edge. It deepens slightly to `#1b4637` against the night canvas while its foreground stays fixed as `field-ink`; it is never a component fill or a border on the canvas.
 - **Field Mist** (`field-soft`): Secondary text on the field — project blurbs, dates, roles and captions in the ledger, at 6.2:1.
 - **Field Hairline** (`field-rule`): The 1px line on the field, used as the top edge of each supporting project. It does not outline a technology or edge a screenshot. It is not the resting underline of a row's affordance either: that is `field-soft`, because it is evidence of interactivity rather than a division, and it is all a touch reader gets.
 
 ### Neutral
 
-- **Warm Paper** (`paper`): The default page ground, the header ground, the dropdown ground, and the text colour on both the field and the ink footer. A project row may mix 4% of it into the field for its active state, but never becomes a paper ground. Never pure white.
-- **Deep Paper** (`paper-deep`): The one-step-back tint. It is the hover ground of a dropdown item and an inactive locale button, and the placeholder ground behind a loading image.
-- **Muted Paper** (`paper-soft`): Secondary text on the ink footer at 7.1:1 — warm-tinted so it never reads as gray.
-- **Ink** (`ink`): Primary text on paper, the footer ground, the active locale button ground, the text colour on every signal fill, and the 2px structural rule above a section-defining element.
-- **Soft Ink** (`ink-soft`): All secondary text on paper — ledes, blurbs, body paragraphs, mono labels, captions, resting nav links. 6.8:1 on paper.
+- **Warm Paper / Warm Midnight** (`paper`): The default canvas and the ground shared by the header and dropdown. It resolves to `#f4f1ea` in light mode and `#161815` in dark mode; neither endpoint is pure white or black.
+- **Deep Paper / Raised Soot** (`paper-deep`): The one-step-back or one-step-up tint. It is the hover ground of a dropdown item and inactive control, and the placeholder ground behind a loading image: `#ece7da` by day, `#22251f` by night.
+- **Footer Ground / Ink** (`footer-ground`, `footer-ink`): A separate invariant dark-region pair prevents theme inversion from turning the closing section light. It resolves from `#17181a` / `#f4f1ea` to `#0d0f0e` / `#f3efe5` in dark mode.
+- **Ink** (`ink`): Primary text on the canvas, active locale fill, and 2px structural rule. It resolves from `#17181a` to `#f3efe5`; colored surfaces use their own foreground tokens instead of inheriting this inversion.
+- **Soft Ink** (`ink-soft`): All secondary text on the canvas — ledes, blurbs, body paragraphs, mono labels, captions, resting nav links. It resolves from `#55534a` to `#b8b5aa`, clearing 4.5:1 in both modes.
 - **Hairline** (`rule`): The default 1px divider on paper: header underline, the hero proof rail's mobile cell separator, image borders, list separators.
 - **Strong Hairline** (`rule-strong`): The 1px border that reads as an edge rather than a division — technology tags, the locale toggle frame, the dropdown border, the secondary-talk top rule, quiet link underlines.
 - **Ink Hairline** (`ink-rule`): The underline beneath quiet links on the ink footer.
 
 ### Named Rules
 
-**The Region Owns the Ground Rule.** A ground belongs to a whole region, not to a component. Paper is the default; the projects section owns the field; the footer owns ink. Setting a region ground means setting its text colour in the same rule. Components do not claim a competing ground: the project-row state stays recognizably field.
+**The Region Owns the Ground Rule.** A ground belongs to a whole region, not to a component. The theme-aware canvas is the default; the projects section owns the field; the footer owns its dedicated near-black. Setting a region ground means setting its foreground in the same rule. Components do not claim a competing ground: the project-row state stays recognizably field.
 
 **The Signal-Never-Text Rule.** Signal orange is only ever a fill, a 2px rule, or an outline. There is no `color: var(--signal)` in the system and there must not be one — as text it fails on every ground the site has. Signal never appears on the green field in any form. A project-row affordance brightens from field mist to paper instead.
 
-**The Inverting Focus Rule.** `--focus` is a token, and every region that changes its ground reassigns it: paper uses ink, `.work` uses paper, `.footer` uses signal, and the active locale button uses paper against its own ink fill. A project row keeps the field's paper ring because its 4% lift never leaves the field. Any new region with a non-paper ground must set `--focus` in the same rule that sets `background`. WCAG 2.2 AA is a hard product requirement.
+**The Inverting Focus Rule.** `--focus` is a token, and every region that changes its ground reassigns it: canvas uses ink, `.work` uses `field-ink`, `.footer` uses signal, and the active locale button uses canvas against its own ink fill. A project row keeps the field ring because its 4% lift never leaves the field. Any new region with a non-canvas ground must set `--focus` in the same rule that sets `background`. WCAG 2.2 AA is a hard product requirement.
 
 ## Typography
 
@@ -308,7 +324,7 @@ Form language is drawn with lines rather than boxes:
 - **2px `signal`** — the underline that marks an inline affordance ("Se foredraget", "Les mer"), sitting 3px below the baseline
 - **Animated rule** — a `linear-gradient` background drawn at `background-size: 100% 1px` and grown to 2px or 8px on hover, so a thickening underline never moves its label. Used by the header's contact link and by a project row's affordance, and the required idiom for any underline that changes weight
 
-The only non-rectangular mark is the 9px signal square beside the hero role line, drawn as an element rather than a glyph. Screenshots live on the project pages, clipped to their real per-image `aspect-ratio`; the lead project carries the one screenshot permitted in the home-page projects region. Supporting projects are text-only so their evidence compares without logo plates competing with titles. The talks photograph is the one image that is not a screenshot, and it is contained with a 1px `rule` border on all four sides so it reads as evidence placed on the paper rather than as a page bleed. Icons are strokes in a 16-unit box; there are no filled shapes.
+The only freestanding mark is the 9px signal square beside the hero role line, drawn as an element rather than a glyph. Screenshots live on the project pages, clipped to their real per-image `aspect-ratio`; the lead project carries the one screenshot permitted in the home-page projects region. Supporting projects are text-only so their evidence compares without logo plates competing with titles. The talks photograph is the one image that is not a screenshot, and it is contained with a 1px `rule` border on all four sides so it reads as evidence placed on the canvas rather than as a page bleed. Icons are 1.5px strokes in a 16-unit box.
 
 ## Components
 
@@ -338,10 +354,11 @@ None. The site has no forms, no inputs, and no backend; the only conversion is a
 
 ### Navigation
 
-- **Style:** Sticky desktop header on paper with a 1px `rule` bottom edge, `68px` min-height, wordmark left at `--step-1` / 500, nav right at `--step--1`. The wordmark, every nav link, the contact link and each locale option provide at least 44px of interaction height.
+- **Style:** Sticky desktop header on the theme-aware canvas with a 1px `rule` bottom edge, `68px` min-height, wordmark left at `--step-1` / 500, nav right at `--step--1`. The wordmark, every nav link, contact link, theme control and locale option provide at least 44px of interaction height.
 - **States:** Links rest in soft ink and hover to ink over 160ms. The one persistent action, the contact link, is full ink at weight 500 with a growing signal underline instead of a colour change — the target never shifts.
 - **Dropdown:** Opens on hover, click, and focus; closes on outside pointer-down, focus-out, and document-level Escape (Escape returns focus to the trigger only when focus was already inside). Panel is paper with a 1px `rule-strong` border and the system's single shadow; items are `12px 24px` and hover to deep paper. The caret rotates 180° over 200ms.
 - **Mobile (≤720px):** The header becomes static and wraps rather than collapsing into a drawer — the full navigation remains at page start in a second row, but does not consume reading space throughout the page. There is no hamburger and no overlay menu.
+- **Theme toggle:** One 44px square icon button immediately before the locale control. It switches directly between light and dark, showing the current theme with sun and moon icons. First visit defaults to light and `ev-portfolio-theme` persists explicit choice. A small head script restores the saved theme before first paint, while the button's localized label names current state and next action.
 - **Language toggle:** Two mono buttons inside a single 1px `rule-strong` frame, no gap. Inactive is transparent with soft ink and hovers to deep paper; active is an ink fill with paper text, `aria-pressed`, and a locally inverted `--focus` drawn inset at `-3px` offset so the ring stays inside the fill.
 - **Skip link:** Signal fill, ink text, parked at `translateY(-250%)` and dropping to 0 on focus over 180ms at the gutter's left edge.
 
@@ -419,7 +436,7 @@ Two easing families and a short duration ladder. `ease` handles small colour cha
 ### Do:
 
 - **Do** wrap every new section's content in `.shell`; only a non-content state band may extend into the gutter.
-- **Do** set `--focus` in the same rule where you establish a region ground — paper uses ink, field uses paper and ink uses signal. A project-row state stays on the field and inherits its paper ring.
+- **Do** set `--focus` in the same rule where you establish a region ground — canvas uses ink, field uses `field-ink`, and footer uses signal. A project-row state stays on the field and inherits its field ring.
 - **Do** reach for a hairline (1px `rule`, `rule-strong`, or `field-rule`) or a 2px ink rule where you are tempted to draw a box — and on the field, check first whether interval alone will separate the two things, because that region has one line and spends it on row divisions.
 - **Do** keep signal orange as a ground under ink text, a 2px underline, or a focus outline — and only on paper.
 - **Do** use `.mono` only for measured values — technologies, durations, venues, locale codes — at `--step--2`, except the ledger's buyer-critical technology line at `--step--1`.
@@ -428,7 +445,7 @@ Two easing families and a short duration ladder. `ease` handles small colour cha
 - **Do** keep a compound state on one inherited answer clock; 140ms in and 190ms out on the interaction curve are the project row's established figures.
 - **Do** register a custom colour with `@property` when it must interpolate on that shared clock rather than snap.
 - **Do** grow a changing underline with `background-size` on a `linear-gradient`, so the label it belongs to never moves.
-- **Do** add new icons as single 1.5-stroke paths in the same 16-unit box in `AppIcon.vue`, `aria-hidden`, with a real text label beside them.
+- **Do** add new icons at the established 1.5 stroke and 16px size in `AppIcon.vue`, `aria-hidden`, with a real text label or accessible control name.
 - **Do** add every new string to both `src/locales/no.ts` and `src/locales/en.ts`.
 - **Do** ship a photograph as an optimized JPEG cut to the ratio it renders at, with `width`/`height` on the element and `loading="lazy"`.
 
@@ -441,7 +458,7 @@ Two easing families and a short duration ladder. `ease` handles small colour cha
 - **Don't** put signal orange on the green field in any form. Project-row affordances move from field mist to paper, never to signal.
 - **Don't** invert a project row to paper or reprint its type in ink. The field remains the ground; a 4% lift is the maximum established change.
 - **Don't** give the parts of one project-row response separate clocks or delays. Background, ink, edge, underline and arrow answer together.
-- **Don't** introduce a third accent, a gray, or a dark mode. There are three grounds and one accent.
+- **Don't** introduce a third accent, neutralize the warm palette, or turn dark mode into a neon developer theme. Both modes preserve the same three region roles and one orange signal.
 - **Don't** use mono as a "technical" costume for headings, prose, or button labels.
 - **Don't** add a fourth font weight, an italic, or a second sans; three Cabinet Grotesk files and one variable mono are what ships.
 - **Don't** load a font, icon set, or stylesheet from a third-party host at runtime.

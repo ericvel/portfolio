@@ -69,8 +69,8 @@ const copyButtonLabel = computed(() => {
 /* The page ends on the darkest ground it has. Nothing below this competes with the
    address, which is the only thing this section exists to deliver. */
 .footer {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--footer-ground);
+  color: var(--footer-ink);
   padding-block: var(--space-9);
   --focus: var(--signal);
 }
@@ -97,7 +97,7 @@ const copyButtonLabel = computed(() => {
   max-width: 46ch;
   font-size: var(--step-1);
   line-height: 1.5;
-  color: var(--paper-soft);
+  color: var(--footer-soft);
   text-wrap: pretty;
 }
 
@@ -120,7 +120,7 @@ const copyButtonLabel = computed(() => {
   display: inline-block;
   padding: var(--space-4) var(--space-6);
   background: var(--signal);
-  color: var(--ink);
+  color: var(--signal-ink);
   font-size: var(--step-2);
   font-weight: 500;
   letter-spacing: -0.015em;
@@ -131,7 +131,8 @@ const copyButtonLabel = computed(() => {
     transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    background: var(--paper);
+    background: var(--footer-ink);
+    color: var(--footer-ground);
     transform: translateY(-2px);
   }
 
@@ -147,21 +148,21 @@ const copyButtonLabel = computed(() => {
   width: 44px;
   min-height: 44px;
   border: 0;
-  color: var(--paper-soft);
+  color: var(--footer-soft);
   cursor: pointer;
   transition:
     color 160ms ease,
     background 160ms ease;
 
   &:hover {
-    background: var(--ink-rule);
-    color: var(--paper);
+    background: var(--footer-rule);
+    color: var(--footer-ink);
   }
 }
 
 .footer__copy-recovery {
   flex-basis: 100%;
-  color: var(--paper-soft);
+  color: var(--footer-soft);
   font-family: var(--font-mono);
   font-size: var(--step--2);
   line-height: 1.4;
@@ -174,16 +175,16 @@ const copyButtonLabel = computed(() => {
 
 .footer__link {
   font-size: var(--step-0);
-  color: var(--paper-soft);
+  color: var(--footer-soft);
   padding-bottom: 3px;
-  border-bottom: 1px solid var(--ink-rule);
+  border-bottom: 1px solid var(--footer-rule);
   transition:
     color 160ms ease,
     border-color 160ms ease;
 
   &:hover {
-    color: var(--paper);
-    border-bottom-color: var(--paper);
+    color: var(--footer-ink);
+    border-bottom-color: var(--footer-ink);
   }
 }
 

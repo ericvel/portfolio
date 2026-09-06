@@ -81,9 +81,9 @@ const ROWS = PROJECTS.map((project) => ({
   --row-pad: var(--space-7);
 
   background: var(--field);
-  color: var(--paper);
+  color: var(--field-ink);
   padding-block: clamp(var(--space-8), 8vw, var(--space-9));
-  --focus: var(--paper);
+  --focus: var(--field-ink);
 }
 
 .work__heading {
@@ -142,11 +142,11 @@ const ROWS = PROJECTS.map((project) => ({
   &:hover,
   &:focus-visible {
     --answer: 140ms;
-    --row-secondary: color-mix(in srgb, var(--field-soft) 62%, var(--paper));
-    --row-affordance: var(--paper);
+    --row-secondary: color-mix(in srgb, var(--field-soft) 62%, var(--field-ink));
+    --row-affordance: var(--field-ink);
 
-    background: color-mix(in srgb, var(--paper) 4%, var(--field));
-    box-shadow: inset 0 -1px 0 var(--paper);
+    background: color-mix(in srgb, var(--field-ink) 4%, var(--field));
+    box-shadow: inset 0 -1px 0 var(--field-ink);
   }
 }
 

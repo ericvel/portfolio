@@ -4,6 +4,7 @@ import { useI18n } from "vue-i18n";
 import { RouterLink } from "vue-router";
 import AppIcon from "@/components/AppIcon.vue";
 import LanguageToggle from "@/components/LanguageToggle.vue";
+import ThemeToggle from "@/components/ThemeToggle.vue";
 import { PROJECTS } from "@/data/projects";
 
 const { t } = useI18n();
@@ -204,7 +205,10 @@ onBeforeUnmount(() => clearTimeout(typeaheadTimer));
         <a class="nav__contact" href="mailto:eric.vel@outlook.com">{{ t("nav.contact") }}</a>
       </nav>
 
-      <LanguageToggle class="header__language" />
+      <div class="header__preferences">
+        <ThemeToggle />
+        <LanguageToggle class="header__language" />
+      </div>
     </div>
   </header>
 </template>
@@ -225,6 +229,12 @@ onBeforeUnmount(() => clearTimeout(typeaheadTimer));
   column-gap: var(--space-6);
   min-height: 68px;
   padding-block: var(--space-3);
+}
+
+.header__preferences {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-2);
 }
 
 .logo {
@@ -310,7 +320,7 @@ onBeforeUnmount(() => clearTimeout(typeaheadTimer));
   list-style: none;
   background: var(--paper);
   border: 1px solid var(--rule-strong);
-  box-shadow: 0 14px 30px -14px rgb(23 24 26 / 26%);
+  box-shadow: 0 14px 30px -14px var(--overlay-shadow);
   clip-path: inset(0 0 100% 0);
   animation: projects-menu-out 140ms cubic-bezier(0.4, 0, 1, 1) forwards;
 }
@@ -362,6 +372,7 @@ onBeforeUnmount(() => clearTimeout(typeaheadTimer));
 
   .header__shell {
     grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--space-3);
     row-gap: var(--space-2);
     padding-block: var(--space-3) var(--space-4);
   }

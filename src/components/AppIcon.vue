@@ -5,7 +5,16 @@
  * beside it carries the meaning.
  */
 import { computed } from "vue";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Copy } from "@lucide/vue";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  ChevronDown,
+  Copy,
+  Moon,
+  Sun,
+} from "@lucide/vue";
 
 const ICONS = {
   "arrow-right": ArrowRight,
@@ -14,6 +23,8 @@ const ICONS = {
   "chevron-down": ChevronDown,
   copy: Copy,
   check: Check,
+  "theme-light": Sun,
+  "theme-dark": Moon,
 } as const;
 
 type IconName = keyof typeof ICONS;
@@ -26,6 +37,7 @@ const icon = computed(() => ICONS[props.name]);
   <component
     :is="icon"
     class="icon"
+    :class="`icon--${name}`"
     :size="16"
     :stroke-width="1.5"
     :absolute-stroke-width="true"

@@ -167,7 +167,7 @@ const copyButtonLabel = computed(() => {
   min-height: 56px;
   padding: var(--space-4) var(--space-6);
   background: var(--signal);
-  color: var(--ink);
+  color: var(--signal-ink);
   font-size: var(--step-0);
   font-weight: 500;
   transition:
@@ -176,7 +176,7 @@ const copyButtonLabel = computed(() => {
 
   &:hover {
     background: var(--signal-deep);
-    color: var(--paper);
+    color: var(--signal-deep-ink);
     transform: translateY(-2px);
   }
 
